@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compose Message - FutureInbox</title>
+        <!-- ADD THE SWEETALERT2 STYLESHEET HERE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+       <!-- ADD THE SWEETALERT2 SCRIPT HERE (at the bottom) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <!-- ADD THE GATEKEEPER SCRIPT HERE -->
+    <script src="auth.js"></script>
+    <!-- Font Awesome (kept the newer version from original file) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Added from new navbar -->
+         <link rel="stylesheet" href="css/compose.css">
+    <meta name="description" content="FutureInbox: Premium Tech Experience. Schedule messages to be sent in the future, manage communications, and enhance your digital experience.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1IDMwTDE4Ny4xMjkgMTQ2Ljg3MUg2Mi44NzFMMTI1IDMwWiIgZmlsbD0iIzAwZDFmZiIvPjxwYXRoIGQ9Ik0xMjUgMzBMMTg3LjEyOSAxNDYuODcxTDEyNSAyMTVWNzBaIiBmaWxsPSIjN2U1N2MyIiBmaWxsLW9wYWNpdHk9IjAuOCIvPjwvc3ZnPg==">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body data-theme="dark">
+    <!-- Animated Background -->
+    <div class="space-bg" id="space-bg">
+        <div class="space-orb"></div>
+        <div class="space-orb"></div>
+        <div class="space-orb"></div>
+    </div>
+
+    <!-- ===== BEGIN NEW NAVBAR ===== -->
+    <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+    <header id="futureinbox-header" class="futureinbox-header">
+      <div class="futureinbox-nav-container">
+        <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+          <i class="fas fa-envelope-open-text"></i>FutureInbox
+        </a>
+        <div class="futureinbox-nav-main">
+          <nav aria-label="Main Navigation">
+            <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+              <li><a href="index.html" aria-label="Home">Home</a></li>
+              <li><a href="compose.html" aria-label="compose" aria-current="page">Compose</a></li>
+              <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+              <li class="futureinbox-nav-dropdown">
+                <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                  History <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                  <li><a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i> Features</a></li>
+                  <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                  <li><a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+                </ul>
+              </li>
+              <li><a href="about.html" aria-label="About">About Us</a></li>
+              <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+            </ul>
+          </nav>
+          <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+          <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+    <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+    <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+      <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+      <ul>
+        <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="compose.html" aria-label="Compose" aria-current="page"><i class="fas fa-star"></i> Compose</a></li>
+        <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+        <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+          <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="History">
+            <span><i class="fas fa-layer-group"></i> History</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="futureinbox-mobile-dropdown-menu" role="menu">
+            <a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i>Features</a>
+            <a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a>
+            <a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i> Help Center</a>
+          </div>
+        </li>
+        <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+      <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+    </nav>
+    <!-- ===== END NEW NAVBAR ===== -->
+    
+    <!-- Main Content -->
+    <main id="main-content" class="container py-8">
+        <div class="hero">
+            <div class="hero-icon"><i class="fas fa-envelope-open-text fa-2x"></i></div>
+            <h1 id="page-title">Send a Message to the Future</h1>
+            <p id="page-subtitle">Craft meaningful messages that transcend time and create magical moments</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-paper-plane"></i> Your Future Message</h3>
+            </div>
+            <div class="card-content">
+                <form id="message-form" novalidate>
+                    <!-- Recipient Section -->
+                    <div class="mb-6">
+                        <div class="flex items-center gap-2 mb-4"><i class="fas fa-user text-primary"></i><h4>Who will receive this message?</h4></div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="recipient-name" class="form-label">Recipient Name *</label>
+                                <input type="text" id="recipient-name" class="form-input" placeholder="Enter their name">
+                                <div id="name-error" class="form-error"><i class="fas fa-exclamation-circle"></i><span></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-email" class="form-label">Email Address *</label>
+                                <input type="email" id="recipient-email" class="form-input" placeholder="recipient@example.com">
+                                <div id="email-error" class="form-error"><i class="fas fa-exclamation-circle"></i><span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+
+                    <!-- Message Section -->
+                    <div class="mb-6">
+                        <div class="message-controls">
+                            <div class="flex items-center gap-2"><i class="fas fa-comment-alt text-primary"></i><h4>Your Message *</h4></div>
+                             <div class="message-controls-right">
+                                <button type="button" id="read-aloud-btn" class="btn btn-ghost btn-sm" aria-label="Read message aloud"><i class="fas fa-volume-up"></i></button>
+                                <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                                    <span id="char-count">0 / 2000</span>
+                                    <div class="progress" style="width: 80px;"><div id="char-progress" class="progress-fill"></div></div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <label class="text-sm">AI Assistant</label>
+                                    <div id="ai-switch" class="switch"><div class="switch-thumb"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                             <div id="message-content" class="form-textarea" contenteditable="true" placeholder="Write your heartfelt message..." role="textbox" aria-multiline="true"></div>
+                            <div id="message-error" class="form-error"><i class="fas fa-exclamation-circle"></i><span></span></div>
+                        </div>
+                        <div id="sentiment-indicator" class="flex items-center gap-2 p-3 rounded-lg border">
+                            <div class="text-xl" id="sentiment-emoji">😐</div>
+                            <div class="text-sm text-muted-foreground" id="sentiment-text">Neutral sentiment</div>
+                        </div>
+                        <div id="ai-panel" class="hidden mt-4 p-4 rounded-lg border">
+                            <h4 class="mb-4 font-semibold text-lg">AI Assistant</h4>
+                            <div class="ai-toolkit-grid">
+                                <button type="button" class="btn btn-outline" data-ai-mode="fix"><i class="fas fa-check-double"></i> Fix Grammar</button>
+                                <button type="button" class="btn btn-outline" data-ai-mode="shorter"><i class="fas fa-compress-arrows-alt"></i> Make Shorter</button>
+                                <button type="button" class="btn btn-outline" data-ai-mode="poetic"><i class="fas fa-feather-alt"></i> Make Poetic</button>
+                                <button type="button" class="btn btn-outline" data-ai-mode="funny"><i class="fas fa-grin-beam"></i> Make Funny</button>
+                                <button type="button" class="btn btn-outline" data-ai-mode="emojis"><i class="fas fa-smile"></i> Add Emojis</button>
+                                <button type="button" class="btn btn-outline" data-ai-mode="quote"><i class="fas fa-quote-left"></i> Suggest a Quote</button>
+                                <button type="button" class="btn btn-primary" data-ai-mode="generate"><i class="fas fa-magic"></i> Generate Ideas</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+
+                    <!-- Delivery & Theme Section -->
+                    <div class="mb-6">
+                        <div class="flex items-center gap-2 mb-4"><i class="fas fa-clock text-primary"></i><h4>When and How?</h4></div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="delivery-date" class="form-label">Delivery Date & Time *</label>
+                                <input type="datetime-local" id="delivery-date" class="form-input">
+                                <div id="date-error" class="form-error"><i class="fas fa-exclamation-circle"></i><span></span></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-theme" class="form-label">Message Theme</label>
+                                <select id="message-theme" class="form-select">
+                                    <option value="general">✉️ General</option>
+                                    <option value="birthday">🎂 Birthday</option>
+                                    <option value="anniversary">💕 Anniversary</option>
+                                    <option value="graduation">🎓 Graduation</option>
+                                    <option value="motivation">💪 Motivation</option>
+                                    <option value="reminder">⏰ Reminder</option>
+                                    <option value="love">💌 Love Letter</option>
+                                    <option value="apology">🥺 Apology</option>
+                                    <option value="miss_you">💘 Miss You</option>
+                                    <option value="retirement">🎣 Retirement</option>
+                                    <option value="new_job">💼 New Job</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-grid mt-4">
+                            <div id="recurring-option-container" class="flex items-center justify-between p-3 rounded-lg border">
+                                <div class="flex items-center gap-2"> <i class="fas fa-redo"></i> <label>Recurring Message: <span id="recurring-status" class="text-muted-foreground">Off</span></label> </div>
+                                <div id="recurring-switch" class="switch"><div class="switch-thumb"></div></div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 rounded-lg border">
+                                <div class="flex items-center gap-2"><i class="fas fa-lock"></i><label>Encrypt Message</label></div>
+                                <div id="encrypt-switch" class="switch"><div class="switch-thumb"></div></div>
+                            </div>
+                        </div>
+                         <div id="encryption-key-info" class="hidden mt-4">
+                             <div class="flex items-center justify-between">
+                                 <p><i class="fas fa-key"></i> <strong>Your Encryption Key:</strong></p>
+                                 <button type="button" id="copy-key-btn" class="btn btn-sm btn-outline"><i class="fas fa-copy"></i> Copy Key</button>
+                             </div>
+                            <p id="encryption-key-display" class="mt-2 p-2 rounded-lg" style="background:var(--muted); word-break:break-all;"></p>
+                            <p class="text-xs mt-2 text-muted-foreground">You must securely share this key with the recipient. It is the only way to decrypt the message. We do not store this key.</p>
+                        </div>
+                    </div>
+                  
+                    <!-- This is the new Telegram Chat ID input -->
+                    <div class="form-group mb-6">
+                        <label for="telegram-chat-id" class="form-label flex items-center gap-2">
+                            <i class="fab fa-telegram-plane"></i>Telegram Chat ID (Optional - for notifications)
+                        </label>
+                        <input type="text" id="telegram-chat-id" class="form-input" placeholder="Enter your Telegram Chat ID">
+                        <p class="text-xs mt-2 text-muted-foreground">
+                            To get your ID, message <a href="https://t.me/myidbot" target="_blank" style="color: var(--primary);">@myidbot</a> on Telegram and send /getid.
+                        </p>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2"><i class="fas fa-paperclip text-primary"></i><h4>Add Attachments (Optional)</h4></div>
+                            <div id="attachment-size-indicator" class="text-sm text-muted-foreground">Total size: 0 MB / 10 MB</div>
+                        </div>
+                        <div class="form-grid">
+                            <div id="file-dropzone" class="file-upload">
+                                <i class="fas fa-cloud-upload-alt fa-2x mb-2" style="color: var(--muted-foreground);"></i>
+                                <p class="mb-1">Drop files here or click to browse</p>
+                                <p class="text-sm text-muted-foreground">Images, videos, audio, docs (max 10MB total)</p>
+                                <input type="file" id="file-input" class="hidden" accept="image/*,video/*,audio/*,.pdf,.doc,.docx" multiple>
+                            </div>
+                            <div class="voice-recorder">
+                                <i class="fas fa-microphone-alt fa-2x mb-4" style="color: var(--muted-foreground);"></i>
+                                <button type="button" id="record-btn" class="record-btn"><i class="fas fa-microphone"></i></button>
+                                <div id="recording-indicator" class="recording-indicator hidden">
+                                    <div class="recording-dot"></div>
+                                    <span>Recording... <span id="recording-time">0s</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="file-list-container"></div>
+                         <div id="audio-preview" class="file-preview hidden mt-4">
+                            <div class="audio-icon"><i class="fas fa-file-audio"></i></div>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 500; margin-bottom: 0.25rem;">Voice Recording</div>
+                                <audio id="audio-playback" controls style="width: 100%; height: 40px;"></audio>
+                            </div>
+                            <button type="button" id="remove-audio" class="btn btn-ghost btn-sm"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Voice-to-Text Section -->
+                    <div class="separator"></div>
+                    <div id="voice-to-text-container">
+                        <h4 class="mb-4 font-semibold text-lg flex items-center gap-2"><i class="fas fa-microphone-alt"></i> Voice-to-Text Transcription</h4>
+                        <div id="voice-to-text-controls">
+                            <div id="voice-to-text-toggle" class="flex items-center">
+                                <label for="enable-voice-to-text">Enable live transcription:</label>
+                                <div id="voice-to-text-switch" class="switch"><div class="switch-thumb"></div></div>
+                            </div>
+                            <button type="button" id="clear-transcript-btn" class="btn btn-outline btn-sm"><i class="fas fa-trash"></i> Clear Transcript</button>
+                            <button type="button" id="insert-transcript-btn" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Insert into Message</button>
+                        </div>
+                        <div id="transcript-container">
+                            <div id="transcript"></div>
+                        </div>
+                        <div id="transcript-status">
+                            <span id="recognition-status">Speech recognition: Off</span>
+                        </div>
+                        <div id="transcript-actions" class="hidden">
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="separator"></div>
+                    <div class="flex gap-4">
+                        <button type="button" id="use-template-btn" class="btn btn-outline btn-lg" style="flex: 1;"><i class="fas fa-file-alt"></i> Use Template</button>
+                        <button type="submit" id="submit-btn" class="btn btn-primary btn-lg" style="flex: 1;"><i class="fas fa-calendar-plus"></i> Schedule Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"><span id="toast-message"></span></div>
+
+    <!-- AI Preview Modal -->
+    <div id="ai-preview-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="ai-modal-title" class="modal-title">AI Suggestion</h3>
+                <button id="close-ai-modal" class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-2 text-muted-foreground">Here's what the AI suggested. You can accept this version or keep your original.</p>
+                <div id="ai-suggestion-text" class="ai-preview-text"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-ai-suggestion" class="btn btn-outline">Cancel</button>
+                <button id="accept-ai-suggestion" class="btn btn-primary"><i class="fas fa-check"></i> Accept Suggestion</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recurring Settings Modal -->
+    <div id="recurring-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-redo"></i> Recurring Message Settings</h3>
+                <button id="close-recurring-modal" class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-4 text-muted-foreground">How often should this message be sent?</p>
+                <div class="recurring-options">
+                    <label> <input type="radio" name="recurring-frequency" value="daily"> <i class="fas fa-calendar-day"></i> Daily </label>
+                    <label> <input type="radio" name="recurring-frequency" value="weekly"> <i class="fas fa-calendar-week"></i> Weekly </label>
+                    <label> <input type="radio" name="recurring-frequency" value="monthly"> <i class="fas fa-calendar-alt"></i> Monthly </label>
+                    <label> <input type="radio" name="recurring-frequency" value="annually" checked> <i class="fas fa-gift"></i> Annually (on the selected date) </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-recurring" class="btn btn-outline">Cancel</button>
+                <button id="save-recurring" class="btn btn-primary"><i class="fas fa-save"></i> Save Settings</button>
+            </div>
+        </div>
+    </div>
+      <script src="global.js"></script>
+    
+     <script>
+        // Initialize EmailJS right away
+        (function(){ emailjs.init({ publicKey: "HyIYJwbIFL40wQdxy", }); })();
+        
+        const SUPABASE_URL = 'https://vimnozdaqcvhmcdrnira.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpbW5vemRhcWN2aG1jZHJuaXJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUwOTYxNDAsImV4cCI6MjA3MDY3MjE0MH0.7G_2DKL0U_zDV_e0gljebUDR0h4i07I3nM1Ash1hnz4';
+
+        let supabase;
+        if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+            console.warn("Supabase credentials are not set. Messages will only be saved locally.");
+        } else {
+            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        }
+        
+        const MAX_ATTACHMENT_SIZE = 10 * 1024 * 1024;
+
+        let appState = {
+            selectedFiles: [],
+            audioBlob: null,
+            isRecording: false,
+            recordingTime: 0,
+            aiEnabled: false,
+            autoSaveTimer: null,
+            recordingInterval: null,
+            currentTheme: 'dark',
+            mediaRecorder: null,
+            audioChunks: [],
+            encryptionKey: null,
+            isEncrypted: false,
+            aiSuggestion: '',
+            currentAiMode: null,
+            recurringSettings: { active: false, frequency: 'annually' },
+            recognition: null,
+            currentEditId: null,
+            isVoiceToTextEnabled: false,
+            speechRecognitionActive: false,
+            transcript: "",
+            finalTranscript: "",
+            recognitionTimeout: null
+        };
+                  // ... after the appState object ...
+
+        // PASTE THIS NEW FUNCTION HERE
+        function convertMarkdownToHTML(text) {
+            if (!text) return '';
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')       // Italic
+                .replace(/\n/g, '<br>');                      // Line breaks
+        }
+
+       
+
+
+        // ===== START: ORIGINAL COMPOSE PAGE SCRIPT =====
+        function initPage() {
+            setupEventListeners();
+            setMinDateTime();
+            updateHistoryCount();
+            const savedTheme = localStorage.getItem('futureInboxTheme') || 'dark';
+            setTheme(savedTheme);
+            loadMessageForEditing();
+            if (!appState.currentEditId) {
+                showToast('Welcome! All features have been upgraded.', 'info');
+            }
+            applyTemplate();
+            setupSpeechRecognition();
+              // --- ADD THIS LINE AT THE END OF THE INIT FUNCTION ---
+            document.getElementById('message-content').dispatchEvent(new Event('blur'));
+        }
+        
+        function setupSpeechRecognition() {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                console.log("Speech recognition not supported in this browser");
+                document.getElementById('voice-to-text-container').classList.add('hidden');
+                return;
+            }
+            
+            appState.recognition = new SpeechRecognition();
+            appState.recognition.continuous = true;
+            appState.recognition.interimResults = true;
+            appState.recognition.lang = 'en-US';
+            
+            appState.recognition.onstart = () => {
+                appState.speechRecognitionActive = true;
+                updateRecognitionStatus();
+            };
+            
+            appState.recognition.onend = () => {
+                appState.speechRecognitionActive = false;
+                updateRecognitionStatus();
+                if (appState.isVoiceToTextEnabled) appState.recognition.start();
+            };
+            
+           appState.recognition.onresult = (event) => {
+                let interimTranscript = '';
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        appState.finalTranscript += event.results[i][0].transcript + ' ';
+                    } else {
+                        interimTranscript += event.results[i][0].transcript;
+                    }
+                }
+                appState.transcript = appState.finalTranscript + interimTranscript;
+                updateTranscript();
+            };
+            
+            appState.recognition.onerror = (event) => {
+                console.error('Speech recognition error', event.error);
+                showToast(`Speech recognition error: ${event.error}`, 'error');
+                appState.speechRecognitionActive = false;
+                updateRecognitionStatus();
+            };
+        }
+
+        function arrayBufferToBase64(buffer) {
+            let binary = '';
+            const bytes = new Uint8Array(buffer);
+            const len = bytes.byteLength;
+            for (let i = 0; i < len; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return window.btoa(binary);
+        }
+
+        async function loadMessageForEditing() {
+            const editId = localStorage.getItem('editMessageId');
+            if (!editId) return;
+
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<div style="width:16px;height:16px;border:2px solid;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;"></div> <span>Loading...</span>`;
+            showToast('Loading message data...', 'info');
+
+            try {
+                const { data: messageToEdit, error } = await supabase
+                    .from('messages')
+                    .select('*')
+                    .eq('id', editId)
+                    .single();
+
+                if (error) throw error;
+                
+                if (messageToEdit) {
+                    if (messageToEdit.is_encrypted) {
+                        showToast('Editing encrypted messages is not yet supported.', 'error');
+                        setTimeout(() => { window.location.href = 'history.html'; }, 2000);
+                        return;
+                    }
+
+                    document.getElementById('recipient-name').value = messageToEdit.recipient_name || '';
+                    document.getElementById('recipient-email').value = messageToEdit.recipient_email || '';
+                    document.getElementById('message-content').value = messageToEdit.message_content || '';
+                    document.getElementById('message-theme').value = messageToEdit.message_theme || 'general';
+                    
+                    if (messageToEdit.recurring_frequency) {
+                        appState.recurringSettings = { active: true, frequency: messageToEdit.recurring_frequency };
+                        document.getElementById('recurring-switch').classList.add('active');
+                        updateRecurringStatus();
+                        const radio = document.querySelector(`input[name="recurring-frequency"][value="${messageToEdit.recurring_frequency}"]`);
+                        if (radio) radio.checked = true;
+                    }
+                    
+                    const deliveryDateInput = document.getElementById('delivery-date');
+                    const deliveryDate = new Date(messageToEdit.delivery_date);
+                    if (deliveryDate > new Date()) {
+                        deliveryDateInput.value = deliveryDate.toISOString().slice(0, 16);
+                    } else {
+                        deliveryDateInput.value = '';
+                        showToast('Original date has passed. Please set a new future date.', 'warning');
+                    }
+
+                    appState.currentEditId = messageToEdit.id;
+                    document.getElementById('page-title').textContent = 'Edit Your Future Message';
+                    document.getElementById('page-subtitle').textContent = 'Make your changes and save your updated message.';
+                    submitBtn.innerHTML = `<i class="fas fa-save"></i> Update Message`;
+                    
+                    handleMessageInput();
+                    showToast('Editing message. Make your changes and update.', 'info');
+                } else {
+                    throw new Error("Message with that ID was not found.");
+                }
+            } catch (error) {
+                console.error("Error loading message for editing:", error);
+                showToast(`Error: ${error.message}`, 'error');
+                setTimeout(() => { window.location.href = 'history.html'; }, 2000);
+            } finally {
+                localStorage.removeItem('editMessageId');
+                submitBtn.disabled = false;
+            }
+        }
+        
+        function setupEventListeners() {
+            document.getElementById('message-form').addEventListener('submit', handleFormSubmit);
+            document.getElementById('recipient-name').addEventListener('input', () => validateName());
+            document.getElementById('recipient-email').addEventListener('input', () => validateEmail());
+            // --- START: NEW PLACEHOLDER LOGIC ---
+            const messageEditor = document.getElementById('message-content');
+            
+            // Function to check if the placeholder should be shown
+            const checkPlaceholder = () => {
+                const editorIsEmpty = messageEditor.textContent.trim() === '';
+                messageEditor.classList.toggle('placeholder-active', editorIsEmpty);
+            };
+
+            // Hide placeholder on focus, check on blur and input
+            messageEditor.addEventListener('focus', () => messageEditor.classList.remove('placeholder-active'));
+            messageEditor.addEventListener('blur', checkPlaceholder);
+            messageEditor.addEventListener('input', checkPlaceholder);
+            // --- END: NEW PLACEHOLDER LOGIC ---
+            document.getElementById('message-content').addEventListener('input', () => handleMessageInput());
+            document.getElementById('delivery-date').addEventListener('input', () => validateDate());
+            document.getElementById('ai-switch').addEventListener('click', toggleAI);
+            document.querySelectorAll('#ai-panel .btn').forEach(button => {
+                button.addEventListener('click', (e) => enhanceWithAI(e.currentTarget));
+            });
+            document.getElementById('close-ai-modal').addEventListener('click', closeAiModal);
+            document.getElementById('cancel-ai-suggestion').addEventListener('click', closeAiModal);
+            document.getElementById('accept-ai-suggestion').addEventListener('click', acceptAiSuggestion);
+            setupFileHandling();
+            document.getElementById('record-btn').addEventListener('click', toggleRecording);
+            document.getElementById('remove-audio').addEventListener('click', removeAudio);
+            ['recipient-name', 'recipient-email', 'message-content'].forEach(id => {
+                document.getElementById(id).addEventListener('input', scheduleAutoSave);
+            });
+            
+            // The theme toggle is no longer in this page's HTML, so these lines can be removed to prevent errors.
+            // document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            
+            document.getElementById('use-template-btn').addEventListener('click', () => { window.location.href = 'templates.html'; });
+            document.getElementById('recurring-switch').addEventListener('click', toggleRecurring);
+            document.getElementById('close-recurring-modal').addEventListener('click', closeRecurringModal);
+            document.getElementById('cancel-recurring').addEventListener('click', closeRecurringModal);
+            document.getElementById('save-recurring').addEventListener('click', saveRecurringSettings);
+            document.getElementById('encrypt-switch').addEventListener('click', toggleEncryption);
+            document.getElementById('copy-key-btn').addEventListener('click', copyEncryptionKey);
+            document.getElementById('read-aloud-btn').addEventListener('click', handleReadAloud);
+            document.getElementById('voice-to-text-switch').addEventListener('click', toggleVoiceToText);
+            document.getElementById('clear-transcript-btn').addEventListener('click', clearTranscript);
+            document.getElementById('insert-transcript-btn').addEventListener('click', insertTranscript);
+        }
+        
+        function toggleVoiceToText() {
+            const switchElement = document.getElementById('voice-to-text-switch');
+            switchElement.classList.toggle('active');
+            appState.isVoiceToTextEnabled = switchElement.classList.contains('active');
+            
+            if (appState.isVoiceToTextEnabled) {
+                if (appState.recognition) {
+                    try {
+                        appState.recognition.start();
+                        showToast('Voice-to-text enabled. Start speaking...', 'info');
+                    } catch (e) {
+                        console.error('Error starting speech recognition:', e);
+                        showToast('Error starting voice recognition. Please try again.', 'error');
+                    }
+                }
+            } else {
+                if (appState.recognition) {
+                    appState.recognition.stop();
+                    showToast('Voice-to-text disabled', 'info');
+                }
+            }
+        }
+        
+        function updateRecognitionStatus() {
+            const statusElement = document.getElementById('recognition-status');
+            if (appState.speechRecognitionActive) {
+                statusElement.innerHTML = '<i class="fas fa-circle" style="color: var(--primary); margin-right: 5px;"></i> Listening...';
+                statusElement.classList.add('recognition-active');
+            } else {
+                statusElement.innerHTML = 'Speech recognition: Off';
+                statusElement.classList.remove('recognition-active');
+            }
+        }
+        
+        function updateTranscript() {
+            const transcriptElement = document.getElementById('transcript');
+            const container = document.getElementById('transcript-container');
+            transcriptElement.textContent = appState.transcript;
+            if (appState.transcript) container.classList.add('has-content');
+            else container.classList.remove('has-content');
+        }
+        
+        function clearTranscript() {
+            appState.transcript = "";
+            appState.finalTranscript = "";
+            updateTranscript();
+            showToast('Transcript cleared', 'info');
+        }
+
+        // CORRECTED insertTranscript FUNCTION
+// REPLACE your old insertTranscript function with this simplified version.
+function insertTranscript() {
+    if (!appState.transcript) {
+        showToast('No transcript to insert', 'warning');
+        return;
+    }
+    const messageInput = document.getElementById('message-content');
+    const currentHTML = messageInput.innerHTML.trim();
+    const transcriptAsHTML = appState.transcript.replace(/\n/g, '<br>');
+    
+    const newHTML = currentHTML + (currentHTML ? '<br><br>' : '') + transcriptAsHTML;
+
+    if (newHTML.replace(/<br>/g, ' ').length > 2000) {
+        showToast('Transcript is too long to insert', 'error');
+        return;
+    }
+    
+    messageInput.innerHTML = newHTML;
+    
+    // This function now correctly handles the placeholder, so the
+    // extra line of code that was here before is no longer needed.
+    handleMessageInput(); 
+    
+    showToast('Transcript inserted into message', 'success');
+}
+// REPLACE your old getThemeHeaderHtml function with this new, complete version.
+
+function getThemeHeaderHtml(theme) {
+    let imageUrl = '';
+    // This switch statement now includes a case for every one of your themes.
+    switch (theme) {
+        case 'birthday':
+            imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Birthday_candles.jpg';
+            break;
+        case 'anniversary':
+            imageUrl = 'https://static.vecteezy.com/system/resources/thumbnails/003/031/475/small/happy-anniversary-banner-template-with-gold-lettering-vector.jpg';
+            break;
+        case 'graduation':
+            imageUrl = 'https://t3.ftcdn.net/jpg/05/80/74/50/360_F_580745025_CH1T29WU8iqtDoBvflJDWw3ECOeak17U.jpg';
+            break;
+        case 'motivation':
+            imageUrl = 'https://media.licdn.com/dms/image/v2/D5612AQEvrwj1xKxdRg/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1698238577882?e=2147483647&v=beta&t=o3eJHFroLetDbsd9MfiMZ0FhwerHUxPjUGrK7U_R4WY';
+            break;
+        case 'reminder':
+            imageUrl = 'https://marketplace.canva.com/EAE8dhCJCzY/1/0/1600w/canva-yellow-minimalist-reminder-facebook-post-SZZAalyVDM8.jpg';
+            break;
+        case 'love':
+            imageUrl = 'https://images.caxton.co.za/wp-content/uploads/sites/28/2016/02/valentines-day-wallpaper-awesome-images.jpg';
+            break;
+        case 'apology':
+            imageUrl = 'https://www.shutterstock.com/image-photo/yellow-background-white-sign-that-600nw-2447238283.jpg';
+            break;
+        case 'miss_you':
+            imageUrl = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvOfHER6kR7dXEjiUl2NUVAcwIqf6vvpBU7oNwCqfIGakPRZ3R87FWxlKeawh3Dtfv7DvEgVylazxQNaZQyCqkzXvfYGggch_Xp5HwmLDoXEG5y1yCuiBK4qH2f-E2DpwT0gEyDefq3Qc9c0P8YjgKDu7YFHJxQT4vcledFejIAdQbKLS_4NM8S9Y4dGxj/s850/will-you-miss-me-i-cannt-live-without-u.jpg';
+            break;
+        case 'retirement':
+            imageUrl = 'https://static.vecteezy.com/system/resources/previews/006/814/542/non_2x/happy-retirement-greeting-card-beautiful-greeting-card-scratched-calligraphy-gold-stars-handwritten-modern-brush-lettering-black-background-isolated-vector.jpg';
+            break;
+        case 'new_job':
+            imageUrl = 'https://goodwishes.com/wp-content/uploads/2024/11/newjob.jpg';
+            break;
+        case 'general':
+        default:
+            imageUrl = 'https://sdmntpreastus.oaiusercontent.com/files/00000000-73f4-61f9-8991-36c971f80db1/raw?se=2025-08-23T11%3A04%3A09Z&sp=r&sv=2024-08-04&sr=b&scid=e31c6222-2b04-5934-9e61-40ca1f9eaffd&skoid=0da8417a-a4c3-4a19-9b05-b82cee9d8868&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-22T19%3A50%3A31Z&ske=2025-08-23T19%3A50%3A31Z&sks=b&skv=2024-08-04&sig=4vXGE5Rs6K32JMq%2Bi6tjeJa/x7sLzi2n6ietdaJkTqM%3D'; // A beautiful default for 'General'
+    }
+
+    // This part remains the same; it returns the HTML block for the image.
+    return `
+        <tr>
+            <td style="padding-bottom: 30px;">
+                <img src="${imageUrl}" alt="Themed banner image" style="width: 100%; height: auto; max-height: 250px; object-fit: cover; border-radius: 16px; display: block;">
+            </td>
+        </tr>
+    `;
+}
+// Add this new helper function to build the details section
+function getDetailsHtml(messageData, themeText, createdAt) {
+    return `
+        <div style="margin-bottom: 24px;">
+            <h3 class="header-text" style="font-size: 18px; font-weight: 600; margin: 0 0 16px; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 20px;">ℹ️</span> Message Details
+            </h3>
+            <table cellpadding="0" cellspacing="0" role="presentation" style="width: 100%;">
+                <tr>
+                    <td class="detail-grid-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div class="detail-grid-item">
+                            <div class="detail-item" style="padding: 12px;">
+                                <p class="muted-text" style="font-size: 14px; margin: 0 0 4px;">Theme</p>
+                                <p class="header-text" style="font-size: 16px; font-weight: 500; margin: 0;">${themeText}</p>
+                            </div>
+                        </div>
+                        <div class="detail-grid-item">
+                            <div class="detail-item" style="padding: 12px;">
+                                <p class="muted-text" style="font-size: 14px; margin: 0 0 4px;">Scheduled On</p>
+                                <p class="header-text" style="font-size: 16px; font-weight: 500; margin: 0;">${createdAt}</p>
+                            </div>
+                        </div>
+                        <div class="detail-grid-item">
+                            <div class="detail-item" style="padding: 12px;">
+                                <p class="muted-text" style="font-size: 14px; margin: 0 0 4px;">Delivered On</p>
+                                <p class="header-text" style="font-size: 16px; font-weight: 500; margin: 0;">${new Date(messageData.delivery_date).toLocaleString()}</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="divider" style="margin: 24px 0;"></div>
+    `;
+}
+// Add this new helper function right BEFORE your handleFormSubmit function.
+// This function handles uploading all files to Supabase Storage.
+async function uploadFiles(files, audioBlob) {
+    if ((!files || files.length === 0) && !audioBlob) {
+        return []; // Nothing to upload
+    }
+
+    const allFiles = [...files];
+
+    // Convert the audio blob into a File object so it can be handled uniformly
+    if (audioBlob) {
+        const audioFile = new File([audioBlob], "voice-recording.webm", { type: 'audio/webm' });
+        allFiles.push(audioFile);
+    }
+    
+    // Create an array of upload promises
+    const uploadPromises = allFiles.map(file => {
+        // Create a unique file path to prevent overwrites
+        // IMPORTANT: Make sure this bucket name matches yours. It should be 'attachments' or 'message_attachments'
+        const bucketName = 'message_attachments'; 
+        const filePath = `public/${Date.now()}-${file.name}`;
+        return supabase.storage.from(bucketName).upload(filePath, file);
+    });
+    
+    // Execute all uploads in parallel for speed
+    const uploadResults = await Promise.all(uploadPromises);
+
+    const urls = [];
+    for (const result of uploadResults) {
+        if (result.error) {
+            console.error('Upload Error:', result.error);
+            // We'll throw the error to be caught by the main submit handler
+            throw new Error(`Failed to upload a file: ${result.error.message}`);
+        }
+        
+        // Get the public URL for the successfully uploaded file
+        // IMPORTANT: Make sure this bucket name matches yours.
+        const bucketName = 'message_attachments';
+        const { data: urlData } = supabase.storage.from(bucketName).getPublicUrl(result.data.path);
+        if (urlData) {
+            urls.push(urlData.publicUrl);
+        }
+    }
+    
+    return urls;
+}
+  // REPLACE your old handleFormSubmit function with this NEW, corrected version.
+
+async function handleFormSubmit(e) {
+    e.preventDefault();
+
+    if (![validateName(), validateEmail(), validateMessage(), validateDate()].every(Boolean)) {
+        showToast('Please fix errors before proceeding.', 'error');
+        return;
+    }
+
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.disabled = true;
+    const originalBtnHTML = submitBtn.innerHTML;
+    submitBtn.innerHTML = `<div style="width:16px;height:16px;border:2px solid;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;"></div> <span>Processing...</span>`;
+
+    try {
+        // Step 1: Upload attachments
+        showToast('Uploading attachments...', 'info');
+        const attachmentUrls = await uploadFiles(appState.selectedFiles, appState.audioBlob);
+        
+        // Step 2: Save message details to Supabase
+        showToast('Saving message details...', 'info');
+        let contentToSave = document.getElementById('message-content').innerHTML.trim();
+        
+        const messageData = {
+            recipient_name: document.getElementById('recipient-name').value.trim(),
+            recipient_email: document.getElementById('recipient-email').value.trim(),
+            telegram_chat_id: document.getElementById('telegram-chat-id').value.trim() || null,
+            transcript: appState.transcript || null,
+            message_content: contentToSave,
+            message_theme: document.getElementById('message-theme').value,
+            delivery_date: new Date(document.getElementById('delivery-date').value).toISOString(),
+            is_encrypted: appState.isEncrypted,
+            recurring_frequency: appState.recurringSettings.active ? appState.recurringSettings.frequency : null,
+            status: 'scheduled',
+            attachment_urls: attachmentUrls.length > 0 ? attachmentUrls : null
+        };
+        
+        let savedMessage;
+        if (appState.currentEditId) {
+            const { data, error } = await supabase.from('messages').update(messageData).eq('id', appState.currentEditId).select().single();
+            if (error) throw error;
+            savedMessage = data;
+            showToast('🎉 Your future message has been updated!', 'success');
+        } else {
+            const { data, error } = await supabase.from('messages').insert([messageData]).select().single();
+            if (error) throw error;
+            savedMessage = data;
+            showToast('🎉 Your future message has been scheduled!', 'success');
+        }
+
+        // --- STEP 3: PREPARE AND SEND THE DYNAMIC EMAIL ---
+        showToast('Scheduling email delivery...', 'info');
+
+        const themeText = document.getElementById('message-theme').options[document.getElementById('message-theme').selectedIndex].text.replace(/[\u{1F600}-\u{1F64F}]/gu, '').trim();
+        const createdAt = new Date(savedMessage.created_at).toLocaleString();
+        const deliveryDate = new Date(messageData.delivery_date).toLocaleString();
+
+        const theme_header_html = getThemeHeaderHtml(messageData.message_theme);
+        const message_details_html = getDetailsHtml(messageData, themeText, createdAt);
+
+        let attachments_html = '';
+        if (attachmentUrls && attachmentUrls.length > 0) {
+            const attachmentLinks = attachmentUrls.map(url => {
+                const fullPath = decodeURIComponent(url);
+                const fileNameWithTimestamp = fullPath.substring(fullPath.lastIndexOf('/') + 1);
+                const fileName = fileNameWithTimestamp.substring(fileNameWithTimestamp.indexOf('-') + 1);
+                return `<table class="attachment-item" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; margin-bottom: 10px;"><tr><td style="padding: 15px;"><a href="${url}" target="_blank" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: #d1d5db;"><span style="font-size: 24px;">📎</span><span style="font-size: 16px; font-weight: 500;">${fileName}</span></a></td></tr></table>`;
+            }).join('');
+            attachments_html = `<tr><td style="padding-top: 24px;"><h3 class="header-text" style="font-size: 18px; font-weight: 600; margin: 0 0 16px; display: flex; align-items: center; gap: 8px;"><span style="font-size: 20px;">📎</span> Attachments</h3>${attachmentLinks}</td></tr>`;
+        }
+        
+        let encryption_html = '';
+        if (messageData.is_encrypted) {
+            encryption_html = `<div style="margin-top: 24px; padding: 20px; background-color: rgba(139, 92, 246, 0.1); border-radius: 12px; border: 1px solid rgba(139, 92, 246, 0.3);"><p style="margin: 0; font-weight: 600; color: #a78bfa; font-size: 16px; display: flex; align-items: center; gap: 10px;"><span style="font-size: 20px;">🔒</span> This message is encrypted</p><p style="margin: 8px 0 0; font-size: 14px; line-height: 1.6;" class="muted-text">The sender has shared a secret key with you to view the original content.</p></div>`;
+        }
+        
+        // This is the corrected object with all required parameters
+        const templateParams = {
+            recipient_name: messageData.recipient_name,
+            recipient_email: messageData.recipient_email, // <-- ADDED
+            created_at: createdAt,                       // <-- ADDED
+            delivery_date: deliveryDate,                 // <-- ADDED
+            message_theme: themeText,                    // <-- CORRECTED to use themeText
+            message_content: contentToSave,
+            theme_header_html: theme_header_html,
+            message_details_html: message_details_html,
+            attachments_html: attachments_html,
+            encryption_html: encryption_html
+        };
+
+        await emailjs.send('service_1gfzv4v', 'template_r1qi7th', templateParams);
+        
+        setTimeout(() => { window.location.href = 'history.html'; }, 1500);
+
+    } catch (error) {
+        console.error('CRITICAL ERROR in form submission process:', error);
+        showToast(`An error occurred: ${error.message}`, 'error');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHTML;
+    }
+}
+        
+        // ... (The rest of your page-specific JS functions: setMinDateTime, buildAIPrompt, enhanceWithAI, etc., remain unchanged) ...
+         function setMinDateTime() {
+            const now = new Date();
+            now.setMinutes(now.getMinutes() + 7);
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const localDateTimeMin = `${year}-${month}-${day}T${hours}:${minutes}`;
+            document.getElementById('delivery-date').min = localDateTimeMin;
+        }
+
+                function buildAIPrompt(mode) {
+            const recipientName = document.getElementById('recipient-name').value.trim() || 'the recipient';
+            const themeSelect = document.getElementById('message-theme');
+            const theme = themeSelect.options[themeSelect.selectedIndex].text.replace(/[\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF]/g, '').trim() || 'General';
+            // --- FIXED: Read from .textContent for the plain text version ---
+            const messageContent = document.getElementById('message-content').textContent.trim(); 
+            let instruction = '';
+            switch (mode) {
+                case 'fix': instruction = `You are a meticulous proofreader. Correct any spelling or grammatical errors in the following text. Do not change the meaning or tone. Return only the corrected text.`; break;
+                case 'shorter': instruction = `You are an expert summarizer. Condense the following message to its most essential points, making it significantly shorter while preserving the core message and friendly tone. Return only the summarized version.`; break;
+                case 'poetic': instruction = `You are a poet. Rewrite the following message in a more poetic and eloquent style. Use figurative language, metaphors, or a lyrical tone, but preserve the original core meaning. The message is for a '${theme}' occasion. Return only the enhanced version.`; break;
+                case 'funny': instruction = `You are a witty and clever comedian. Rewrite the following message to be more humorous and lighthearted. Inject a playful, funny tone suitable for a '${theme}' occasion without being inappropriate. Return only the rewritten message.`; break;
+                case 'emojis': instruction = `You are an emoji expert. Read the following message and add 3-5 relevant emojis to enhance its emotional tone. Do not add emojis to every sentence. Place them strategically where they have the most impact. Return the original message with the added emojis.`; break;
+                case 'quote': instruction = `You are a literary curator. Find one short, powerful, and inspiring quote that is highly relevant to a '${theme}' theme. The quote should be suitable for a message to ${recipientName}. Return only the quote and its author (e.g., "The journey of a thousand miles begins with a single step. - Lao Tzu").`; break;
+                case 'generate': instruction = `You are a creative writing assistant. The user needs help starting a message. Generate a short, inspiring message (2-3 sentences) for a '${theme}' occasion for a person named ${recipientName}. The tone should be thoughtful and appropriate for the theme. Return only the generated message.`; break;
+                default: instruction = `Correct any errors in the following text.`;
+            }
+            const userMessagePart = (mode !== 'generate' && mode !== 'quote') ? `Here is the user's message:\n\n"${messageContent}"` : (mode === 'quote' ? `Please find a suitable quote now.` : `Please generate the message now.`);
+            return `${instruction}\n\n${userMessagePart}`;
+        }
+        
+        async function enhanceWithAI(buttonElement) {
+            const YOUR_WORKER_URL = 'https://future-inbox-ai-assistant.kashmalakhan1232.workers.dev';
+            const mode = buttonElement.dataset.aiMode;
+            appState.currentAiMode = mode;
+            // --- FIXED: Read from .textContent for the plain text version ---
+            const originalText = document.getElementById('message-content').textContent.trim(); 
+            if (mode !== 'generate' && mode !== 'quote' && !originalText) {
+                showToast('Please write a message first to use this AI tool.', 'error');
+                return;
+            }
+            const originalButtonHtml = buttonElement.innerHTML;
+            buttonElement.disabled = true;
+            buttonElement.innerHTML = `<div style="width: 16px; height: 16px; border: 2px solid currentColor; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>`;
+            try {
+                const fullPrompt = buildAIPrompt(mode);
+                const response = await fetch(YOUR_WORKER_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: fullPrompt })
+                });
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(errorText || 'The AI request failed.');
+                }
+                const data = await response.json();
+                const enhancedText = data.suggestion;
+                appState.aiSuggestion = enhancedText;
+                showAiModal(enhancedText, mode);
+            } catch (error) {
+                console.error("AI enhancement failed:", error);
+                showToast(`AI request failed: ${error.message}`, 'error');
+            } finally {
+                buttonElement.disabled = false;
+                buttonElement.innerHTML = originalButtonHtml;
+            }
+        }
+        
+        function showAiModal(suggestion, mode) {
+            document.getElementById('ai-suggestion-text').textContent = suggestion;
+            const modal = document.getElementById('ai-preview-modal');
+            const acceptBtn = document.getElementById('accept-ai-suggestion');
+            const modalTitle = modal.querySelector('.modal-title');
+            if (mode === 'generate' || mode === 'quote') {
+                acceptBtn.innerHTML = `<i class="fas fa-plus-circle"></i> Insert into Message`;
+                modalTitle.textContent = mode === 'quote' ? 'AI Quote Suggestion' : 'AI Generated Idea';
+            } else {
+                acceptBtn.innerHTML = `<i class="fas fa-check"></i> Accept Suggestion`;
+                modalTitle.textContent = 'AI Enhancement';
+            }
+            modal.classList.add('show');
+        }
+
+        function closeAiModal() {
+            document.getElementById('ai-preview-modal').classList.remove('show');
+            appState.aiSuggestion = '';
+            appState.currentAiMode = null;
+        }
+        
+        function acceptAiSuggestion() {
+            const messageInput = document.getElementById('message-content');
+            // --- FIXED: Use .innerHTML to correctly add the AI's text ---
+            if (appState.currentAiMode === 'generate' || appState.currentAiMode === 'quote') {
+                // We add <br><br> for new lines in HTML
+                messageInput.innerHTML = messageInput.innerHTML.trim() ? `${messageInput.innerHTML.trim()}<br><br>${appState.aiSuggestion}` : appState.aiSuggestion;
+            } else {
+                // Replace the entire content with the AI suggestion
+                messageInput.innerHTML = appState.aiSuggestion;
+            }
+            handleMessageInput();
+            closeAiModal();
+            showToast('AI suggestion applied!', 'success');
+        }
+
+        function toggleRecurring() {
+            const isActive = document.getElementById('recurring-switch').classList.toggle('active');
+            if (isActive) {
+                document.getElementById('recurring-modal').classList.add('show');
+            } else {
+                appState.recurringSettings.active = false;
+                updateRecurringStatus();
+            }
+        }
+
+        function closeRecurringModal() {
+            if (!appState.recurringSettings.active) {
+                document.getElementById('recurring-switch').classList.remove('active');
+            }
+            document.getElementById('recurring-modal').classList.remove('show');
+        }
+
+        function saveRecurringSettings() {
+            const frequency = document.querySelector('input[name="recurring-frequency"]:checked').value;
+            appState.recurringSettings = { active: true, frequency };
+            updateRecurringStatus();
+            closeRecurringModal();
+            showToast(`Recurring message set to: ${frequency.charAt(0).toUpperCase() + frequency.slice(1)}`, 'success');
+        }
+
+        function updateRecurringStatus() {
+            const statusEl = document.getElementById('recurring-status');
+            if (appState.recurringSettings.active) {
+                const { frequency } = appState.recurringSettings;
+                statusEl.textContent = frequency.charAt(0).toUpperCase() + frequency.slice(1);
+                statusEl.style.color = 'var(--primary)';
+            } else {
+                statusEl.textContent = 'Off';
+                statusEl.style.color = 'var(--muted-foreground)';
+            }
+        }
+        
+        function setupFileHandling() {
+            const dropzone = document.getElementById('file-dropzone');
+            const fileInput = document.getElementById('file-input');
+            dropzone.addEventListener('click', () => fileInput.click());
+            dropzone.addEventListener('dragover', e => { e.preventDefault(); e.currentTarget.classList.add('dragover'); });
+            dropzone.addEventListener('dragleave', e => { e.preventDefault(); e.currentTarget.classList.remove('dragover'); });
+            dropzone.addEventListener('drop', e => {
+                e.preventDefault();
+                e.currentTarget.classList.remove('dragover');
+                if (e.dataTransfer.files.length > 0) handleFiles(e.dataTransfer.files);
+            });
+            fileInput.addEventListener('change', e => { if (e.target.files.length > 0) handleFiles(e.target.files); });
+        }
+
+        function handleFiles(files) {
+            let totalSize = appState.selectedFiles.reduce((acc, f) => acc + f.size, 0);
+            let addedCount = 0;
+            for (const file of files) {
+                if (totalSize + file.size > MAX_ATTACHMENT_SIZE) {
+                    showToast(`Cannot add ${file.name}. Total size would exceed 10 MB.`, 'error');
+                    continue;
+                }
+                if (appState.selectedFiles.some(f => f.name === file.name && f.size === file.size)) {
+                    showToast(`File "${file.name}" is already attached.`, 'warning');
+                    continue;
+                }
+                appState.selectedFiles.push(file);
+                totalSize += file.size;
+                addedCount++;
+            }
+            if (addedCount > 0) {
+                showToast(`${addedCount} file(s) attached.`, 'success');
+            }
+            renderFiles();
+        }
+
+        function removeFile(fileName) {
+            appState.selectedFiles = appState.selectedFiles.filter(f => f.name !== fileName);
+            renderFiles();
+            showToast(`File "${fileName}" removed.`, 'info');
+        }
+        
+        function renderFiles() {
+            const container = document.getElementById('file-list-container');
+            container.innerHTML = '';
+            let totalSize = 0;
+            appState.selectedFiles.forEach(file => {
+                totalSize += file.size;
+                const fileEl = document.createElement('div');
+                fileEl.className = 'file-preview';
+                fileEl.innerHTML = `<div class="file-icon"><i class="fas fa-file"></i></div><div style="flex: 1; min-width: 0;"><div style="font-weight: 500; margin-bottom: 0.25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${file.name}</div><div style="font-size: 0.875rem; color: var(--muted-foreground);">${(file.size / 1024 / 1024).toFixed(2)} MB</div></div><button type="button" class="btn btn-ghost btn-sm remove-file-btn" data-filename="${file.name}"><i class="fas fa-times"></i></button>`;
+                container.appendChild(fileEl);
+            });
+            document.querySelectorAll('.remove-file-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => removeFile(e.currentTarget.dataset.filename));
+            });
+            document.getElementById('attachment-size-indicator').textContent = `Total size: ${(totalSize / 1024 / 1024).toFixed(2)} MB / 10 MB`;
+        }
+        
+        async function copyEncryptionKey() {
+            const keyText = document.getElementById('encryption-key-display').textContent;
+            const copyBtn = document.getElementById('copy-key-btn');
+            try {
+                await navigator.clipboard.writeText(keyText);
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                showToast('Encryption key copied to clipboard!', 'success');
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Key';
+                }, 2000);
+            } catch (err) {
+                showToast('Failed to copy key.', 'error');
+            }
+        }
+
+        function toggleAI() {
+            const aiSwitch = document.getElementById('ai-switch');
+            const aiPanel = document.getElementById('ai-panel');
+            appState.aiEnabled = !appState.aiEnabled;
+            aiSwitch.classList.toggle('active', appState.aiEnabled);
+            if (appState.aiEnabled) {
+                aiPanel.classList.remove('hidden');
+                showToast('AI Assistant activated!', 'info');
+            } else {
+                aiPanel.classList.add('hidden');
+            }
+        }
+
+        async function updateHistoryCount() {
+            // This function from the old code tries to find an element that no longer exists.
+            // The new navbar does not have a 'history-count' span, so we can comment this out or remove it.
+            // const countSpan = document.getElementById('history-count');
+            // if (!countSpan) return; // Add a check to prevent errors
+            // try {
+            //     const { count, error } = await supabase
+            //         .from('messages')
+            //         .select('*', { count: 'exact', head: true });
+            //     if (error) throw error;
+            //     countSpan.textContent = count;
+            // } catch (error) {
+            //     console.error("Error fetching history count:", error.message);
+            //     countSpan.textContent = '-';
+            // }
+        }
+
+        function toggleTheme() {
+            const newTheme = appState.currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+            localStorage.setItem('futureInboxTheme', newTheme);
+        }
+
+        function setTheme(theme) {
+            appState.currentTheme = theme;
+            document.documentElement.setAttribute('data-theme', theme);
+            // This button also no longer exists.
+            // const themeBtn = document.getElementById('theme-toggle');
+            // themeBtn.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            // themeBtn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
+        }
+        
+        function showInputError(inputElement, errorElement, message) {
+            inputElement.classList.add('input-error');
+            errorElement.querySelector('span').textContent = message;
+            errorElement.classList.add('show');
+            setTimeout(() => inputElement.classList.remove('input-error'), 500);
+        }
+
+        function hideError(errorElement) { errorElement.classList.remove('show'); }
+        function validateName() { const i=document.getElementById('recipient-name'),e=document.getElementById('name-error'),v=i.value.trim();if(v.length===0){showInputError(i,e,'Name required');return false}else if(v.length<2){showInputError(i,e,'Name > 1 char');return false}else{hideError(e);return true}}
+        function validateEmail() { const i=document.getElementById('recipient-email'),e=document.getElementById('email-error'),v=i.value.trim();if(v.length===0){showInputError(i,e,'Email required');return false}else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){showInputError(i,e,'Invalid email');return false}else{hideError(e);return true}}
+       // CORRECTED CODE
+function validateMessage() {
+    const i = document.getElementById('message-content');
+    const e = document.getElementById('message-error');
+    const v = i.textContent.trim(); // FIX: Use .textContent to get the plain text
+    if (v.length === 0) {
+        showInputError(i, e, 'Message required');
+        return false;
+    } else if (v.length < 10) {
+        showInputError(i, e, 'Message must be longer than 9 characters');
+        return false;
+    } else {
+        hideError(e);
+        return true;
+    }
+}
+        function validateDate() { const i=document.getElementById('delivery-date'),e=document.getElementById('date-error'),v=i.value;if(!v){showInputError(i,e,'Date required');return false}else if(new Date(v)<=new Date()){showInputError(i,e,'Date must be future');return false}else{hideError(e);return true}}
+      // --- REPLACE THIS FUNCTION ---
+// REPLACE your old handleMessageInput function with this corrected one.
+function handleMessageInput() {
+    const messageEditor = document.getElementById('message-content');
+    const content = messageEditor.textContent;
+    const contentLength = content.length;
+    const maxLength = 2000;
+
+    // Update character count and progress bar
+    document.getElementById('char-count').textContent = `${contentLength} / ${maxLength}`;
+    document.getElementById('char-progress').style.width = `${Math.min((contentLength / maxLength) * 100, 100)}%`;
+
+    // Analyze sentiment
+    analyzeSentiment(content);
+
+    // Validate the message content
+    validateMessage();
+
+    // **FIX:** This logic now correctly shows or hides the placeholder
+    // by checking if the editor is empty. It runs every time the content changes.
+    const editorIsEmpty = messageEditor.textContent.trim() === '';
+    messageEditor.classList.toggle('placeholder-active', editorIsEmpty);
+}
+
+       // --- REPLACE THIS FUNCTION ---
+function validateMessage() { 
+    const i = document.getElementById('message-content'),
+          e = document.getElementById('message-error'),
+          v = i.textContent.trim(); // Use .textContent to check if it's empty
+    if(v.length === 0){ showInputError(i,e,'Message required'); return false }
+    else if(v.length < 10){ showInputError(i,e,'Message > 9 chars'); return false }
+    else{ hideError(e); return true }
+}
+        function analyzeSentiment(text) {
+            const e=document.getElementById('sentiment-emoji'),t=document.getElementById('sentiment-text');if(text.length===0){e.textContent='😐';t.textContent='Neutral';return}
+            const p=['love','happy','great','wonderful','excited','best','amazing','joy','congratulations'],n=['hate','sad','bad','terrible','angry','worst','awful','pain','sorry'];let s=0;
+            const w=text.toLowerCase().match(/\b(\w+)\b/g)||[];w.forEach(W=>{if(p.includes(W))s++;if(n.includes(W))s--});
+            if(s>1){e.textContent='😊';t.textContent='Positive'}else if(s<-1){e.textContent='😞';t.textContent='Negative'}else{e.textContent='😐';t.textContent='Neutral'}
+        }
+        
+        async function toggleRecording(){if(appState.isRecording){stopRecording()}else{await startRecording()}}
+        async function startRecording(){if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){showToast("Voice recording is not supported on your browser.","error");return}try{const e=await navigator.mediaDevices.getUserMedia({audio:true});appState.mediaRecorder=new MediaRecorder(e);appState.isRecording=true;appState.audioChunks=[];const t=document.getElementById("record-btn"),o=document.getElementById("recording-indicator");t.classList.add("recording");t.innerHTML='<i class="fas fa-stop"></i>';o.classList.remove("hidden");appState.mediaRecorder.addEventListener("dataavailable",e=>{appState.audioChunks.push(e.data)});appState.mediaRecorder.addEventListener("stop",()=>{appState.audioBlob=new Blob(appState.audioChunks,{type:"audio/webm"});const t=URL.createObjectURL(appState.audioBlob);document.getElementById("audio-playback").src=t;document.getElementById("audio-preview").classList.remove("hidden");e.getTracks().forEach(e=>e.stop())});appState.mediaRecorder.start();appState.recordingTime=0;appState.recordingInterval=setInterval(()=>{appState.recordingTime++;document.getElementById("recording-time").textContent=appState.recordingTime+"s";if(appState.recordingTime>=120){stopRecording()}},1e3);showToast("Recording started...","info")}catch(e){console.error("Error accessing microphone:",e);showToast("Microphone access denied. Please enable it in browser settings.","error")}}
+        function stopRecording(){if(appState.mediaRecorder&&appState.isRecording){appState.mediaRecorder.stop();appState.isRecording=false;const e=document.getElementById("record-btn"),t=document.getElementById("recording-indicator");e.classList.remove("recording");e.innerHTML='<i class="fas fa-microphone"></i>';t.classList.add("hidden");if(appState.recordingInterval){clearInterval(appState.recordingInterval)}showToast(`Recording complete (${appState.recordingTime}s)`,"success")}}
+        function removeAudio(){appState.audioBlob=null;document.getElementById("audio-preview").classList.add("hidden");document.getElementById("audio-playback").src="";showToast("Voice recording removed","info")}
+        async function toggleEncryption(){const e=document.getElementById('encrypt-switch'),t=document.getElementById('encryption-key-info');appState.isEncrypted=!appState.isEncrypted;e.classList.toggle('active',appState.isEncrypted);if(appState.isEncrypted){appState.encryptionKey=await crypto.subtle.generateKey({name:"AES-GCM",length:256},true,["encrypt","decrypt"]);const o=await crypto.subtle.exportKey("jwk",appState.encryptionKey);document.getElementById('encryption-key-display').textContent=btoa(JSON.stringify(o));t.classList.remove('hidden')}else{appState.encryptionKey=null;t.classList.add('hidden')}}
+        function scheduleAutoSave(){
+            // This function references an element that no longer exists in the new navbar.
+            // const e=document.getElementById('auto-save-indicator');
+            // if(!e) return; 
+            // if(appState.autoSaveTimer)clearTimeout(appState.autoSaveTimer);e.classList.remove('hidden');e.innerHTML=`<i class="fas fa-save"></i> <span>Saving...</span>`;appState.autoSaveTimer=setTimeout(()=>{e.innerHTML=`<i class="fas fa-check-circle"></i> <span>Saved</span>`;setTimeout(()=>e.classList.add('hidden'),2000)},1500)
+            }
+        function showToast(e,t='info'){const o=document.getElementById('toast');o.querySelector('span').textContent=e;o.className=`toast ${t} show`;setTimeout(()=>o.classList.remove('show'),4000)}
+                            function applyTemplate() {
+            const templateJSON = localStorage.getItem('selectedTemplate');
+            if (!templateJSON) return;
+
+            try {
+                const templateData = JSON.parse(templateJSON);
+                
+                document.getElementById('page-title').textContent = templateData.name;
+                document.getElementById('page-subtitle').textContent = `Editing your custom template.`;
+
+                // --- KEY CHANGE: Convert to HTML and use .innerHTML ---
+                const formattedContent = convertMarkdownToHTML(templateData.content);
+                document.getElementById('message-content').innerHTML = formattedContent;
+
+                if (templateData.theme) {
+                    const themeSelect = document.getElementById('message-theme');
+                    const newThemeValue = templateData.theme;
+                    const emoji = templateData.emoji || '✨';
+
+                    let optionExists = false;
+                    for (let i = 0; i < themeSelect.options.length; i++) {
+                        if (themeSelect.options[i].value === newThemeValue) {
+                            optionExists = true;
+                            break;
+                        }
+                    }
+
+                    if (!optionExists) {
+                        const newOption = document.createElement('option');
+                        newOption.value = newThemeValue;
+                        const themeText = newThemeValue.charAt(0).toUpperCase() + newThemeValue.slice(1).replace(/_/g, ' ');
+                        newOption.textContent = `${emoji} ${themeText}`; 
+                        themeSelect.appendChild(newOption);
+                    }
+                    themeSelect.value = newThemeValue;
+                }
+
+                handleMessageInput();
+                showToast(`Template "${templateData.name}" applied!`, 'success');
+                localStorage.removeItem('selectedTemplate');
+
+            } catch (error) {
+                console.error('Error applying template:', error);
+                showToast('Could not apply the selected template.', 'error');
+            }
+        }
+// --- REPLACE THIS FUNCTION ---
+function handleReadAloud() {
+    if (!('speechSynthesis' in window)) {
+        showToast('Text-to-Speech is not supported in your browser.', 'error');
+        return;
+    }
+    const readBtn = document.getElementById('read-aloud-btn');
+    const message = document.getElementById('message-content').textContent; // Use .textContent for the raw text
+
+    if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+        readBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+        return;
+    }
+    if (!message.trim()) {
+        showToast('There is no message to read aloud.', 'warning');
+        return;
+    }
+    const utterance = new SpeechSynthesisUtterance(message);
+    utterance.onstart = () => { readBtn.innerHTML = '<i class="fas fa-stop-circle"></i>'; };
+    utterance.onend = () => { readBtn.innerHTML = '<i class="fas fa-volume-up"></i>'; };
+    utterance.onerror = () => {
+        showToast('An error occurred during speech synthesis.', 'error');
+        readBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+    };
+    speechSynthesis.speak(utterance);
+}
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+    
+</body>
+</html>

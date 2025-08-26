@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureInbox | Contact Us</title>
+    <link rel="stylesheet" href="css/contact.css">
+    <script src="js/contact.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- NEW NAVBAR HTML -->
+    <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+    <header id="futureinbox-header" class="futureinbox-header">
+        <div class="futureinbox-nav-container">
+            <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+                <i class="fas fa-envelope-open-text"></i>FutureInbox
+            </a>
+            <div class="futureinbox-nav-main">
+                <nav aria-label="Main Navigation">
+                    <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+                        <li><a href="index.html" aria-label="Home">Home</a></li>
+                        <li><a href="compose.html" aria-label="compose">Compose</a></li>
+                        <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+                        <li class="futureinbox-nav-dropdown">
+                            <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                                History <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                                <li><a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i> Features</a></li>
+                                <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                                <li><a href="helpcenter.html" role="menuitem" aria-label="helpcenter"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html" aria-label="About">About Us</a></li>
+                        <li><a href="contact.html" aria-label="Contact" aria-current="page">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+                <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+    <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+    <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+        <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="compose.html" aria-label="compose"><i class="fas fa-star"></i>Compose</a></li>
+            <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+            <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+                <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="Use Cases">
+                    <span><i class="fas fa-layer-group"></i> Use Cases</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="futureinbox-mobile-dropdown-menu" role="menu">
+                    <a href="features.html" role="menuitem" aria-label="For features"> <i class="fa-solid fa-grip"></i>Features</a>
+                    <a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a>
+                    <a href="#" role="menuitem" aria-label="helpcenter"><i class="fa-brands fa-hire-a-helper"></i> Help Center</a>
+                </div>
+            </li>
+            <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="contact.html" aria-label="Contact" aria-current="page"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+    </nav>
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <h3>Reset Form</h3>
+            <p>Are you sure you want to reset the form? All entered data will be lost.</p>
+            <div class="modal-buttons">
+                <button class="modal-button modal-confirm" id="modalConfirm">Reset</button>
+                <button class="modal-button modal-cancel" id="modalCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- These elements are now direct children of body -->
+    <div class="glow glow-purple"></div>
+    <div class="glow glow-blue"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- START THE WRAPPER -->
+    <div class="page-wrapper">
+        <!-- Contact Page Content -->
+        <main id="main-content">
+            <a href="#contactForm" class="skip-nav">Skip to Contact Form</a>
+            <div class="centered-container">
+                <div class="container">
+                    <div class="contact-info">
+                        <div class="logo">
+                            <i class="fas fa-envelope-open-text"></i>
+                            <span>FutureInbox</span>
+                        </div>
+                        <h1>Get in Touch with FutureInbox</h1>
+                        <p>We'd love to hear from you. Fill out the form and we'll get back to you soon!</p>
+                        <div class="illustration">
+                            <div class="illustration-container">
+                                <svg class="illustration-svg" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#3a7bd5" />
+                                            <stop offset="100%" stop-color="#00d2ff" />
+                                        </linearGradient>
+                                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#2575fc" />
+                                            <stop offset="100%" stop-color="#6a11cb" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M50,350 Q150,250 250,350 Q350,450 50,350 Z" fill="rgba(0, 123, 255, 0.1)" />
+                                    <path d="M400,150 Q350,250 450,300 Q500,350 400,150 Z" fill="rgba(42, 107, 198, 0.1)" />
+                                    <path d="M100,80 L400,80 L400,280 L100,280 Z" fill="url(#grad1)" rx="10" ry="10" />
+                                    <path d="M100,80 L250,180 L400,80 Z" fill="#2a6bc6" />
+                                    <circle cx="170" cy="150" r="20" fill="#ffffff" />
+                                    <circle cx="220" cy="180" r="25" fill="#ffffff" />
+                                    <circle cx="290" cy="140" r="22" fill="#ffffff" />
+                                    <path d="M170,150 L220,180" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" />
+                                    <path d="M220,180 L290,140" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none" />
+                                    <path d="M420,100 L460,70 L480,110 L450,130 Z" fill="#ffffff" />
+                                    <path d="M460,70 L490,50 L500,90 L480,110 Z" fill="#f0f0f0" />
+                                    <circle cx="70" cy="120" r="35" fill="none" stroke="#ffffff" stroke-width="3" stroke-dasharray="5,5" />
+                                    <path d="M70,80 L70,160" stroke="#ffffff" stroke-width="3" />
+                                    <path d="M30,120 L110,120" stroke="#ffffff" stroke-width="3" />
+                                    <path d="M70,120 L110,200" stroke="#ffffff" stroke-width="3" />
+                                    <path d="M110,200 L95,230 L45,230 L30,200 Z" fill="url(#grad2)" />
+                                    <path d="M30,200 Q50,170 70,200 T110,200" stroke="#ffffff" stroke-width="3" fill="none" />
+                                    <path d="M30,215 Q50,185 70,215 T110,215" stroke="#ffffff" stroke-width="3" fill="none" />
+                                    <path d="M30,230 Q50,200 70,230 T110,230" stroke="#ffffff" stroke-width="3" fill="none" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="contact-methods">
+                            <div class="contact-method email-card">
+                                <i class="fas fa-envelope"></i>
+                                <h3>Email</h3>
+                                <p>info@futureinbox.com</p>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-phone"></i>
+                                <h3>Phone</h3>
+                                <p>+92 032567-5900</p>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <h3>Location</h3>
+                                <p>Pakistan, karachi , CA</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <form id="contactForm" class="contact-form" role="form" aria-label="Contact Form" action="https://formspree.io/f/myzjqqne" method="POST" novalidate>
+                            <h2>Contact Us</h2>
+                            <input type="text" class="bot-check" id="botCheck" name="botCheck" aria-hidden="true" tabindex="-1">
+                            <div class="form-group">
+                                <label for="fullName">Full Name <span class="required-indicator">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user input-icon"></i>
+                                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" aria-required="true" aria-describedby="nameError">
+                                </div>
+                                <div id="nameError" class="error" role="alert" aria-live="polite">Please enter your full name</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailAddress">Email Address <span class="required-indicator">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-envelope input-icon"></i>
+                                    <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter your email" aria-required="true" aria-describedby="emailError">
+                                </div>
+                                <div id="emailError" class="error" role="alert" aria-live="polite">Please enter a valid email address</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject <span class="required-indicator">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-comment-dots input-icon"></i>
+                                    <input type="text" id="subject" name="subject" placeholder="Enter the subject of your message" aria-required="true" aria-describedby="subjectError">
+                                </div>
+                                <div id="subjectError" class="error" role="alert" aria-live="polite">Please enter a subject</div>
+                            </div>
+                            <div class="form-group message-group">
+                                <label for="message">Your Message <span class="required-indicator">*</span></label>
+                                <div class="input-with-icon textarea-icon">
+                                    <i class="fas fa-pencil-alt input-icon"></i>
+                                    <textarea id="message" name="message" rows="5" placeholder="Type your message here..." minlength="20" maxlength="500" aria-describedby="messageError messageCounter"></textarea>
+                                </div>
+                                <div id="messageCounter" class="char-counter" aria-live="polite">0/500 (min 20)</div>
+                                <div id="messageError" class="error" role="alert" aria-live="polite">Please enter your message (minimum 20 characters)</div>
+                            </div>
+                            <div class="submit-feedback" id="submitFeedback">
+                                <div class="spinner" id="formSpinner"></div>
+                                <span>Processing your request...</span>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="submit-button">Send Message</button>
+                                <button type="button" class="form-reset" id="resetForm">
+                                    <i class="fas fa-redo"></i> Reset Form
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="futureinbox-footer-container">
+                <div class="futureinbox-footer-content">
+                    <div class="futureinbox-footer-logo-section">
+                        <a href="#" class="futureinbox-footer-logo" aria-label="FutureInbox Home">
+                            <i class="fas fa-envelope-open-text"></i>FutureInbox
+                        </a>
+                        <p>Preserving humanity's most important messages for the moments that matter.</p>
+                        <div class="futureinbox-footer-social-links">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="futureinbox-footer-links">
+                        <div>
+                            <h3>Product</h3>
+                            <ul>
+                                <li><a href="features.html">Features</a></li>
+                                <li><a href="compose.html">Compose</a></li>
+                                <li><a href="history.html">History</a></li>
+                                 <li><a href="templates.html">Template</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Company</h3>
+                            <ul>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                 <li><a href="howitworks.html">How It Works</a></li>
+                                  <li><a href="helpcenter.html">Help Center</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Legal</h3>
+                            <ul>
+                                <li><a href="privacy.html">Privacy Policy</a></li>
+                                <li><a href="Terms&Conditions.html">Terms&Condition</a></li>
+                                <li><a href="Security.html">Security</a></li>
+                                <li><a href="complience.html">Compliance</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="futureinbox-footer-copyright">
+                    <p>&copy; 2025 FutureInbox. All rights reserved. Because some messages are meant for later.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- END THE WRAPPER -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <!-- END THE WRAPPER HERE -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- These two new scripts handle the navbar, pop-ups, and logout button -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="global.js"></script>
+    <script>
+      
+    </script>
+</body>
+</html>

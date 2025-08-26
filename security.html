@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security That Spans Generations - FutureInbox</title>
+  <meta name="description" content="Discover the unbreakable security promise of FutureInbox. Learn about our multi-layered defense, from Zero-Knowledge Encryption to our legally-binding FutureInbox Trust, designed to protect and deliver your legacy.">
+ <link rel="stylesheet" href="css/security.css">
+
+<script src="js/security.js"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1IDMwTDE4Ny4xMjkgMTQ2Ljg3MUg2Mi44NzFMMTI1IDMwWiIgZmlsbD0iIzAwZDFmZiIvPjxwYXRoIGQ9Ik0xMjUgMzBMMTg3LjEyOSAxNDYuODcxTDEyNSAyMTVWNzBaIiBmaWxsPSIjN2U1N2MyIiBmaWxsLW9wYWNpdHk9IjAuOCIvPjwvc3ZnPg==">
+  <style>
+  
+  </style>
+</head>
+<body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+
+  <!-- Header with Glassmorphism Navbar -->
+  <header id="futureinbox-header" class="futureinbox-header">
+    <div class="futureinbox-nav-container">
+      <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+        <i class="fas fa-envelope-open-text"></i>FutureInbox
+      </a>
+      <div class="futureinbox-nav-main">
+        <nav aria-label="Main Navigation">
+          <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+            <li><a href="index.html" aria-label="Home">Home</a></li>
+            <li><a href="compose.html" aria-label="compose">Compose</a></li>
+            <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+            <li class="futureinbox-nav-dropdown">
+              <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                 History <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                <li><a href="features.html" role="menuitem" aria-label="For features"><i class="fa-solid fa-grip"></i> Features</a></li>
+                <li><a href="templates.html" role="menuitem" aria-label="Template Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                <li><a href="helpcenter.html" role="menuitem" aria-label="help center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html" aria-label="About">About Us</a></li>
+            <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+        <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+
+  <!-- Mobile Menu -->
+  <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+  <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+    <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul>
+      <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="compose.html" aria-label="compose"><i class="fas fa-star"></i> Compose</a></li>
+      <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+      <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+        <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label=" History">
+          <span><i class="fas fa-layer-group"></i> History</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="futureinbox-mobile-dropdown-menu" role="menu">
+          <a href="features.html" role="menuitem" aria-label="For Families"><i class="fa-solid fa-grip"></i> Features</a>
+          <a href="templates.html" role="menuitem" aria-label="templates Use"><i class="fa-solid fa-chart-bar"></i> Templates </a>
+          <a href="helpcenter.html" role="menuitem" aria-label="help center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a>
+        </div>
+      </li>
+      <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+    <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+  </nav>
+
+<canvas id="particle-canvas"></canvas>
+
+<main id="main-content">
+    <!-- Hero Section -->
+    <section class="security-hero">
+        <div class="container">
+            <div class="hero-icon animate-in">
+                <i class="fa-solid fa-shield-heart"></i>
+            </div>
+            <h1 class="animate-in delay-1">Security That Spans Generations</h1>
+            <h2 class="animate-in delay-2">Our Unbreakable Promise to Protect Your Legacy</h2>
+            <p class="animate-in delay-3">
+                You're entrusting us with your most precious memories and profound emotions. This is a responsibility we honor with a security architecture designed for permanence. We've built FutureInbox not just to protect your data today, but to guarantee its integrity and delivery for a lifetime and beyond.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pillars of Trust Section -->
+    <section class="trust-pillars">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Pillars of Trust</h2>
+                <p>Our security framework is built on three foundational pillars that ensure your legacy remains protected through time and technological change.</p>
+            </div>
+            
+            <div class="pillars-grid">
+                <div class="pillar-card reveal">
+                    <div class="glow"></div>
+                    <div class="pillar-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3>Absolute Privacy</h3>
+                    <p>Your message is sealed with end-to-end encryption from the moment you write it. Only you and your recipient hold the key. No one else, not even us, can ever access its contents.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="glow"></div>
+                    <div class="pillar-icon"><i class="fas fa-server"></i></div>
+                    <h3>Digital Fortress</h3>
+                    <p>Our infrastructure is built on world-class, redundant cloud platforms, protected by continuous monitoring, intrusion detection, and regular third-party audits to defend against all threats.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="glow"></div>
+                    <div class="pillar-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>The Forever Promise</h3>
+                    <p>A legally-binding, independently-funded Trust ensures your message's delivery is not dependent on our company's future, but on a perpetual, time-proof promise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Details Section -->
+    <section class="security-details">
+        <div class="container">
+            <!-- Section 1: Encryption -->
+            <article class="security-section reveal">
+                <div class="text-content">
+                    <h2><span>The Digital Vault</span>Your Message, Sealed at the Source.</h2>
+                    <p>The privacy of your message is not just a policy; it is a mathematical certainty. We employ a Zero-Knowledge architecture, meaning we are structurally incapable of viewing your content.</p>
+                    <div class="highlight-box">
+                        <strong>Our Zero-Knowledge Guarantee:</strong> From the instant you save your message, it is transformed into unreadable ciphertext on your device. We never see it, we cannot access it, and we cannot decrypt it.
+                    </div>
+                </div>
+                <div class="visual-content">
+                    <div class="encryption-flow">
+                        <div class="flow-step">
+                            <i class="fas fa-edit"></i>
+                            <div><strong>You Write</strong><br><span class="flow-label">Plain Text on Your Device</span></div>
+                        </div>
+                        <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="flow-step">
+                            <i class="fas fa-lock"></i>
+                            <div><strong>Encrypted</strong><br><span class="flow-label">Sealed on Your Device</span></div>
+                        </div>
+                         <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                        <div class="flow-step">
+                            <i class="fas fa-cloud"></i>
+                            <div><strong>Stored</strong><br><span class="flow-label">Unreadable Ciphertext on Our Servers</span></div>
+                        </div>
+                         <div class="flow-arrow"><i class="fas fa-arrow-down"></i></div>
+                         <div class="flow-step">
+                            <i class="fas fa-envelope-open"></i>
+                            <div><strong>Delivered & Decrypted</strong><br><span class="flow-label">Readable Only by Recipient</span></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 2: Infrastructure -->
+            <article class="security-section reveal">
+                 <div class="visual-content">
+                    <i class="fas fa-shield-alt visual-icon-large"></i>
+                </div>
+                 <div class="text-content">
+                    <h2><span>The Fortress</span>Guarding Your Data Over Time.</h2>
+                    <p>Our commitment extends to relentless vigilance. We proactively defend our systems against emerging threats to ensure the long-term integrity of our digital fortress.</p>
+                    <ul>
+                        <li><strong>Continuous Vigilance:</strong> We partner with ethical hackers through bug bounty programs and engage elite firms for annual penetration tests to constantly challenge and harden our defenses.</li>
+                        <li><strong>Resilient by Design:</strong> Your encrypted data is replicated across multiple, geographically separate data centers, safeguarding it against physical disasters.</li>
+                    </ul>
+                    
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div>Today</div>
+                            <div class="timeline-label">AES-256 Encryption</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div>2030+</div>
+                            <div class="timeline-label">Quantum-Resistant</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div>2050+</div>
+                            <div class="timeline-label">Future-Proofed</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div>Beyond</div>
+                            <div class="timeline-label">Perpetual Protocol</div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Section 3: Preservation -->
+            <article class="security-section reveal">
+                <div class="text-content">
+                    <h2><span>The Time-Proof Promise</span>Ensuring Delivery Across Generations.</h2>
+                    <p>A digital message scheduled for decades from now requires more than technical security; it requires a strategy for permanence.</p>
+                    <div class="highlight-box">
+                        <strong>The FutureInbox Trust:</strong> We have legally established and funded an independent trust with a single purpose: to ensure the delivery of all scheduled messages, regardless of our company's future. It's a promise backed by law and resources.
+                    </div>
+                     <p>Furthermore, our dedicated preservation team monitors technological evolution, ensuring your encrypted message is migrated to new formats and standards so it will always be readable, 10, 50, or 100 years from now.</p>
+                </div>
+                <div class="visual-content">
+                     <i class="fas fa-gavel visual-icon-large"></i>
+                </div>
+            </article>
+        </div>
+    </section>
+    
+    <!-- Security Assurance Section -->
+    <section class="assurance-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Beyond Technology</h2>
+                <p>Our security commitment extends beyond encryption and infrastructure to encompass legal, financial, and operational safeguards.</p>
+            </div>
+            
+            <div class="assurance-grid">
+                <div class="assurance-card reveal">
+                    <div class="assurance-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Legally Binding Trust</h3>
+                    <p>Our independently funded Trust is legally obligated to ensure message delivery, regardless of company status or technological changes.</p>
+                </div>
+                
+                <div class="assurance-card reveal">
+                    <div class="assurance-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>Third-Party Audits</h3>
+                    <p>Annual security audits by independent firms ensure we maintain the highest standards of data protection and privacy compliance.</p>
+                </div>
+                
+                <div class="assurance-card reveal">
+                    <div class="assurance-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Bug Bounty Program</h3>
+                    <p>We collaborate with security researchers worldwide through our bug bounty program to identify and address vulnerabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- User Responsibility Section -->
+    <section class="user-responsibility-section">
+        <div class="container">
+            <h2 class="reveal">You Hold the Key to the Vault</h2>
+            <div class="user-responsibility-grid">
+                <div class="responsibility-card reveal">
+                    <h4><i class="fas fa-key"></i> Create a Strong Password</h4>
+                    <p>Use a unique, complex password for FutureInbox. This is your first line of defense.</p>
+                </div>
+                <div class="responsibility-card reveal">
+                    <h4><i class="fas fa-mobile-alt"></i> Enable Multi-Factor Authentication</h4>
+                    <p>MFA is the single most effective way to prevent unauthorized access to your account. We strongly recommend it.</p>
+                </div>
+                <div class="responsibility-card reveal">
+                    <h4><i class="fas fa-file-shield"></i> Safeguard Your Recovery Key</h4>
+                    <p>Your Recovery Key is the only way to regain access if you forget your password. Treat it like a master key and store it securely offline.</p>
+                </div>
+            </div>
+
+            <div class="critical-warning-box reveal">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>A Critical Responsibility:</strong> Because of our Zero-Knowledge design, we cannot reset your password. If you lose your password AND your Recovery Key, your account and all its messages will be permanently and irreversibly lost. This is a necessary trade-off to provide you with true privacy.
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="futureinbox-footer-container">
+    <div class="futureinbox-footer-content">
+      <div class="futureinbox-footer-logo-section">
+        <!-- Fixed logo to match header -->
+        <a href="#" class="futureinbox-footer-logo" aria-label="FutureInbox Home">
+          <i class="fas fa-envelope-open-text"></i>FutureInbox
+        </a>
+        <p>Preserving humanity's most important messages for the moments that matter.</p>
+        <div class="futureinbox-footer-social-links">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="futureinbox-footer-links">
+        <div>
+          <h3>Product</h3>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="compose.html">Compose</a></li>
+             <li><a href="history.html">History</a></li>
+                             <li><a href="templates.html">Template</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+             <li><a href="howitworks.html">How It Works</a></li>
+              <li><a href="helpcenter.html">Help Center</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="Terms&Conditions.html">Terms&Condition</a></li>
+            <li><a href="Security.html">Security</a></li>
+            <li><a href="complience.html">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="futureinbox-footer-copyright">
+      <p>&copy; 2025 FutureInbox. All rights reserved. Because some messages are meant for later.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- At the bottom of security.html, right before </body> -->
+
+    <!-- These two new scripts handle the navbar, pop-ups, and logout button -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="global.js"></script>
+
+    <!-- This is the remaining script that is ONLY for the security page animations -->
+    <script>
+    
+    </script>
+</body>
+</html>

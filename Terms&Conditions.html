@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureInbox - Terms of Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/terms&condition.css">
+
+<script src="js/terms&condition.js"></script>
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+
+    <!-- Header with Glassmorphism Navbar -->
+    <header id="futureinbox-header" class="futureinbox-header">
+        <div class="futureinbox-nav-container">
+            <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+                <i class="fas fa-envelope-open-text"></i>FutureInbox
+            </a>
+            <div class="futureinbox-nav-main">
+                <nav aria-label="Main Navigation">
+                    <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+                        <li><a href="index.html" aria-label="Home">Home</a></li>
+                        <li><a href="compose.html" aria-label="compose">Compose</a></li>
+                        <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+                        <li class="futureinbox-nav-dropdown">
+                            <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History ">
+                               History<i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                                <li><a href="features.html" role="menuitem" aria-label="For features"><i class="fa-solid fa-grip"></i> Feature</a></li>
+                                <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                                <li><a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html" aria-label="About">About Us</a></li>
+                        <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+                       
+                </nav>
+                <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+                <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+
+    <!-- Mobile Menu -->
+    <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+    <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+        <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="compose.html" aria-label="Features"><i class="fas fa-star"></i> Compose</a></li>
+            <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+            <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+                <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label=" History">
+                    <span><i class="fas fa-layer-group"></i>History</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="futureinbox-mobile-dropdown-menu" role="menu">
+                    <a href="features.html" role="menuitem" aria-label="For feature"><i class="fa-solid fa-grip"></i>Features</a>
+                    <a href="templates.html" role="menuitem" aria-label="template Use"><i class="fas fa-briefcase"></i>Templates</a>
+                    <a href="helpcenter.html" role="menuitem" aria-label="help center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a>
+                </div>
+            </li>
+            <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            
+        </ul>
+        <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+    </nav>
+
+    <!-- Beautiful Alert -->
+    <div id="beautiful-alert">
+        <div class="alert-content">
+            <div class="alert-header">
+                <i class="fas fa-check-circle alert-icon"></i>
+                <h2 class="alert-title">Terms Accepted!</h2>
+            </div>
+            <div class="alert-body">
+                <p class="alert-message">Thank you for accepting our Terms of Service!</p>
+                <div class="alert-actions">
+                    <button class="alert-button primary" id="alert-close-btn">
+                        <i class="fas fa-thumbs-up"></i> Continue to FutureInbox
+                    </button>
+                    <button class="alert-button secondary" id="alert-learn-btn">
+                        <i class="fas fa-book"></i> Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="alert-particles" id="particles-container"></div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <main class="terms-hero" id="main-content">
+        <div class="container">
+            <h1 class="animate-in">Terms of Service</h1>
+            <div class="version-info animate-in delay-1">
+                <span class="version">Version 2.1</span> — 
+                <span class="date">Last Updated: <span id="current-date"></span></span>
+            </div>
+            <p class="animate-in delay-2">Welcome to FutureInbox! These Terms govern your use of our time-delayed messaging service.</p>
+            
+            <div class="utility-buttons">
+                <button id="print-btn" class="btn animate-in delay-3">
+                    <i class="fas fa-print"></i> Print / Save PDF
+                </button>
+                <button id="accept-btn" class="btn btn-primary animate-in delay-4">
+                    <i class="fas fa-check-circle"></i> Accept Terms
+                </button>
+                <a href="contact.html" class="btn animate-in delay-3">
+                    <i class="fas fa-question-circle"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div class="container">
+        <section class="terms-content">
+            <!-- Section Navigation Grid -->
+            <div class="section-nav-grid">
+                <div class="nav-card animate-in delay-1">
+                    <i class="fas fa-file-contract"></i>
+                    <h3>Introduction</h3>
+                    <a href="#introduction">Jump to Section</a>
+                </div>
+                <div class="nav-card animate-in delay-2">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Service Description</h3>
+                    <a href="#service-description">Jump to Section</a>
+                </div>
+                <div class="nav-card animate-in delay-3">
+                    <i class="fas fa-user-check"></i>
+                    <h3>User Responsibilities</h3>
+                    <a href="#user-responsibilities">Jump to Section</a>
+                </div>
+                <div class="nav-card animate-in delay-4">
+                    <i class="fas fa-ban"></i>
+                    <h3>Prohibited Activities</h3>
+                    <a href="#prohibited-activities">Jump to Section</a>
+                </div>
+                <div class="nav-card animate-in delay-1">
+                    <i class="fas fa-copyright"></i>
+                    <h3>Intellectual Property</h3>
+                    <a href="#intellectual-property">Jump to Section</a>
+                </div>
+                <div class="nav-card animate-in delay-2">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Governing Law</h3>
+                    <a href="#governing-law">Jump to Section</a>
+                </div>
+                <div class="nav-card animate-in delay-3">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Changes to Terms</h3>
+                    <a href="#changes">Jump to Section</a>
+                </div>
+                <div class="nav-card animate-in delay-4">
+                    <i class="fas fa-question-circle"></i>
+                    <h3>Contact Us</h3>
+                    <a href="#contact">Jump to Section</a>
+                </div>
+            </div>
+
+            <article id="introduction" class="terms-section">
+                <h2><i class="fas fa-file-contract"></i> 1. Introduction</h2>
+                <p>These Terms of Service ("Terms") govern your access to and use of FutureInbox ("Service"), a browser-based application that allows you to schedule messages for future delivery.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Important: FutureInbox is a client-side application. All message creation, storage, and delivery occur within your browser. We do not store, access, or transmit your messages to any server.</strong></p>
+                </div>
+                
+                <p>By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of the Terms, you may not access the Service.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Age Requirement:</strong> You must be at least 13 years old to use this Service. If you are under 18, you must have your parent or guardian's permission to use the Service.</p>
+                </div>
+            </article>
+
+            <article id="service-description" class="terms-section">
+                <h2><i class="fas fa-envelope"></i> 2. Service Description</h2>
+                <p>FutureInbox provides a platform to compose messages and schedule them for delivery at future dates. Key features include:</p>
+                
+                <ul>
+                    <li>Composing text-based messages</li>
+                    <li>Scheduling delivery dates and times</li>
+                    <li>Client-side encryption of message content</li>
+                    <li>Local storage of messages until delivery</li>
+                    <li>Optional experimental voice features</li>
+                    <li>Export functionality for message backup</li>
+                </ul>
+                
+                <div class="highlight-box warning">
+                    <p><strong>Data Loss Warning:</strong> Messages stored in your browser may be permanently lost if you clear browser data, use private browsing, switch devices, or experience browser updates. We recommend regularly exporting important messages.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <p><strong>Service Limitations:</strong> FutureInbox relies entirely on your browser's capabilities. Messages will only be delivered if the browser is open at the scheduled time. We are not responsible for undelivered messages due to browser or device limitations.</p>
+                </div>
+            </article>
+            
+            <article id="user-responsibilities" class="terms-section">
+                <h2><i class="fas fa-user-check"></i> 3. User Responsibilities</h2>
+                <p>As a user of FutureInbox, you agree to:</p>
+                
+                <div class="responsibility-grid">
+                    <div class="responsibility-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Security</h4>
+                        <p>Maintain the security of your device and browser where messages are stored.</p>
+                    </div>
+                    <div class="responsibility-card">
+                        <i class="fas fa-comment-slash"></i>
+                        <h4>Appropriate Content</h4>
+                        <p>Ensure all messages comply with applicable laws and respect recipients.</p>
+                    </div>
+                    <div class="responsibility-card">
+                        <i class="fas fa-user-clock"></i>
+                        <h4>Timely Management</h4>
+                        <p>Manage your scheduled messages and delete unwanted content.</p>
+                    </div>
+                    <div class="responsibility-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h4>Accuracy</h4>
+                        <p>Verify recipient information and delivery times before scheduling.</p>
+                    </div>
+                </div>
+                
+                <p>You are solely responsible for all messages you create, schedule, and send through FutureInbox.</p>
+            </article>
+
+            <article id="prohibited-activities" class="terms-section">
+                <h2><i class="fas fa-ban"></i> 4. Prohibited Activities</h2>
+                <p>You may not use FutureInbox to:</p>
+                
+                <ul>
+                    <li>Send unlawful, harassing, libelous, abusive, threatening, harmful, or obscene messages</li>
+                    <li>Impersonate any person or entity</li>
+                    <li>Send content violating intellectual property rights</li>
+                    <li>Interfere with or disrupt the Service</li>
+                    <li>Attempt to reverse engineer or compromise the Service</li>
+                    <li>Violate any applicable laws or regulations</li>
+                    <li>Send messages containing malware, viruses, or harmful code</li>
+                    <li>Transmit spam or unsolicited commercial communications</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>Consequences:</strong> Violation of these restrictions may result in termination of your access to the Service without notice.</p>
+                </div>
+            </article>
+
+            <article id="intellectual-property" class="terms-section">
+                <h2><i class="fas fa-copyright"></i> 5. Intellectual Property</h2>
+                <p><strong>Your Content:</strong> You retain ownership of all messages you create and send through FutureInbox.</p>
+                
+                <p><strong>Service IP:</strong> All rights, title, and interest in and to the FutureInbox service (including software, design, and documentation) are and will remain the exclusive property of FutureInbox and its licensors.</p>
+                
+                <p>You grant FutureInbox a limited, non-exclusive license to process your messages solely for the purpose of providing the Service within your browser environment.</p>
+            </article>
+
+            <article id="disclaimer" class="terms-section">
+                <h2><i class="fas fa-exclamation-circle"></i> 6. Disclaimer of Warranties</h2>
+                <p>The Service is provided "as is" and "as available" without warranties of any kind, either express or implied.</p>
+                
+                <p>FutureInbox does not warrant that:</p>
+                <ul>
+                    <li>The Service will function uninterrupted or error-free</li>
+                    <li>Messages will be delivered at the exact scheduled time</li>
+                    <li>The Service will meet your specific requirements</li>
+                    <li>Any errors in the Service will be corrected</li>
+                </ul>
+                
+                <div class="highlight-box warning">
+                    <p><strong>Client-Side Limitation:</strong> As a browser-based application, FutureInbox functionality depends on your device, browser, and internet connection. We disclaim all responsibility for undelivered messages resulting from technical limitations.</p>
+                </div>
+            </article>
+
+            <article id="limitation-liability" class="terms-section">
+                <h2><i class="fas fa-balance-scale"></i> 7. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, FutureInbox shall not be liable for:</p>
+                
+                <ul>
+                    <li>Any indirect, incidental, special, consequential, or punitive damages</li>
+                    <li>Loss of profits, data, use, goodwill, or other intangible losses</li>
+                    <li>Damages resulting from your access to or use of the Service</li>
+                    <li>Unauthorized access to or alteration of your messages</li>
+                    <li>Conduct of any third party related to the Service</li>
+                    <li>Data loss resulting from browser limitations or user actions</li>
+                </ul>
+                
+                <p>In no event shall FutureInbox's total liability exceed the amount you have paid to FutureInbox in the last six months, or if greater, one hundred dollars ($100).</p>
+            </article>
+
+            <article id="termination" class="terms-section">
+                <h2><i class="fas fa-power-off"></i> 8. Termination</h2>
+                <p>You may stop using our Service at any time by clearing your browser storage for futureinbox.com.</p>
+                
+                <p>We may terminate or suspend your access to the Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+                
+                <p>Upon termination, all messages stored in your browser will be deleted. We recommend exporting important messages before termination.</p>
+            </article>
+
+            <article id="governing-law" class="terms-section">
+                <h2><i class="fas fa-gavel"></i> 9. Governing Law</h2>
+                <p>These Terms shall be governed and construed in accordance with the laws of California, United States, without regard to its conflict of law provisions.</p>
+                
+                <p>You agree to submit to the personal jurisdiction of the courts located in San Francisco County, California for any legal actions arising from these Terms.</p>
+            </article>
+            
+            <article id="dispute-resolution" class="terms-section">
+                <h2><i class="fas fa-handshake"></i> 10. Dispute Resolution</h2>
+                <p>Any disputes arising from these Terms will be resolved through binding arbitration in San Francisco, CA, rather than in court.</p>
+                
+                <p>The arbitration will be conducted by a single arbitrator under the rules of the American Arbitration Association. Judgment on the arbitration award may be entered in any court with jurisdiction.</p>
+                
+                <p>You waive your right to participate in any class action lawsuit or class-wide arbitration against FutureInbox.</p>
+            </article>
+            
+            <article id="miscellaneous" class="terms-section">
+                <h2><i class="fas fa-file-alt"></i> 11. Miscellaneous</h2>
+                
+                <h3>11.1 Entire Agreement</h3>
+                <p>These Terms constitute the entire agreement between you and FutureInbox regarding the Service and supersede any prior agreements.</p>
+                
+                <h3>11.2 Severability</h3>
+                <p>If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions will remain in full force and effect.</p>
+                
+                <h3>11.3 Third-Party Services</h3>
+                <p>FutureInbox relies on browser technologies beyond our control. Service availability depends on your browser's capabilities.</p>
+                
+                <h3>11.4 Assignment</h3>
+                <p>You may not transfer your rights under these Terms without our consent.</p>
+            </article>
+            
+            <article id="accessibility" class="terms-section">
+                <h2><i class="fas fa-universal-access"></i> 12. Accessibility</h2>
+                <p>We strive to make FutureInbox accessible to all users. If you encounter accessibility barriers, please contact us at support@futureinbox.com.</p>
+                
+                <p>We are committed to providing reasonable accommodations for users with disabilities. Contact us to discuss your specific accessibility needs.</p>
+            </article>
+
+            <article id="changes" class="terms-section">
+                <h2><i class="fas fa-sync-alt"></i> 13. Changes to Terms</h2>
+                <p>We reserve the right to modify or replace these Terms at any time. We will provide at least 30 days' notice before any new terms take effect by:</p>
+                
+                <ul>
+                    <li>Displaying a notice within the Service</li>
+                    <li>Updating the "Last Updated" date at the top of this page</li>
+                    <li>Sending email notifications to registered users</li>
+                </ul>
+                
+                <p>Your continued use of the Service after any revisions become effective constitutes acceptance of the revised Terms.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Change History:</strong> <a href="#" id="show-history">View previous versions</a></p>
+                    <div id="history-content" style="display: none; margin-top: 15px;">
+                        <p><strong>Version 1.0 (Jan 1, 2025):</strong> Initial Terms of Service release</p>
+                        <p><strong>Version 1.1 (July 18, 2025):</strong> Added accessibility, dispute resolution, and data loss warnings</p>
+                        <p><strong>Version 2.0 (Oct 5, 2025):</strong> Added voice messaging capabilities</p>
+                        <p><strong>Version 2.1 (Dec 12, 2025):</strong> Improved data export features</p>
+                    </div>
+                </div>
+            </article>
+
+            <div class="contact-card" id="contact">
+                <h3><i class="fas fa-question-circle"></i> Questions About Our Terms?</h3>
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <h4><i class="fas fa-envelope"></i> Email</h4>
+                        <p>For questions about these Terms:</p>
+                        <a href="mailto:legal@futureinbox.com">legal@futureinbox.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <h4><i class="fas fa-map-marker-alt"></i> Mailing Address</h4>
+                        <p>FutureInbox Legal Department</p>
+                        <p>123 Time Avenue</p>
+                        <p>San Francisco, CA 94107</p>
+                    </div>
+                    <div class="contact-method">
+                        <h4><i class="fas fa-headset"></i> Accessibility Support</h4>
+                        <p>For accessibility accommodations:</p>
+                        <a href="mailto:support@futureinbox.com">support@futureinbox.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="futureinbox-footer-content">
+                <div class="futureinbox-footer-logo-section">
+                    <a href="index.html" class="futureinbox-footer-logo" aria-label="FutureInbox Home">
+                        <i class="fas fa-envelope-open-text"></i>FutureInbox
+                    </a>
+                    <p>Preserving humanity's most important messages for the moments that matter.</p>
+                    <div class="futureinbox-footer-social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="futureinbox-footer-links">
+                    <div>
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="compose.html">Compose</a></li>
+                             <li><a href="history.html">History</a></li>
+                             <li><a href="templates.html">Template</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                             <li><a href="howitworks.html">How It Works</a></li>
+                              <li><a href="helpcenter.html">Help Center</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="Terms&Conditions.html">Terms&Condition</a></li>
+                            <li><a href="Security.html">Security</a></li>
+                            <li><a href="complience.html">Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="futureinbox-footer-copyright">
+                <p>&copy; 2025 FutureInbox. All rights reserved. Because some messages are meant for later.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Terms Agreement Banner -->
+    <aside id="terms-banner" role="dialog" aria-labelledby="banner-title">
+        <p id="banner-title"><strong>FutureInbox Terms of Service</strong> — We've updated our Terms. Please review and accept to continue using our service.</p>
+        <div class="banner-buttons">
+            <button id="view-terms-btn" class="btn">
+                <i class="fas fa-file-alt"></i> View Terms
+            </button>
+            <button id="banner-accept-btn" class="btn btn-primary">
+                <i class="fas fa-check-circle"></i> Accept
+            </button>
+        </div>
+    </aside>
+
+   <!-- At the bottom of terms.html, right before </body> -->
+
+    <!-- These two scripts will now run the navbar, pop-ups, and logout button -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="global.js"></script>
+
+</body>
+</html>

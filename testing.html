@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FutureInbox - Send Messages Through Time</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <meta name="description" content="Send messages through time with FutureInbox — a futuristic, space-themed inbox.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #0a0f2c, #1f1f3b);
+      color: #ffffff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    /* === NAVBAR === */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 50, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #00ffff;
+      box-shadow: 0 0 8px #00ffff;
+      transition: 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #00ffff;
+    }
+
+    .nav-links li a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: #00ffff;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: rgba(10, 10, 40, 0.95);
+        border-radius: 10px;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+
+      .nav-links.showing {
+        display: flex;
+      }
+    }
+
+    /* === HERO SECTION === */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .typing-text {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #aaaaff;
+      height: 1.5em;
+    }
+
+    .portal {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00f0ff, #000022);
+      box-shadow: 0 0 20px #00f0ff, 0 0 40px #0ff, 0 0 60px #0ff;
+      animation: pulseGlow 4s infinite;
+      margin-bottom: 40px;
+      transition: transform 0.4s;
+    }
+
+    .portal:hover {
+      transform: scale(1.1) rotate(2deg);
+    }
+
+    .send-button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      background: #00f0ff;
+      border: none;
+      border-radius: 30px;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00f0ff;
+      transition: all 0.3s;
+    }
+
+    .send-button:hover {
+      background: #0ff;
+      transform: scale(1.05);
+    }
+
+    #toggleMode {
+      margin-top: 30px;
+      background: none;
+      color: #00ffff;
+      border: 1px solid #00ffff;
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    /* Typing Animation */
+    .typing-text::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 20px #00f, 0 0 40px #0ff, 0 0 60px #0ff;
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 30px #00f, 0 0 60px #0ff, 0 0 80px #0ff;
+        transform: scale(1.05);
+      }
+      100% {
+        box-shadow: 0 0 20px #00f, 0 0 40px #0ff, 0 0 60px #0ff;
+        transform: scale(1);
+      }
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background: #0b0b20;
+      color: #ffffff;
+    }
+
+    .dark-mode .send-button {
+      background: #ffffff;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .typing-text {
+        font-size: 1rem;
+      }
+
+      .portal {
+        width: 160px;
+        height: 160px;
+      }
+
+      .send-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <nav class="navbar">
+    <div class="logo">FutureInbox</div>
+    <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Compose</a></li>
+      <li><a href="#">Inbox</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ✅ Hero Section -->
+  <section class="hero">
+    <h1>Send Messages Through Time</h1>
+    <p class="typing-text"></p>
+    <div class="portal"></div>
+    <button class="send-button">Compose a Message</button>
+    <button id="toggleMode">Toggle Mode</button>
+  </section>
+
+  <!-- ✅ Scripts -->
+  <script>
+    // Typing effect
+    const text = "The future is now — reach beyond time.";
+    let i = 0;
+    const typing = setInterval(() => {
+      document.querySelector(".typing-text").textContent = text.slice(0, i++);
+      if (i > text.length) clearInterval(typing);
+    }, 60);
+
+    // Dark Mode toggle
+    document.getElementById("toggleMode").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+
+    // Mobile menu toggle
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navLinks = document.querySelector(".nav-links");
+    mobileMenu.addEventListener("click", () => {
+      navLinks.classList.toggle("showing");
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - FutureInbox</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/privacy.css">
+
+<script src="js/privacy,js"></script>
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+
+    <!-- Header with Glassmorphism Navbar -->
+    <header id="futureinbox-header" class="futureinbox-header">
+        <div class="futureinbox-nav-container">
+            <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+                <i class="fas fa-envelope-open-text"></i>FutureInbox
+            </a>
+            <div class="futureinbox-nav-main">
+                <nav aria-label="Main Navigation">
+                    <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+                        <li><a href="index.html" aria-label="Home">Home</a></li>
+                        <li><a href="compose.html" aria-label="compose">Compose</a></li>
+                        <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+                        <li class="futureinbox-nav-dropdown">
+                            <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                                History <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                                <li><a href="features.html" role="menuitem" aria-label="For Features"><i class="fa-solid fa-grip"></i> Features</a></li>
+                                <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                                <li><a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html" aria-label="About">About Us</a></li>
+                        <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+                <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+
+    <!-- Mobile Menu -->
+    <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+    <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+        <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="compose.html" aria-label="compose"><i class="fas fa-star"></i> Compose</a></li>
+            <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+            <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+                <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                    <span><i class="fas fa-layer-group"></i> History</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="futureinbox-mobile-dropdown-menu" role="menu">
+                    <a href="features.html" role="menuitem" aria-label="For features"><i class="fa-solid fa-grip"></i> Features</a>
+                    <a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i> Templates</a>
+                    <a href="helpcenter.html" role="menuitem" aria-label="helpcenter"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a>
+                </div>
+            </li>
+            <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+    </nav>
+
+    <!-- Cookie Notice Banner -->
+    <div id="cookie-notice">
+        <div class="notice-content">
+            <div class="notice-text">
+                <p><i class="fas fa-cookie-bite"></i> FutureInbox uses browser storage to save your messages. We don't use cookies for tracking. By using our site, you consent to browser storage.</p>
+            </div>
+            <div class="notice-buttons">
+                <button id="accept-storage">Accept</button>
+                <button id="reject-cookies">Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="main-content" class="privacy-hero">
+        <div class="container">
+            <h1 class="animate-in">Your Privacy is Our Priority</h1>
+            <p class="last-updated animate-in delay-1">Last Updated: <span id="current-date"></span></p>
+            <p class="animate-in delay-2">At FutureInbox, we're committed to protecting your personal information and being transparent about how we handle your data.</p>
+            
+            <div class="utility-buttons">
+                <button class="utility-btn" id="print-btn">
+                    <i class="fas fa-print"></i> Print Policy
+                </button>
+                <button class="utility-btn" id="export-btn">
+                    <i class="fas fa-file-export"></i> Export as PDF
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="policy-summary">
+            <div class="summary-card animate-in delay-1">
+                <h3><i class="fas fa-lock"></i> Client-Side Only</h3>
+                <p>All data stays in your browser. Nothing is sent to any server.</p>
+            </div>
+            <div class="summary-card animate-in delay-2">
+                <h3><i class="fas fa-user-shield"></i> Full Control</h3>
+                <p>You manage all data through your browser settings.</p>
+            </div>
+            <div class="summary-card animate-in delay-3">
+                <h3><i class="fas fa-bell-slash"></i> No Tracking</h3>
+                <p>We don't use cookies or analytics. Your messages remain private.</p>
+            </div>
+        </div>
+
+        <div class="policy-sections">
+            <section id="introduction" class="policy-section">
+                <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+                <p>Welcome to FutureInbox! This Privacy Policy explains how we handle your information in our browser-based application that runs entirely on your device.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Important: FutureInbox is a static website with no backend server.</strong> All data processing and storage happens locally in your browser. We never transmit, store, or access your messages on any server.</p>
+                </div>
+                
+                <p>By using FutureInbox, you consent to the data practices described in this policy. If you do not agree with the terms, please do not access or use our service.</p>
+            </section>
+
+            <section id="information-collected" class="policy-section">
+                <h2><i class="fas fa-database"></i> Information Handled Locally</h2>
+                
+                <div class="highlight-box">
+                    <p><strong>We store minimal data in your browser only:</strong></p>
+                </div>
+                
+                <h3>Message Content</h3>
+                <ul>
+                    <li>Text messages you create</li>
+                    <li>Delivery schedules and recipient information</li>
+                    <li>Encrypted message data</li>
+                </ul>
+                
+                <h3>Browser Storage</h3>
+                <ul>
+                    <li>LocalStorage: Stores your scheduled messages</li>
+                    <li>SessionStorage: Temporarily holds current session data</li>
+                </ul>
+                
+                <h3>Optional Features</h3>
+                <p>If you use experimental browser-based AI features:</p>
+                <ul>
+                    <li>Voice recordings processed locally in your browser</li>
+                    <li>Text-to-speech conversion data</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Client-Side Encryption:</strong> All encryption is performed locally in your browser using JavaScript. We don't have access to your encryption keys.</p>
+                </div>
+            </section>
+            
+            <section id="browser-storage" class="policy-section">
+                <h2><i class="fas fa-hdd"></i> Browser Storage</h2>
+                <p>We use your browser's storage features to provide functionality:</p>
+                
+                <h3>LocalStorage</h3>
+                <ul>
+                    <li>Stores encrypted messages</li>
+                    <li>Persists between sessions</li>
+                    <li>Capacity: ~5MB per domain</li>
+                </ul>
+                
+                <h3>SessionStorage</h3>
+                <ul>
+                    <li>Temporary storage during site use</li>
+                    <li>Cleared when browser closes</li>
+                </ul>
+                
+                <h3>Managing Storage</h3>
+                <p>You can manage or delete stored data at any time through your browser settings:</p>
+                
+                <div class="browser-guides">
+                    <div class="browser-card">
+                        <h4><i class="fab fa-chrome"></i> Chrome</h4>
+                        <ol>
+                            <li>Open Developer Tools (F12)</li>
+                            <li>Go to Application → Storage</li>
+                            <li>Expand Local Storage</li>
+                            <li>Select futureinbox.com</li>
+                            <li>Click "Clear"</li>
+                        </ol>
+                    </div>
+                    <div class="browser-card">
+                        <h4><i class="fab fa-firefox"></i> Firefox</h4>
+                        <ol>
+                            <li>Open Developer Tools (F12)</li>
+                            <li>Go to Storage tab</li>
+                            <li>Expand Local Storage</li>
+                            <li>Select futureinbox.com</li>
+                            <li>Click "Delete All"</li>
+                        </ol>
+                    </div>
+                    <div class="browser-card">
+                        <h4><i class="fab fa-safari"></i> Safari</h4>
+                        <ol>
+                            <li>Go to Preferences → Privacy</li>
+                            <li>Click "Manage Website Data"</li>
+                            <li>Search for futureinbox.com</li>
+                            <li>Select and click "Remove"</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <section id="data-usage" class="policy-section">
+                <h2><i class="fas fa-cogs"></i> How We Use Your Information</h2>
+                
+                <div class="data-flow">
+                    <div class="flow-step">
+                        <i class="fas fa-edit"></i>
+                        <h4>Create</h4>
+                        <p>Store your messages locally</p>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Encrypt</h4>
+                        <p>Protect content in your browser</p>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-paper-plane"></i>
+                        <h4>Deliver</h4>
+                        <p>Send at scheduled times</p>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-trash-alt"></i>
+                        <h4>Delete</h4>
+                        <p>Remove after delivery</p>
+                    </div>
+                </div>
+                
+                <p>We use your information exclusively in your browser to:</p>
+                <ul>
+                    <li>Provide the messaging service</li>
+                    <li>Store scheduled messages</li>
+                    <li>Encrypt message content</li>
+                    <li>Deliver messages at specified times</li>
+                    <li>Improve your experience</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>Important:</strong> All processing happens locally in your browser. We never access your messages or store them externally.</p>
+                </div>
+            </section>
+            
+            <section id="cookies-tracking" class="policy-section">
+                <h2><i class="fas fa-cookie-bite"></i> Cookies & External Services</h2>
+                
+                <h3>We Don't Use Cookies</h3>
+                <p>FutureInbox itself doesn't use any cookies for tracking or functionality.</p>
+                
+                <h3>Third-Party Services</h3>
+                <p>We load these external resources that may collect data:</p>
+                <ul>
+                    <li><strong>Google Fonts:</strong> May collect IP address and font usage stats (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>)</li>
+                    <li><strong>Font Awesome:</strong> May collect icon usage data (<a href="https://fontawesome.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>)</li>
+                </ul>
+                <p>Refer to their respective privacy policies for details.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>No Tracking:</strong> We don't use Google Analytics or any tracking scripts.</p>
+                </div>
+            </section>
+
+            <section id="data-security" class="policy-section">
+                <h2><i class="fas fa-lock"></i> Data Security</h2>
+                <p>We implement security measures within your browser:</p>
+                
+                <ul>
+                    <li><strong>Client-Side Encryption:</strong> Messages encrypted before storage using AES-256</li>
+                    <li><strong>Browser Security:</strong> Leverages your browser's security features</li>
+                    <li><strong>No Transmission:</strong> Data never leaves your device</li>
+                    <li><strong>Automatic Clearing:</strong> Messages deleted after delivery</li>
+                </ul>
+                
+                <p>While we implement these measures, browser storage has inherent limitations. We recommend:</p>
+                <ul>
+                    <li>Using strong device passwords</li>
+                    <li>Keeping your browser updated</li>
+                    <li>Clearing storage when using shared devices</li>
+                </ul>
+            </section>
+
+            <section id="data-retention" class="policy-section">
+                <h2><i class="fas fa-history"></i> Data Retention</h2>
+                <p>All data remains in your browser until:</p>
+                
+                <ul>
+                    <li><strong>Scheduled Messages:</strong> Automatically deleted after delivery</li>
+                    <li><strong>Manual Deletion:</strong> Clear messages anytime via our interface</li>
+                    <li><strong>Browser Clearance:</strong> Removed when you clear site data</li>
+                </ul>
+                
+                <h3>How to Delete Your Data</h3>
+                <ol>
+                    <li>Use the "Clear All Messages" button in the app</li>
+                    <li>Clear browser storage for futureinbox.com</li>
+                    <li>Disable JavaScript to prevent storage</li>
+                </ol>
+            </section>
+
+            <section id="your-rights" class="policy-section">
+                <h2><i class="fas fa-user-check"></i> Your Rights</h2>
+                
+                <div class="highlight-box">
+                    <p><strong>Since we don't collect personal data, your rights are exercised locally:</strong></p>
+                </div>
+                
+                <ul>
+                    <li><strong>Access:</strong> View all data in browser developer tools</li>
+                    <li><strong>Deletion:</strong> Clear data using browser settings</li>
+                    <li><strong>Correction:</strong> Edit messages before delivery</li>
+                    <li><strong>Portability:</strong> Export your messages as text files</li>
+                </ul>
+                
+                <h3>GDPR (EU Residents)</h3>
+                <p>Under GDPR, you have the right to lodge complaints with supervisory authorities. Since we don't process data externally, all control remains with you locally.</p>
+                
+                <h3>CCPA (California Residents)</h3>
+                <p>Under the California Consumer Privacy Act, you have the right to request disclosure of data collection and deletion. As we don't collect personal data, these rights are exercised through your browser controls.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>EU Representative:</strong> For GDPR inquiries, contact our EU representative at gdpr@futureinbox.eu</p>
+                </div>
+            </section>
+
+            <section id="children-privacy" class="policy-section">
+                <h2><i class="fas fa-child"></i> Children's Privacy</h2>
+                <p>FutureInbox is not intended for children under 16. We do not knowingly collect personal information from children under 16.</p>
+                <p>Since our service doesn't collect personal data, this primarily applies to ensuring children have parental guidance when using browser storage features.</p>
+            </section>
+
+            <section id="policy-changes" class="policy-section">
+                <h2><i class="fas fa-sync-alt"></i> Policy Changes</h2>
+                <p>We may update this Privacy Policy periodically. When we make changes:</p>
+                
+                <ul>
+                    <li>We will update the "Last Updated" date at the top of this policy</li>
+                    <li>We will provide a summary of key changes</li>
+                </ul>
+                
+                <p>Since we don't collect contact information, we can't notify you directly. Please check this page periodically for updates.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Change History:</strong> <a href="#" id="show-history">View previous versions</a></p>
+                    <div id="history-content" style="display: none; margin-top: 15px;">
+                        <p><strong>Version 1.0 (Jan 1, 2025):</strong> Initial policy release</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="contact-card">
+                <h3><i class="fas fa-envelope"></i> Contact Our Privacy Team</h3>
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <h4><i class="fas fa-envelope"></i> Email</h4>
+                        <p>For privacy-related inquiries:</p>
+                        <a href="mailto:privacy@futureinbox.com">privacy@futureinbox.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <h4><i class="fas fa-map-marker-alt"></i> Mailing Address</h4>
+                        <p>FutureInbox Privacy Team</p>
+                        <p>123 Time Avenue</p>
+                        <p>San Francisco, CA 94107</p>
+                    </div>
+                    <div class="contact-method">
+                        <h4><i class="fas fa-user-tie"></i> EU Representative</h4>
+                        <p>For GDPR inquiries:</p>
+                        <a href="mailto:gdpr@futureinbox.eu">gdpr@futureinbox.eu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="futureinbox-footer-container">
+            <div class="futureinbox-footer-content">
+                <div class="futureinbox-footer-logo-section">
+                    <a href="index.html" class="futureinbox-footer-logo" aria-label="FutureInbox Home">
+                        <i class="fas fa-envelope-open-text"></i>FutureInbox
+                    </a>
+                    <p>Preserving humanity's most important messages for the moments that matter.</p>
+                    <div class="futureinbox-footer-social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="futureinbox-footer-links">
+                    <div>
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="compose.html">Compose</a></li>
+                             <li><a href="history.html">History</a></li>
+                             <li><a href="templates.html">Template</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                             <li><a href="howitworks.html">How It Works</a></li>
+                              <li><a href="helpcenter.html">Help Center</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="Terms&Conditions.html">Terms & Conditions</a></li>
+                            <li><a href="Security.html">Security</a></li>
+                            <li><a href="complience.html">Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="futureinbox-footer-copyright">
+                <p>&copy; 2025 FutureInbox. All rights reserved. Because some messages are meant for later.</p>
+            </div>
+        </div>
+    </footer>
+
+   <!-- At the bottom of privacy.html, right before </body> -->
+
+    <!-- These two scripts will now run the navbar, pop-ups, and logout button -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="global.js"></script>
+
+    
+</body>
+</html>

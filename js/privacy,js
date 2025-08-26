@@ -1,0 +1,78 @@
+  // We rename the main function for this page to initPage(), which global.js will find and run.
+        function initPage() {
+            // Set current date
+            const currentDateEl = document.getElementById('current-date');
+            if (currentDateEl) {
+                currentDateEl.textContent = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+
+            // Cookie notice functionality
+            const cookieNotice = document.getElementById('cookie-notice');
+            if (cookieNotice && !localStorage.getItem('storage-accepted')) {
+                cookieNotice.style.display = 'block';
+            }
+            
+            const acceptStorageBtn = document.getElementById('accept-storage');
+            if(acceptStorageBtn) {
+                acceptStorageBtn.addEventListener('click', () => {
+                    localStorage.setItem('storage-accepted', 'true');
+                    if(cookieNotice) cookieNotice.style.display = 'none';
+                });
+            }
+
+            const rejectCookiesBtn = document.getElementById('reject-cookies');
+            if(rejectCookiesBtn) {
+                rejectCookiesBtn.addEventListener('click', () => {
+                    const targetElement = document.querySelector('#cookies-tracking');
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+
+            // Print functionality
+            const printBtn = document.getElementById('print-btn');
+            if(printBtn) {
+                printBtn.addEventListener('click', () => {
+                    window.print();
+                });
+            }
+            
+            // Export functionality
+            const exportBtn = document.getElementById('export-btn');
+            if(exportBtn) {
+                exportBtn.addEventListener('click', () => {
+                    alert('Export feature would be implemented in the main app. This would export your messages as a text file.');
+                });
+            }
+            
+            // Policy history toggle
+            const showHistoryBtn = document.getElementById('show-history');
+            if(showHistoryBtn) {
+                showHistoryBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const content = document.getElementById('history-content');
+                    if(content) content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                });
+            }
+
+            // Scroll animation initialization
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.policy-section, .highlight-box, .flow-step, .browser-card').forEach(el => {
+                observer.observe(el);
+            });
+        }

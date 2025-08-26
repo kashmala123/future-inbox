@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found | Interactive Robot Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4dc2f8;
+            --secondary: #3b50ea;
+            --dark-bg: linear-gradient(135deg, #0a0d2a, #0c1035, #0a0d2a);
+            --text-light: #f0f0f0;
+            --text-muted: #c0c0c0;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            position: relative;
+            z-index: 20;
+            padding: 30px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .error-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .error-code {
+            font-size: clamp(4rem, 15vw, 15rem); /* Adjusted for small screens */
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            position: relative;
+            text-shadow: 0 0 15px rgba(77, 194, 248, 0.8);
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .message {
+            font-size: clamp(1.6rem, 5vw, 4rem); /* Adjusted for small screens */
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            position: relative;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(77, 194, 248, 0.4);
+        }
+
+        .sub-message {
+            font-size: clamp(0.9rem, 1.5vw, 1.3rem); /* Adjusted for small screens */
+            color: var(--text-muted);
+            margin: 15px 0 30px;
+            line-height: 1.6;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--secondary), #5c6efc);
+            color: #ffffff;
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(59, 80, 234, 0.4), 
+                        0 0 15px rgba(77, 194, 248, 0.5);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .home-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(59, 80, 234, 0.6), 
+                        0 0 25px rgba(77, 194, 248, 0.8);
+        }
+
+        .robot-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 300px;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .robot-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        .robot-wrapper {
+            position: relative;
+            transform-style: preserve-3d;
+            animation: robot-float 4s ease-in-out infinite;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        @keyframes robot-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(3deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(-3deg); }
+        }
+
+        .robot-svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 25px rgba(77, 194, 248, 0.8));
+            position: relative;
+            z-index: 2;
+        }
+
+        .robot-base-glow {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(1.2, 0.5);
+            width: 80%;
+            max-width: 280px;
+            height: 30px;
+            background: radial-gradient(ellipse at center, var(--primary) 0%, rgba(77, 194, 248, 0) 70%);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: pulseGlow 2s infinite alternate ease-in-out;
+            z-index: 1;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                transform: translateX(-50%) scale(1.2, 0.5);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateX(-50%) scale(1.4, 0.6);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) scale(1.2, 0.5);
+                opacity: 0.8;
+            }
+        }
+
+        /* Background Elements */
+        .background-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .plus {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 2px solid var(--secondary);
+            transform: rotate(45deg);
+            opacity: 0.25;
+            box-shadow: 0 0 10px rgba(59, 80, 234, 0.5);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .plus-top-left { top: 8%; left: 10%; animation-duration: 30s; }
+        .plus-top-right { top: 20%; right: 5%; animation-duration: 25s; }
+        .plus-bottom-right { bottom: 15%; right: 18%; animation-duration: 35s; }
+
+        .circle {
+            position: absolute;
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            opacity: 0.2;
+            box-shadow: 0 0 10px rgba(59, 80, 234, 0.5);
+            animation: pulse 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.2; }
+            100% { transform: scale(1.1); opacity: 0.3; }
+        }
+
+        .circle-large {
+            width: 100px;
+            height: 100px;
+            top: 45%;
+            left: 5%;
+            animation-duration: 12s;
+        }
+
+        .circle-small {
+            width: 50px;
+            height: 50px;
+            bottom: 8%;
+            left: 30%;
+            animation-duration: 10s;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .error-section {
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .sub-message {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .robot-section {
+                min-height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .error-code {
+                font-size: clamp(5rem, 20vw, 8rem);
+            }
+            
+            .message {
+                font-size: clamp(1.8rem, 6vw, 3rem);
+            }
+            
+            .robot-wrapper {
+                max-width: 280px;
+            }
+        }
+
+        /* iPhone SE specific fixes */
+        @media (max-width: 375px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .error-code {
+                font-size: clamp(3.5rem, 18vw, 4rem);
+                margin-bottom: 10px;
+            }
+            
+            .message {
+                font-size: clamp(1.4rem, 6vw, 1.6rem);
+                margin-bottom: 10px;
+            }
+            
+            .sub-message {
+                font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+                margin: 10px 0 20px;
+            }
+            
+            .home-button {
+                padding: 14px 25px;
+                font-size: 0.95rem;
+            }
+            
+            .robot-section {
+                min-height: 280px;
+            }
+            
+            .robot-wrapper {
+                max-width: 220px;
+            }
+            
+            .robot-base-glow {
+                max-width: 200px;
+                height: 25px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .error-code {
+                font-size: 3rem;
+            }
+            
+            .message {
+                font-size: 1.3rem;
+            }
+            
+            .sub-message {
+                font-size: 0.8rem;
+            }
+            
+            .home-button {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .robot-wrapper {
+                max-width: 200px;
+            }
+            
+            .robot-base-glow {
+                max-width: 180px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .background-elements, .robot-section {
+                display: none;
+            }
+            
+            .error-code {
+                color: #333;
+                text-shadow: none;
+            }
+            
+            .home-button {
+                background: #333;
+                color: white;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background elements -->
+    <div class="background-elements" aria-hidden="true">
+        <div class="plus plus-top-left"></div>
+        <div class="plus plus-top-right"></div>
+        <div class="plus plus-bottom-right"></div>
+        <div class="circle circle-large"></div>
+        <div class="circle circle-small"></div>
+        <div class="stars" id="stars-container"></div>
+    </div>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="error-section">
+                <div class="error-code">404</div>
+                <h1 class="message">Page Not Found</h1>
+                <p class="sub-message">The page you're looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+                <a href="index.html" class="home-button">
+                    <i class="fas fa-home"></i> Go back home
+                </a>
+            </div>
+
+            <div class="robot-section">
+                <div class="robot-container">
+                    <div class="robot-wrapper">
+                        <svg class="robot-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Robot Body -->
+                            <rect x="120" y="200" width="160" height="180" rx="25" fill="url(#bodyGradient)"/>
+                            
+                            <!-- Head -->
+                            <rect x="140" y="120" width="120" height="100" rx="20" fill="url(#headGradient)"/>
+                            
+                            <!-- Antenna -->
+                            <rect x="195" y="80" width="10" height="40" fill="#4DC2F8"/>
+                            <circle cx="200" cy="70" r="15" fill="#FFD700"/>
+                            
+                            <!-- Eyes -->
+                            <ellipse cx="170" cy="150" rx="15" ry="18" fill="#0A0D2A"/>
+                            <ellipse cx="230" cy="150" rx="15" ry="18" fill="#0A0D2A"/>
+                            
+                            <!-- Eye highlights -->
+                            <ellipse cx="165" cy="145" rx="5" ry="6" fill="#FFFFFF"/>
+                            <ellipse cx="225" cy="145" rx="5" ry="6" fill="#FFFFFF"/>
+                            
+                            <!-- Mouth -->
+                            <path d="M170 180 Q200 195 230 180" stroke="#0A0D2A" stroke-width="8" stroke-linecap="round" fill="none"/>
+                            
+                            <!-- Neck -->
+                            <rect x="180" y="220" width="40" height="20" fill="#4DC2F8"/>
+                            
+                            <!-- Arms -->
+                            <rect x="80" y="230" width="40" height="15" rx="7" fill="url(#armGradient)"/>
+                            <rect x="280" y="230" width="40" height="15" rx="7" fill="url(#armGradient)"/>
+                            
+                            <!-- Hands -->
+                            <circle cx="80" cy="237" r="10" fill="#4DC2F8"/>
+                            <circle cx="320" cy="237" r="10" fill="#4DC2F8"/>
+                            
+                            <!-- Legs -->
+                            <rect x="140" y="380" width="30" height="50" rx="10" fill="#4DC2F8"/>
+                            <rect x="230" y="380" width="30" height="50" rx="10" fill="#4DC2F8"/>
+                            
+                            <!-- Feet -->
+                            <rect x="130" y="430" width="50" height="20" rx="10" fill="#3B50EA"/>
+                            <rect x="220" y="430" width="50" height="20" rx="10" fill="#3B50EA"/>
+                            
+                            <!-- Chest Panel -->
+                            <rect x="160" y="260" width="80" height="60" rx="10" fill="#0A0D2A"/>
+                            
+                            <!-- Buttons -->
+                            <circle cx="180" cy="275" r="5" fill="#4DC2F8"/>
+                            <circle cx="180" cy="295" r="5" fill="#4DC2F8"/>
+                            <circle cx="200" cy="275" r="5" fill="#4DC2F8"/>
+                            <circle cx="200" cy="295" r="5" fill="#4DC2F8"/>
+                            <circle cx="220" cy="275" r="5" fill="#4DC2F8"/>
+                            <circle cx="220" cy="295" r="5" fill="#4DC2F8"/>
+                            
+                            <!-- Shoulder joints -->
+                            <circle cx="120" cy="230" r="15" fill="#3B50EA"/>
+                            <circle cx="280" cy="230" r="15" fill="#3B50EA"/>
+                            
+                            <!-- Gradients -->
+                            <defs>
+                                <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#4DC2F8" />
+                                    <stop offset="100%" stop-color="#3B50EA" />
+                                </linearGradient>
+                                <linearGradient id="headGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#4DC2F8" />
+                                    <stop offset="100%" stop-color="#3B50EA" />
+                                </linearGradient>
+                                <linearGradient id="armGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#3B50EA" />
+                                    <stop offset="100%" stop-color="#4DC2F8" />
+                                </linearGradient>
+                                <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+                                    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+                                </radialGradient>
+                            </defs>
+                            
+                            <!-- Eye glow effect -->
+                            <ellipse cx="170" cy="150" rx="20" ry="25" fill="url(#eyeGlow)" opacity="0.6"/>
+                            <ellipse cx="230" cy="150" rx="20" ry="25" fill="url(#eyeGlow)" opacity="0.6"/>
+                        </svg>
+                        <div class="robot-base-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create stars background
+        const starsContainer = document.getElementById('stars-container');
+        const screenSize = window.innerWidth;
+        const starCount = screenSize < 600 ? 40 : screenSize < 900 ? 80 : 120;
+        
+        const fragment = document.createDocumentFragment();
+        
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = `${Math.random() * 2 + 1}px`;
+            star.style.height = star.style.width;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            fragment.appendChild(star);
+        }
+        
+        starsContainer.appendChild(fragment);
+        
+        // Robot mouse interaction
+        let animationFrame;
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+        
+        const robotWrapper = document.querySelector('.robot-wrapper');
+        
+        function updateRobotPosition() {
+            const moveX = (lastMouseX - window.innerWidth / 2) / (window.innerWidth / 2);
+            const moveY = (lastMouseY - window.innerHeight / 2) / (window.innerHeight / 2);
+            
+            robotWrapper.style.transform = `
+                translateY(${moveY * 10}px)
+                translateX(${moveX * 10}px)
+                rotateY(${moveX * 15}deg)
+                rotateX(${-moveY * 15}deg)
+            `;
+            
+            animationFrame = null;
+        }
+        
+        document.addEventListener('mousemove', (e) => {
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+            
+            if (!animationFrame) {
+                animationFrame = requestAnimationFrame(updateRobotPosition);
+            }
+        });
+        
+        document.addEventListener('mouseleave', () => {
+            robotWrapper.style.transform = '';
+        });
+    </script>
+</body>
+</html>

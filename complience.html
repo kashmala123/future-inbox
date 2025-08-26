@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FutureInbox Compliance & Trust Center</title>
+<meta name="description" content="Explore FutureInbox's commitment to global compliance standards, including SOC 2, ISO 27001, GDPR, and CCPA. Our Trust Center provides transparency into our security and data protection practices.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- In your <head> section -->
+<link rel="stylesheet" href="css/complience.css">
+<script src="js/complience.js"></script>
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1IDMwTDE4Ny4xMjkgMTQ2Ljg3MUg2Yi44NzFMMTI1IDMwWiIgZmlsbD0iIzAwZDFmZiIvPjxwYXRoIGQ9Ik0xMjUgMzBMMTg3LjEyOSAxNDYuODcxTDEyNSAyMTVWNzBaIiBmaWxsPSIjN2U1N2MyIiBmaWxsLW9wYWNpdHk9IjAuOCIvPjwvc3ZnPg==">
+
+<style>
+    /* ===== CSS Variables ===== */
+  
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+
+<!-- NEW NAVBAR HEADER -->
+<header id="futureinbox-header" class="futureinbox-header">
+    <div class="futureinbox-nav-container">
+      <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+        <i class="fas fa-envelope-open-text"></i>FutureInbox
+      </a>
+      <div class="futureinbox-nav-main">
+        <nav aria-label="Main Navigation">
+          <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+            <li><a href="index.html" aria-label="Home">Home</a></li>
+            <li><a href="compose.html" aria-label="compose">Compose</a></li>
+            <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+            <li class="futureinbox-nav-dropdown">
+              <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                History <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                <li><a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i> Features</a></li>
+                <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                <li><a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html" aria-label="About">About Us</a></li>
+            <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+        <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+</header>
+
+<!-- Scroll Progress Indicator -->
+<div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+
+<!-- Mobile Menu -->
+<div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+<nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+    <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul>
+      <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="compose.html" aria-label="Features"><i class="fas fa-star"></i> Compose</a></li>
+      <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+      <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+        <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="History">
+          <span><i class="fas fa-layer-group"></i> History</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="futureinbox-mobile-dropdown-menu" role="menu">
+          <a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i>Features</a>
+          <a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a>
+          <a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i> Help Center</a>
+        </div>
+      </li>
+      <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+    <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+</nav>
+
+<main id="main-content">
+    <!-- Hero Section -->
+    <section class="compliance-hero">
+        <div class="container">
+            <div class="hero-visual">
+                <div class="trust-seal">
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <i class="fas fa-shield-heart"></i>
+                </div>
+            </div>
+            <div class="supertitle">FutureInbox Trust Center</div>
+            <h1>Engineered for Trust. Verified by the World.</h1>
+            <p>
+                Trust isn't given; it's earned and verified. At FutureInbox, our commitment to securing your legacy is validated against the most rigorous global security and privacy standards. This is our home for transparency.
+            </p>
+        </div>
+    </section>
+
+    <!-- Certifications and Attestations Section -->
+    <section class="compliance-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Certifications & Attestations</h2>
+                <p>We undergo continuous, independent audits to ensure our security controls meet and exceed the highest industry standards. Your data is protected by a framework of proven excellence.</p>
+            </div>
+            <div class="compliance-grid">
+                <!-- SOC 2 Card -->
+                <div class="compliance-card reveal">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-stamp"></i></div>
+                        <div class="card-title">
+                            <h3>SOC 2 Type II</h3>
+                            <div class="status"><i class="fas fa-check-circle"></i> Certified Annually</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Our systems and processes are audited annually against the AICPA's Trust Services Criteria for Security, Availability, and Confidentiality. This provides a detailed, third-party assurance of our operational integrity.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="cta-link">Request Report <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- ISO 27001 Card -->
+                <div class="compliance-card reveal">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-globe"></i></div>
+                        <div class="card-title">
+                            <h3>ISO/IEC 27001</h3>
+                            <div class="status"><i class="fas fa-check-circle"></i> Certified</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>This certification demonstrates our comprehensive information security management system (ISMS), covering our people, processes, and technology, ensuring a holistic approach to security management.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="cta-link">View Certificate <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Privacy & Regulations Section -->
+    <section class="compliance-section" style="background: rgba(0,0,0,0.1); border-top: 1px solid var(--card-border);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Data Privacy & Regulations</h2>
+                <p>Your privacy rights are fundamental. Our practices are built on a foundation of data protection by design, fully compliant with major global privacy regulations.</p>
+            </div>
+            <div class="compliance-grid">
+                <!-- GDPR Card -->
+                <div class="compliance-card reveal">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="card-title">
+                            <h3>GDPR</h3>
+                            <div class="status"><i class="fas fa-check-circle"></i> Compliant</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>We are fully compliant with the EU's General Data Protection Regulation, providing robust data rights for our users in the European Economic Area, including Data Processing Agreements (DPAs).</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="privacy.html" class="cta-link">Read Privacy Policy <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- CCPA Card -->
+                <div class="compliance-card reveal">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-landmark"></i></div>
+                        <div class="card-title">
+                            <h3>CCPA / CPRA</h3>
+                            <div class="status"><i class="fas fa-check-circle"></i> Compliant</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>We adhere to the California Consumer Privacy Act and California Privacy Rights Act, ensuring that our users in California have full control over their personal information and data rights.</p>
+                    </div>
+                     <div class="card-footer">
+                        <a href="privacy.html#ccpa" class="cta-link">Your Privacy Rights <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Residency & Transparency Section -->
+    <section class="compliance-section">
+        <div class="container">
+             <div class="section-header reveal">
+                <h2>Data Residency & Transparency</h2>
+                <p>You control your legacy, and that includes where it resides. We are transparent about the world-class partners we trust to help deliver our service.</p>
+            </div>
+            <div class="two-column-section reveal">
+                <div class="data-residency-content">
+                    <h3>Control Your Data's Location</h3>
+                    <p>Upon signup, you can choose to have your encrypted data stored in either the United States or the European Union. All data and backups remain within your chosen region, ensuring compliance with local data sovereignty requirements.</p>
+                    <div class="world-map-visual">
+                        <i class="fas fa-globe-americas"></i>
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                </div>
+                <div class="processor-list">
+                    <div class="processor-item processor-header">
+                        <strong>PROVIDER</strong>
+                        <p>PURPOSE</p>
+                    </div>
+                    <div class="processor-item">
+                        <strong>Amazon Web Services</strong>
+                        <p>Primary secure cloud infrastructure.</p>
+                    </div>
+                     <div class="processor-item">
+                        <strong>Google Cloud Platform</strong>
+                        <p>Redundant archival storage.</p>
+                    </div>
+                    <div class="processor-item">
+                        <strong>Stripe</strong>
+                        <p>Secure payment processing.</p>
+                    </div>
+                    <div class="processor-item">
+                        <strong>Twilio SendGrid</strong>
+                        <p>Transactional email delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Hub Section -->
+    <section class="compliance-section" style="border-bottom: 1px solid var(--card-border);">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Resource Hub</h2>
+                <p>Find the documents and contact information you need. We believe in making our policies and practices clear and accessible.</p>
+            </div>
+            <div class="resource-hub-grid reveal">
+                <div class="resource-card">
+                    <i class="fas fa-file-contract"></i>
+                    <h4>Privacy Policy</h4>
+                    <a href="privacy.html">View Document</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-gavel"></i>
+                    <h4>Terms of Service</h4>
+                    <a href="terms.html">View Document</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Security Overview</h4>
+                    <a href="security.html">View Page</a>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Contact DPO</h4>
+                    <a href="mailto:privacy@futureinbox.com">Ask a Question</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="futureinbox-footer">
+    <div class="futureinbox-footer-container">
+        <div class="futureinbox-footer-content">
+            <div class="futureinbox-footer-logo-section">
+                <a href="index.html" class="futureinbox-footer-logo" aria-label="FutureInbox Home">
+                    <i class="fas fa-envelope-open-text"></i>FutureInbox
+                </a>
+                <p>Preserving humanity's most important messages for the moments that matter.</p>
+                <div class="futureinbox-footer-social-links">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="futureinbox-footer-links">
+                <div>
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="compose.html">Compose</a></li>
+                        <li><a href="history.html">History</a></li>
+                         <li><a href="templates.html">Template</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                         <li><a href="howitworks.html">How It Works</a></li>
+                          <li><a href="helpcenter.html">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="Terms&Conditions.html">Terms & Condition</a></li>
+                        <li><a href="Security.html">Security</a></li>
+                        <li><a href="complience.html">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="futureinbox-footer-copyright">
+            <p>&copy; 2025 FutureInbox. All rights reserved. Because some messages are meant for later.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- At the bottom of compliance.html, right before </body> -->
+
+    <!-- These two scripts will now run the navbar, pop-ups, and logout button -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="global.js"></script>
+
+    <!-- This page has some simple scroll animations. We can add a tiny script for that. -->
+    
+</body>
+</html>

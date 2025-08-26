@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Templates - FutureInbox</title>
+     <!-- ADD THE SWEETALERT2 STYLESHEET HERE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+       <link rel="stylesheet" href="css/template.css">
+       <!-- ADD THE SWEETALERT2 SCRIPT HERE (at the bottom) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <!-- ADD THE GATEKEEPER SCRIPT HERE -->
+    <script src="auth.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+
+
+    </style>
+</head>
+<body>
+    <div class="space-bg">
+        <div class="space-orb"></div>
+        <div class="space-orb"></div>
+        <div class="space-orb"></div>
+    </div>
+
+    <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+
+    <header id="futureinbox-header" class="futureinbox-header">
+        <div class="futureinbox-nav-container">
+            <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+                <i class="fas fa-envelope-open-text"></i>FutureInbox
+            </a>
+            <div class="futureinbox-nav-main">
+                <nav aria-label="Main Navigation">
+                <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+                    <li><a href="index.html" aria-label="Home">Home</a></li>
+                    <li><a href="compose.html" aria-label="compose">Compose</a></li>
+                    <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+                    <li class="futureinbox-nav-dropdown">
+                    <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                        History <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                        <li><a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i> Features</a></li>
+                        <li><a href="templates.html" role="menuitem" aria-label="Templates Use" aria-current="page"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                        <li><a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="about.html" aria-label="About">About Us</a></li>
+                    <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+                </ul>
+                </nav>
+                <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+                <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+                <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+
+    <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+    <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+        <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="compose.html" aria-label="Features"><i class="fas fa-star"></i> Compose</a></li>
+            <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+            <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+                <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                <span><i class="fas fa-layer-group"></i> History</span>
+                <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="futureinbox-mobile-dropdown-menu" role="menu">
+                <a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i>Features</a>
+                <a href="templates.html" role="menuitem" aria-label="Templates Use" aria-current="page"><i class="fa-solid fa-chart-bar"></i>Templates</a>
+                <a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i> Help Center</a>
+                </div>
+            </li>
+            <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+    </nav>
+    
+    <main class="container" id="main-content">
+        <div class="hero">
+            <div class="hero-icon">
+                <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="hero-badge animate__animated animate__pulse animate__infinite">
+                <i class="fas fa-robot"></i> AI-Powered
+            </div>
+            <h1>Advanced Message Templates</h1>
+            <p>Create, manage, and send messages with our AI-enhanced templates</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary" id="tutorial-btn">
+                    <i class="fas fa-play-circle"></i> Watch Tutorial
+                </button>
+                <button class="btn btn-outline" id="export-all-btn">
+                    <i class="fas fa-file-export"></i> Export All
+                </button>
+            </div>
+        </div>
+
+        <!-- AI Assistant, Folders, etc. remain the same -->
+        <div class="ai-assistant">
+            <div class="ai-header">
+                <div class="ai-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h2 class="ai-title">AI Template Assistant</h2>
+            </div>
+            <div class="ai-controls">
+                <input type="text" id="ai-prompt" class="ai-input" placeholder="Describe the template you need (e.g. 'Professional follow-up email', 'Funny birthday message')">
+                <button class="btn btn-ai" id="generate-template">
+                    <i class="fas fa-magic"></i> Generate Template
+                </button>
+            </div>
+            <div class="tone-selector">
+                <div class="tone-btn active" data-tone="professional">Professional</div>
+                <div class="tone-btn" data-tone="casual">Casual</div>
+                <div class="tone-btn" data-tone="humorous">Humorous</div>
+                <div class="tone-btn" data-tone="inspiring">Inspiring</div>
+            </div>
+            <div id="ai-loading" style="display: none; text-align: center; padding: 1rem; color: var(--muted);">
+                <i class="fas fa-spinner fa-spin"></i> Generating your template...
+            </div>
+            <div id="ai-suggestions" class="tag-container" style="margin-top: 1.5rem;">
+                <div class="tag" data-prompt="Birthday message">Birthday</div>
+                <div class="tag" data-prompt="Work follow-up">Follow-up</div>
+                <div class="tag" data-prompt="Apology message">Apology</div>
+                <div class="tag" data-prompt="Motivational quote">Motivation</div>
+            </div>
+        </div>
+
+        <div class="folders-container">
+            <div class="folder active" data-folder="all">
+                <div class="folder-icon">
+                    <i class="fas fa-inbox"></i>
+                </div>
+                <div class="folder-name">All Templates</div>
+                <div class="folder-count">12</div>
+            </div>
+            <div class="folder" data-folder="favorites">
+                <div class="folder-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="folder-name">Favorites</div>
+                <div class="folder-count">4</div>
+            </div>
+            <div class="folder" data-folder="quick">
+                <div class="folder-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="folder-name">Quick Send</div>
+                <div class="folder-count">3</div>
+            </div>
+            <div class="folder" data-folder="team">
+                <div class="folder-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="folder-name">Team</div>
+                <div class="folder-count">7</div>
+            </div>
+            <div class="folder" data-folder="ai">
+                <div class="folder-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="folder-name">AI Generated</div>
+                <div class="folder-count">5</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fas fa-file-alt"></i>
+                    Template Library
+                </h3>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <button id="new-template-btn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> New Template
+                    </button>
+                    <button id="import-btn" class="btn btn-outline">
+                        <i class="fas fa-file-import"></i> Import
+                    </button>
+                    <button class="btn btn-insight" id="version-history-btn">
+                        <i class="fas fa-history"></i> Version History
+                    </button>
+                    
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="filters-container">
+                    <div class="filter-group" style="flex: 2;">
+                        <label for="template-search" class="filter-label">Search Templates</label>
+                        <input type="text" id="template-search" class="filter-input" placeholder="Search by title, description, content...">
+                    </div>
+                    
+                    <div class="filter-group" style="flex: 1;">
+                        <label for="template-category" class="filter-label">Category</label>
+                        <select id="template-category" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="anniversary">Anniversary</option>
+                            <option value="graduation">Graduation</option>
+                            <option value="love">Love Letters</option>
+                            <option value="motivation">Motivation</option>
+                            <option value="apology">Apology</option>
+                            <option value="business">Business</option>
+                            <option value="reminder">Reminders</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group" style="flex: 1;">
+                        <label class="filter-label">Filters</label>
+                        <div class="filter-toggle" id="favorites-filter">
+                            <i class="fas fa-heart"></i>
+                            <span>Favorites Only</span>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group-button">
+                        <button id="reset-filters" class="btn btn-outline filter-btn">
+                            <i class="fas fa-undo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tag-container" id="category-tags">
+                    <div class="tag tag-birthday" data-category="birthday">Birthday</div>
+                    <div class="tag tag-anniversary" data-category="anniversary">Anniversary</div>
+                    <div class="tag tag-graduation" data-category="graduation">Graduation</div>
+                    <div class="tag tag-love" data-category="love">Love</div>
+                    <div class="tag tag-motivation" data-category="motivation">Motivation</div>
+                    <div class="tag tag-apology" data-category="apology">Apology</div>
+                    <div class="tag tag-business" data-category="business">Business</div>
+                    <div class="tag tag-reminder" data-category="reminder">Reminder</div>
+                    <div class="tag tag-ai" data-category="ai">AI Generated</div>
+                </div>
+
+                <div class="templates-grid" id="templates-grid">
+                </div>
+            </div>
+        </div>
+
+        <div class="performance-stats">
+            <div class="stat-card">
+                <div class="stat-value" id="total-templates">12</div>
+                <div class="stat-label">Total Templates</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">86%</div>
+                <div class="stat-label">Avg. Open Rate</div>
+                <div class="chart-container">
+                    <canvas id="open-rate-chart"></canvas>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">4.2/5</div>
+                <div class="stat-label">Avg. Rating</div>
+                <div class="chart-container">
+                    <canvas id="rating-chart"></canvas>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="usage-count">86</div>
+                <div class="stat-label">Times Used</div>
+                <div class="chart-container">
+                    <canvas id="usage-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-panels">
+            <div class="variable-panel">
+                <div class="variable-header">
+                    <div class="variable-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="variable-title">Smart Variables</h3>
+                </div>
+                <div class="variable-grid">
+                    <div class="variable-card" data-variable="[Recipient Name]">
+                        <div class="variable-name">[Recipient Name]</div>
+                        <div class="variable-desc">The name of the person receiving the message</div>
+                    </div>
+                    <div class="variable-card" data-variable="[Your Name]">
+                        <div class="variable-name">[Your Name]</div>
+                        <div class="variable-desc">Your name as the sender</div>
+                    </div>
+                    <div class="variable-card" data-variable="[Event Date]">
+                        <div class="variable-name">[Event Date]</div>
+                        <div class="variable-desc">Date of the event (birthday, anniversary, etc.)</div>
+                    </div>
+                    <div class="variable-card" data-variable="[Specific Detail]">
+                        <div class="variable-name">[Specific Detail]</div>
+                        <div class="variable-desc">Personalized detail about the recipient</div>
+                    </div>
+                    <div class="variable-card" data-variable="[Company Name]">
+                        <div class="variable-name">[Company Name]</div>
+                        <div class="variable-desc">Your company or organization name</div>
+                    </div>
+                    <div class="variable-card" data-variable="[Current Year]">
+                        <div class="variable-name">[Current Year]</div>
+                        <div class="variable-desc">Automatically inserts the current year</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-panel">
+                <div class="insight-header">
+                    <div class="insight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="insight-title">Template Insights</h3>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-card">
+                        <div class="insight-card-title">
+                            <i class="fas fa-fire"></i> Most Popular Templates
+                        </div>
+                        <ol style="padding-left: 1.5rem; margin-top: 0.5rem;" id="popular-templates">
+                        </ol>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-card-title">
+                            <i class="fas fa-calendar-alt"></i> Usage Trends
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="trend-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="preview-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-eye"></i>
+                    <span id="preview-title">Template Preview</span>
+                </h3>
+                <button class="modal-close" id="preview-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-container">
+                    <div class="preview-content">
+                        <div class="preview-title">
+                            <i class="fas fa-code"></i> Fill Variables
+                        </div>
+                        <div class="variable-inputs" id="variable-inputs">
+                        </div>
+                        <div class="preview-title">
+                            <i class="fas fa-file-alt"></i> Preview
+                        </div>
+                        <div class="message-card">
+                            <div class="message-card-header">
+                                <div class="message-card-subject" id="preview-subject">Message Preview</div>
+                                <div class="message-card-date" id="preview-date"></div>
+                            </div>
+                            <div class="message-card-body" id="preview-output"></div>
+                            <div class="message-card-footer" id="preview-footer"></div>
+                        </div>
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-title">
+                            <i class="fas fa-chart-line"></i> Performance
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="template-chart"></canvas>
+                        </div>
+                        <div class="preview-title">
+                            <i class="fas fa-star"></i> Rating
+                        </div>
+                        <div class="rating" id="template-rating">
+                            <i class="fas fa-star star" data-rating="1"></i>
+                            <i class="fas fa-star star" data-rating="2"></i>
+                            <i class="fas fa-star star" data-rating="3"></i>
+                            <i class="fas fa-star star" data-rating="4"></i>
+                            <i class="fas fa-star star" data-rating="5"></i>
+                        </div>
+                      <div class="preview-title" style="margin-top: 1rem;">
+                        <i class="fas fa-tag"></i> Tags
+                    </div>
+                    <div class="tag-container">
+                        <div class="tag tag-business">Business</div>
+                        <div class="tag tag-ai">AI Generated</div>
+                        <button class="btn btn-sm btn-outline" id="add-tag-preview-btn">+ Add Tag</button>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="copy-to-clipboard">
+                    <i class="fas fa-copy"></i> Copy Content
+                </button>
+                <button class="btn btn-outline" id="preview-close-btn">Close</button>
+                <button class="btn btn-primary" id="use-template-btn">Use Template</button>
+                <button class="btn btn-variable" id="schedule-template-btn">
+                    <i class="fas fa-calendar-alt"></i> Schedule
+                </button>
+                <button class="btn btn-insight" id="version-history-preview-btn">
+                    <i class="fas fa-history"></i> History
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="editor-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-edit"></i>
+                    <span id="editor-title">New Template</span>
+                </h3>
+                <button class="modal-close" id="editor-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="template-editor">
+                    <div class="editor-header">
+                        <div class="editor-emoji">
+                            <input type="text" id="template-emoji" placeholder="🎉" maxlength="2">
+                        </div>
+                        <div class="editor-title">
+                            <input type="text" id="template-name" placeholder="Template Name">
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Category</label>
+                        <div class="editor-category" id="editor-category">
+                            <div class="category-tag" data-category="birthday">Birthday</div>
+                            <div class="category-tag" data-category="anniversary">Anniversary</div>
+                            <div class="category-tag" data-category="graduation">Graduation</div>
+                            <div class="category-tag" data-category="love">Love</div>
+                            <div class="category-tag" data-category="motivation">Motivation</div>
+                            <div class="category-tag" data-category="apology">Apology</div>
+                            <div class="category-tag" data-category="business">Business</div>
+                            <div class="category-tag" data-category="reminder">Reminder</div>
+                        </div>
+                        <input type="hidden" id="template-category-input">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="template-description" class="filter-label">Description</label>
+                        <textarea id="template-description" class="editor-description" placeholder="Short description of this template"></textarea>
+                    </div>
+                    
+                    <div class="editor-preview-container">
+                        <div>
+                            <label for="template-content" class="filter-label">Content</label>
+                            <div class="format-toolbar">
+                                <button class="btn-format" data-format="bold" title="Bold">
+                                    <i class="fas fa-bold"></i>
+                                </button>
+                                <button class="btn-format" data-format="italic" title="Italic">
+                                    <i class="fas fa-italic"></i>
+                                </button>
+                                <button class="btn-format" data-format="link" title="Insert Link">
+                                    <i class="fas fa-link"></i>
+                                </button>
+                                <button class="btn-format" data-format="variable" title="Insert Variable">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                                <button class="btn-format" data-format="clear" title="Clear Formatting">
+                                    <i class="fas fa-eraser"></i>
+                                </button>
+                            </div>
+                            <textarea id="template-content" class="editor-content" placeholder="Write your template here..."></textarea>
+                        </div>
+                        <div>
+                            <div class="preview-header">
+                                <i class="fas fa-eye"></i> Real-time Preview
+                            </div>
+                            <div class="editor-preview" id="editor-preview"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">AI Enhancements</label>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="btn btn-ai btn-sm" id="ai-improve">
+                                <i class="fas fa-wand-magic-sparkles"></i> Improve
+                            </button>
+                            <button class="btn btn-ai btn-sm" id="ai-shorten">
+                                <i class="fas fa-compress"></i> Shorten
+                            </button>
+                            <button class="btn btn-ai btn-sm" id="ai-formal">
+                                <i class="fas fa-suitcase"></i> Formal
+                            </button>
+                            <button class="btn btn-ai btn-sm" id="ai-casual">
+                                <i class="fas fa-smile"></i> Casual
+                            </button>
+                            <button class="btn btn-ai btn-sm" id="ai-translate">
+                                <i class="fas fa-language"></i> Translate
+                            </button>
+                            <button class="btn btn-ai btn-sm" id="ai-optimize">
+                                <i class="fas fa-chart-line"></i> Optimize
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="editor-cancel">Cancel</button>
+                <button class="btn btn-primary" id="editor-save">Save Template</button>
+                <button class="btn btn-variable" id="duplicate-btn">
+                    <i class="fas fa-copy"></i> Duplicate
+                </button>
+                <button class="btn btn-insight" id="version-history-btn-editor">
+                    <i class="fas fa-history"></i> History
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="add-tag-modal">
+        <div class="modal" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-tag"></i>
+                    Add a New Tag
+                </h3>
+                <button class="modal-close" id="add-tag-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="new-tag-input" class="filter-label">Tag Name</label>
+                    <input type="text" id="new-tag-input" class="filter-input" placeholder="e.g., Follow-Up, Personal...">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="add-tag-cancel">Cancel</button>
+                <button class="btn btn-primary" id="add-tag-save">Add Tag</button>
+            </div>
+        </div>
+    </div>
+        <!-- PASTE THIS ENTIRE BLOCK OF CODE HERE -->
+    <div class="modal-overlay" id="confirm-delete-modal">
+        <div class="modal" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-exclamation-triangle" style="color: var(--destructive);"></i>
+                    Confirm Deletion
+                </h3>
+                <button class="modal-close" id="confirm-delete-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-delete-description" style="text-align: center; font-size: 1.1rem; line-height: 1.6;">
+                    Are you sure you want to permanently delete this template? This action cannot be undone.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="confirm-delete-cancel">Cancel</button>
+                <button class="btn btn-destructive" id="confirm-delete-confirm">
+                    <i class="fas fa-trash"></i> Delete Template
+                </button>
+            </div>
+        </div>
+    </div>
+
+  
+   
+    <div id="toast" class="toast">
+        <i class="fas fa-info-circle" id="toast-icon"></i>
+        <span id="toast-message"></span>
+    </div>
+    
+    <input type="file" id="import-file-input" style="display: none;" accept=".json">
+    
+    <!-- These two new scripts handle the navbar, pop-ups, and logout button -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="global.js"></script>
+    <script>
+        // All of your existing Javascript remains the same
+    // Enhanced Template Data with more examples and analytics
+    let templates = [
+        {
+            id: 'birthday-1', title: 'Happy Birthday Template', emoji: '🎂', category: 'birthday',
+            description: 'A warm and celebratory birthday message',
+            content: `Dear [Recipient Name],\n\nHappy Birthday! 🎉🎂\n\nOn this special day, I wanted to send you my warmest wishes and let you know how much you mean to me. May your day be filled with joy, laughter, and all the things that make you happy.\n\nI hope this year brings you closer to your dreams and fills your life with wonderful new experiences. You deserve all the happiness in the world!\n\nWith love,\n[Your Name]`,
+            favorite: false, usage: 12, aiGenerated: false, new: false, archived: false,
+            rating: 4.5, openRate: 92, clickRate: 45, lastUsed: '2023-11-15'
+        },
+        {
+            id: 'anniversary-1', title: 'Anniversary Template', emoji: '💕', category: 'anniversary',
+            description: 'Romantic anniversary message for couples',
+            content: `My Dearest [Recipient Name],\n\nHappy Anniversary! 💕\n\nAnother year has passed since we began this beautiful journey together, and my love for you grows stronger with each passing day. I cherish every moment we've shared - the laughter, the challenges, and everything in between.\n\nThank you for being my rock, my confidant, and my greatest love. Here's to many more years of creating beautiful memories together.\n\nForever yours,\n[Your Name]`,
+            favorite: true, usage: 8, aiGenerated: false, new: false, archived: false,
+            rating: 4.8, openRate: 95, clickRate: 52, lastUsed: '2023-11-10'
+        },
+        {
+            id: 'graduation-1', title: 'Graduation Template', emoji: '🎓', category: 'graduation',
+            description: 'Congratulatory message for graduates',
+            content: `Dear [Recipient Name],\n\nCongratulations on your graduation! 🎓✨\n\nWhat an incredible achievement! Your hard work, dedication, and perseverance have paid off, and I couldn't be prouder of you. This is just the beginning of an exciting new chapter in your life.\n\nMay your future be filled with success, fulfillment, and endless opportunities. The world is yours to conquer!\n\nWith admiration,\n[Your Name]`,
+            favorite: false, usage: 5, aiGenerated: false, new: true, 
+            rating: 4.2, openRate: 88, clickRate: 38, lastUsed: '2023-11-05'
+        },
+        {
+            id: 'love-1', title: 'Love Letter Template', emoji: '💌', category: 'love',
+            description: 'Heartfelt love letter for special someone',
+            content: `My Dearest [Recipient Name],\n\nAs I sit down to write this letter, my heart overflows with love for you. 💌\n\nFrom the moment we met, you've brought light and meaning into my life. Your smile brightens my darkest days, and your presence fills me with a sense of belonging I've never known before.\n\nI cherish every moment we spend together, and I look forward to creating countless more memories with you. You are my everything.\n\nWith all my love,\n[Your Name]`,
+            favorite: true, usage: 15, aiGenerated: false, new: false,
+            rating: 4.9, openRate: 97, clickRate: 65, lastUsed: '2023-10-28'
+        },
+        {
+            id: 'motivation-1', title: 'Motivation Template', emoji: '💪', category: 'motivation',
+            description: 'Inspirational message to boost confidence',
+            content: `Hey [Recipient Name],\n\nI wanted to remind you of something important today: You are stronger than you think! 💪\n\nLife may throw challenges your way, but you have the courage, wisdom, and determination to overcome anything. Every obstacle is just another opportunity to grow and become an even better version of yourself.\n\nBelieve in yourself as much as I believe in you. You've got this!\n\nCheering you on,\n[Your Name]`,
+            favorite: false, usage: 7, aiGenerated: true, new: false,
+            rating: 4.0, openRate: 85, clickRate: 42, lastUsed: '2023-11-12'
+        },
+        {
+            id: 'apology-1', title: 'Heartfelt Apology', emoji: '🙏', category: 'apology',
+            description: 'Sincere apology message',
+            content: `Dear [Recipient Name],\n\nI want to sincerely apologize for my actions and the hurt I've caused. 🙏\n\nI realize that my words/actions were wrong, and I take full responsibility for them. There's no excuse for what I did, and I understand if you need time to process this.\n\nYour friendship/relationship means the world to me, and I'm committed to making things right. I hope you can find it in your heart to forgive me.\n\nWith sincere regret,\n[Your Name]`,
+            favorite: false, usage: 3, aiGenerated: false, new: true,
+            rating: 4.3, openRate: 82, clickRate: 35, lastUsed: '2023-10-15'
+        },
+        {
+            id: 'business-1', title: 'Professional Follow-Up', emoji: '📊', category: 'business',
+            description: 'Professional email after a meeting',
+            content: `Dear [Recipient Name],\n\nIt was a pleasure meeting with you earlier today to discuss [Specific Detail]. Thank you for taking the time to speak with me.\n\nAs we discussed, I will [action items]. Please let me know if there's any additional information you need from my end.\n\nI look forward to [next steps] and continuing our collaboration. Please don't hesitate to reach out if you have any questions in the meantime.\n\nBest regards,\n[Your Name]\n[Company Name]`,
+            favorite: true, usage: 9, aiGenerated: true, new: false,
+            rating: 4.6, openRate: 90, clickRate: 48, lastUsed: '2023-11-14'
+        },
+        {
+            id: 'reminder-1', title: 'Friendly Reminder', emoji: '⏰', category: 'reminder',
+            description: 'Gentle reminder about an upcoming event',
+            content: `Hi [Recipient Name],\n\nJust a friendly reminder about our [event/meeting] scheduled for [Event Date].\n\nWe'll be discussing [Specific Detail] and I'm looking forward to your insights on the matter.\n\nPlease let me know if you need to reschedule or if you have any questions beforehand.\n\nLooking forward to seeing you!\n\nBest,\n[Your Name]`,
+            favorite: false, usage: 6, aiGenerated: true, new: false,
+            rating: 3.8, openRate: 78, clickRate: 32, lastUsed: '2023-11-03'
+        },
+        {
+            id: 'birthday-2', title: 'Funny Birthday', emoji: '😂', category: 'birthday',
+            description: 'Humorous birthday message for friends',
+            content: `Hey [Recipient Name],\n\nHappy Birthday! 🎉\n\nAnother year older, but let's be honest - you're not getting older, you're just leveling up! 🎮\n\nI hope your day is filled with laughter, cake, and minimal adult responsibilities. Remember, age is just a number... a number that keeps getting alarmingly higher! 😂\n\nSeriously though, have an amazing day!\n\nCheers,\n[Your Name]`,
+            favorite: true, usage: 11, aiGenerated: true, new: false,
+            rating: 4.7, openRate: 93, clickRate: 55, lastUsed: '2023-10-22'
+        },
+        {
+            id: 'love-2', title: 'Long Distance Love', emoji: '💖', category: 'love',
+            description: 'Message for a long-distance partner',
+            content: `My Dearest [Recipient Name],\n\nEven though miles separate us, you're always in my thoughts and close to my heart. 💖\n\nI wanted to remind you how much I love and appreciate you. These days apart only make me cherish our time together even more.\n\nI can't wait until we're together again. Until then, know that I'm counting down the days and sending all my love your way.\n\nMissing you always,\n[Your Name]`,
+            favorite: false, usage: 4, aiGenerated: false, new: true,
+            rating: 4.4, openRate: 89, clickRate: 41, lastUsed: '2023-10-30'
+        }
+    ];
+
+    // State variables
+    let currentTheme = 'dark';
+    let selectedTemplate = null;
+    let isEditing = false;
+    let editingTemplateId = null;
+    let filterState = {
+        search: '',
+        category: '',
+        favoritesOnly: false,
+        folder: 'all'
+    };
+    let templateToDelete = null;
+    let currentTone = 'professional';
+    let currentRating = 0;
+
+    // DOM Elements (This part is unchanged)
+    const templatesGrid = document.getElementById('templates-grid');
+    const templateSearch = document.getElementById('template-search');
+    const templateCategory = document.getElementById('template-category');
+    const favoritesFilter = document.getElementById('favorites-filter');
+    const resetFilters = document.getElementById('reset-filters');
+    const newTemplateBtn = document.getElementById('new-template-btn');
+    const previewModal = document.getElementById('preview-modal');
+    const previewTitle = document.getElementById('preview-title');
+    const previewOutput = document.getElementById('preview-output');
+    const previewSubject = document.getElementById('preview-subject');
+    const previewDate = document.getElementById('preview-date');
+    const previewFooter = document.getElementById('preview-footer');
+    const useTemplateBtn = document.getElementById('use-template-btn');
+    const scheduleTemplateBtn = document.getElementById('schedule-template-btn');
+    const editorModal = document.getElementById('editor-modal');
+    const addTagModal = document.getElementById('add-tag-modal'); // <-- ADD THIS
+    const newTagInput = document.getElementById('new-tag-input'); // <-- AND ADD THIS
+    const editorTitle = document.getElementById('editor-title');
+    const templateName = document.getElementById('template-name');
+    const templateEmoji = document.getElementById('template-emoji');
+    const templateCategoryInput = document.getElementById('template-category-input');
+    const templateDescription = document.getElementById('template-description');
+    const templateContent = document.getElementById('template-content');
+    const editorSave = document.getElementById('editor-save');
+    const duplicateBtn = document.getElementById('duplicate-btn');
+    const aiPrompt = document.getElementById('ai-prompt');
+    const generateTemplateBtn = document.getElementById('generate-template');
+    const aiLoading = document.getElementById('ai-loading');
+    const aiImproveBtn = document.getElementById('ai-improve');
+    const aiShortenBtn = document.getElementById('ai-shorten');
+    const aiFormalBtn = document.getElementById('ai-formal');
+    const aiCasualBtn = document.getElementById('ai-casual');
+    const aiTranslateBtn = document.getElementById('ai-translate');
+    const copyToClipboardBtn = document.getElementById('copy-to-clipboard');
+    const formatButtons = document.querySelectorAll('.btn-format');
+    const exportAllBtn = document.getElementById('export-all-btn');
+    const categoryTagsContainer = document.getElementById('category-tags');
+    const toneButtons = document.querySelectorAll('.tone-btn');
+    const aiSuggestions = document.querySelectorAll('#ai-suggestions .tag');
+    const variableInputs = document.getElementById('variable-inputs');
+    const templateRating = document.getElementById('template-rating');
+    const editorPreview = document.getElementById('editor-preview');
+    const folders = document.querySelectorAll('.folder');
+    const popularTemplatesList = document.getElementById('popular-templates');
+    const tutorialBtn = document.getElementById('tutorial-btn');
+    const importBtn = document.getElementById('import-btn');
+    const versionHistoryBtn = document.getElementById('version-history-btn');
+    const versionHistoryPreviewBtn = document.getElementById('version-history-preview-btn');
+    
+
+    function initPage() {
+        // Load templates from localStorage if available
+        const savedTemplates = localStorage.getItem('futureInboxTemplates');
+        if (savedTemplates) {
+            templates = JSON.parse(savedTemplates);
+        }
+        
+        renderTemplates();
+        initCharts();
+        updatePopularTemplates();
+        
+        // Event listeners (This part is unchanged)
+        templateSearch.addEventListener('input', handleSearch);
+        templateCategory.addEventListener('change', handleCategoryChange);
+        favoritesFilter.addEventListener('click', toggleFavoritesFilter);
+        resetFilters.addEventListener('click', resetAllFilters);
+        newTemplateBtn.addEventListener('click', createNewTemplate);
+        document.getElementById('preview-close').addEventListener('click', closePreviewModal);
+        document.getElementById('preview-close-btn').addEventListener('click', closePreviewModal);
+        useTemplateBtn.addEventListener('click', useSelectedTemplate);
+        scheduleTemplateBtn.addEventListener('click', scheduleTemplate);
+        versionHistoryBtn.addEventListener('click', showVersionHistory);
+        document.getElementById('version-history-btn-editor').addEventListener('click', showVersionHistory);
+        versionHistoryPreviewBtn.addEventListener('click', showVersionHistory);
+        document.getElementById('editor-close').addEventListener('click', closeEditorModal);
+        document.getElementById('editor-cancel').addEventListener('click', closeEditorModal);
+        editorSave.addEventListener('click', saveTemplate);
+        duplicateBtn.addEventListener('click', duplicateTemplate);
+        generateTemplateBtn.addEventListener('click', generateAITemplate);
+        aiImproveBtn.addEventListener('click', () => enhanceTemplate('improve'));
+        aiShortenBtn.addEventListener('click', () => enhanceTemplate('shorten'));
+        aiFormalBtn.addEventListener('click', () => enhanceTemplate('formal'));
+        aiCasualBtn.addEventListener('click', () => enhanceTemplate('casual'));
+        aiTranslateBtn.addEventListener('click', () => enhanceTemplate('translate'));
+        document.getElementById('ai-optimize').addEventListener('click', () => enhanceTemplate('optimize'));
+        copyToClipboardBtn.addEventListener('click', copyToClipboard);
+        templateContent.addEventListener('input', updateEditorPreview);
+        exportAllBtn.addEventListener('click', exportAllTemplates);
+        tutorialBtn.addEventListener('click', showTutorial);
+        importBtn.addEventListener('click', importTemplates);
+    
+    document.getElementById('add-tag-close').addEventListener('click', closeAddTagModal);
+    document.getElementById('add-tag-cancel').addEventListener('click', closeAddTagModal);
+    document.getElementById('add-tag-save').addEventListener('click', saveNewTag);
+
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.id === 'add-tag-preview-btn') {
+            openAddTagModal();
+        }
+    });
+    
+    document.getElementById('import-file-input').addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (!file) {
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            try {
+                const importedTemplates = JSON.parse(e.target.result);
+                
+                if (!Array.isArray(importedTemplates)) {
+                    throw new Error("Invalid format: JSON file is not an array.");
+                }
+
+                const existingIds = new Set(templates.map(t => t.id));
+                const newTemplates = importedTemplates.filter(t => t.id && !existingIds.has(t.id));
+
+                if (newTemplates.length > 0) {
+                    templates.unshift(...newTemplates);
+                    localStorage.setItem('futureInboxTemplates', JSON.stringify(templates));
+                    renderTemplates();
+                    showToast(`${newTemplates.length} new template(s) imported successfully!`, 'success');
+                } else {
+                    showToast('No new templates found in this file.', 'info');
+                }
+
+            } catch (error) {
+                showToast(`Import Error: ${error.message}`, 'error');
+                console.error("Import error:", error);
+            } finally {
+                event.target.value = '';
+            }
+        };
+        
+        reader.readAsText(file);
+    });
+
+        document.querySelectorAll('#editor-category .category-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                document.querySelectorAll('#editor-category .category-tag').forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                templateCategoryInput.value = tag.dataset.category;
+            });
+        });
+        
+        categoryTagsContainer.querySelectorAll('.tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                const currentCategory = tag.dataset.category;
+                const wasActive = tag.classList.contains('active');
+                categoryTagsContainer.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+                
+                if (!wasActive) {
+                    tag.classList.add('active');
+                    filterState.category = currentCategory;
+                } else {
+                    filterState.category = '';
+                }
+                renderTemplates();
+            });
+        });
+        
+        toneButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                toneButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentTone = btn.dataset.tone;
+            });
+        });
+        
+        aiSuggestions.forEach(suggestion => {
+            suggestion.addEventListener('click', () => {
+                aiPrompt.value = suggestion.dataset.prompt;
+                generateAITemplate();
+            });
+        });
+        
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', setRating);
+        });
+        
+        formatButtons.forEach(button => {
+            button.addEventListener('click', handleFormatting);
+        });
+        
+        folders.forEach(folder => {
+            folder.addEventListener('click', () => {
+                folders.forEach(f => f.classList.remove('active'));
+                folder.classList.add('active');
+                filterState.folder = folder.dataset.folder;
+                renderTemplates();
+            });
+        });
+        
+        document.querySelectorAll('.variable-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const variable = card.dataset.variable;
+                insertVariable(variable);
+            });
+        });
+        
+        previewDate.textContent = new Date().toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+        
+        showToast('Welcome to FutureInbox Templates!', 'info');
+    }
+
+    function initCharts() {
+        // Open rate chart
+        const openRateCtx = document.getElementById('open-rate-chart').getContext('2d');
+        new Chart(openRateCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Opened', 'Not Opened'],
+                datasets: [{
+                    data: [86, 14],
+                    backgroundColor: ['#00d4ff', 'rgba(100, 116, 139, 0.3)'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: { legend: { display: false } }
+            }
+        });
+        
+        // Rating chart
+        const ratingCtx = document.getElementById('rating-chart').getContext('2d');
+        new Chart(ratingCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['5 Stars', '4 Stars', '3 Stars', '2 Stars', '1 Star'],
+                datasets: [{
+                    data: [65, 20, 10, 3, 2],
+                    backgroundColor: [ '#00d4ff', '#22c55e', '#f59e0b', '#ff7ed4', '#ef4444' ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: { legend: { display: false } }
+            }
+        });
+        
+        // Usage chart
+        const usageCtx = document.getElementById('usage-chart').getContext('2d');
+        new Chart(usageCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Usage',
+                    data: [12, 19, 8, 15, 10, 5, 9],
+                    backgroundColor: 'rgba(0, 212, 255, 0.5)',
+                    borderColor: '#00d4ff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true } },
+                plugins: { legend: { display: false } }
+            }
+        });
+        
+        // Trend chart
+        const trendCtx = document.getElementById('trend-chart').getContext('2d');
+        new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
+                datasets: [{
+                    label: 'Template Usage',
+                    data: [65, 59, 80, 81, 56, 72, 88, 76, 85, 92, 78],
+                    fill: true,
+                    backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                    borderColor: '#00d4ff',
+                    tension: 0.4,
+                    pointBackgroundColor: '#00d4ff'
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                scales: { y: { beginAtZero: false } },
+                plugins: { legend: { display: false } }
+            }
+        });
+    }
+
+    function updatePopularTemplates() {
+        const sortedTemplates = [...templates].sort((a, b) => b.usage - a.usage);
+        popularTemplatesList.innerHTML = '';
+        sortedTemplates.slice(0, 5).forEach(template => {
+            const li = document.createElement('li');
+            li.textContent = `${template.title} - Used ${template.usage} times`;
+            popularTemplatesList.appendChild(li);
+        });
+    }
+
+    function renderTemplates() {
+        templatesGrid.innerHTML = '';
+        const filteredTemplates = templates.filter(template => {
+            const searchLower = filterState.search.toLowerCase();
+            const matchesSearch = filterState.search === '' || 
+                template.title.toLowerCase().includes(searchLower) || 
+                template.description.toLowerCase().includes(searchLower) ||
+                template.content.toLowerCase().includes(searchLower);
+            
+            const matchesCategory = filterState.category === '' || template.category === filterState.category;
+            const matchesFavorites = !filterState.favoritesOnly || template.favorite;
+            
+            let matchesFolder = true;
+            if (filterState.folder === 'favorites') matchesFolder = template.favorite;
+            else if (filterState.folder === 'quick') matchesFolder = template.usage > 10;
+            else if (filterState.folder === 'team') matchesFolder = template.category === 'business';
+            else if (filterState.folder === 'ai') matchesFolder = template.aiGenerated;
+            else if (filterState.folder === 'archived') matchesFolder = false; // Archived logic not implemented
+            
+            return matchesSearch && matchesCategory && matchesFavorites && matchesFolder;
+        });
+        
+        // Update folder counts
+        document.querySelector('[data-folder="all"] .folder-count').textContent = templates.length;
+        document.querySelector('[data-folder="favorites"] .folder-count').textContent = templates.filter(t => t.favorite).length;
+        document.querySelector('[data-folder="quick"] .folder-count').textContent = templates.filter(t => t.usage > 10).length;
+        document.querySelector('[data-folder="team"] .folder-count').textContent = templates.filter(t => t.category === 'business').length;
+        document.querySelector('[data-folder="ai"] .folder-count').textContent = templates.filter(t => t.aiGenerated).length;
+        
+        if (filteredTemplates.length === 0) {
+            templatesGrid.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon"><i class="fas fa-file-text fa-2x"></i></div>
+                    <h3 class="empty-title">No templates found</h3>
+                    <p class="empty-description">Try changing your filters or creating a new template.</p>
+                    <button class="btn btn-primary" onclick="createNewTemplate()"><i class="fas fa-plus"></i> Create Template</button>
+                </div>
+            `;
+        } else {
+            filteredTemplates.forEach(template => {
+                const templateCard = document.createElement('div');
+                templateCard.className = `template-card ${template.favorite ? 'favorite' : ''} ${template.aiGenerated ? 'ai-generated' : ''} ${template.new ? 'new' : ''}`;
+                const tagClass = template.aiGenerated ? 'tag-ai' : `tag-${template.category || 'misc'}`;
+                const categoryDisplay = template.category ? template.category.charAt(0).toUpperCase() + template.category.slice(1) : 'General';
+                
+                templateCard.innerHTML = `
+                    ${template.new ? `<div class="new-badge">NEW</div>` : ''}
+                    <div class="template-header">
+                        <div class="template-emoji">${template.emoji}</div>
+                        <div class="template-favorite ${template.favorite ? 'active' : ''}" onclick="toggleFavorite(event, '${template.id}')">
+                            <i class="${template.favorite ? 'fas' : 'far'} fa-heart"></i>
+                        </div>
+                    </div>
+                    <h3 class="template-title">${template.title} ${template.aiGenerated ? '<span style="color:#a66cff;font-size:0.8em;"><i class="fas fa-robot"></i> AI</span>' : ''}</h3>
+                    <div class="template-meta">
+                        <div class="template-meta-item ${tagClass}">
+                            <i class="fas fa-tag"></i> ${categoryDisplay}
+                        </div>
+                        <div class="template-meta-item"><i class="fas fa-chart-line"></i> Used ${template.usage} times</div>
+                        <div class="template-meta-item"><i class="fas fa-star"></i> ${template.rating}/5</div>
+                    </div>
+                    <p class="template-content">${template.description}</p>
+                    <div class="template-preview">${template.content.substring(0, 150)}...</div>
+                    <div class="template-actions">
+                        <button class="btn btn-outline" onclick="previewTemplate('${template.id}')"><i class="fas fa-eye"></i> Preview</button>
+                        <button class="btn btn-outline" onclick="editTemplate('${template.id}')"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="btn btn-primary" onclick="useTemplate('${template.id}')"><i class="fas fa-paper-plane"></i> Use</button>
+                        <button class="btn btn-destructive" onclick="confirmDeleteTemplate('${template.id}')"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+                templatesGrid.appendChild(templateCard);
+                if (template.new) {
+                    templateCard.classList.add('animate__animated', 'animate__pulse');
+                }
+            });
+        }
+        
+        document.getElementById('total-templates').textContent = templates.length;
+        document.getElementById('usage-count').textContent = templates.reduce((sum, t) => sum + t.usage, 0);
+    }
+
+    function handleSearch() {
+        filterState.search = this.value;
+        renderTemplates();
+    }
+
+    function handleCategoryChange() {
+        filterState.category = this.value;
+        categoryTagsContainer.querySelectorAll('.tag').forEach(tag => {
+            tag.classList.toggle('active', tag.dataset.category === this.value);
+        });
+        renderTemplates();
+    }
+    
+    function toggleFavoritesFilter() {
+        this.classList.toggle('active');
+        filterState.favoritesOnly = this.classList.contains('active');
+        renderTemplates();
+    }
+
+    function resetAllFilters() {
+        filterState = { search: '', category: '', favoritesOnly: false, folder: 'all' };
+        templateSearch.value = '';
+        templateCategory.value = '';
+        favoritesFilter.classList.remove('active');
+        categoryTagsContainer.querySelectorAll('.tag').forEach(tag => tag.classList.remove('active'));
+        folders.forEach(f => f.classList.remove('active'));
+        document.querySelector('.folder[data-folder="all"]').classList.add('active');
+        renderTemplates();
+        showToast('Filters reset successfully', 'success');
+    }
+
+    function createNewTemplate() {
+        isEditing = false;
+        editingTemplateId = null;
+        editorTitle.textContent = 'New Template';
+        
+        templateName.value = '';
+        templateEmoji.value = '📝';
+        templateDescription.value = '';
+        templateContent.value = `Dear [Recipient Name],\n\nI hope this message finds you well.\n\n[Write your message here]\n\nBest regards,\n[Your Name]`;
+        templateCategoryInput.value = '';
+        document.querySelectorAll('#editor-category .category-tag').forEach(tag => tag.classList.remove('active'));
+        
+        editorModal.classList.add('active');
+        updateEditorPreview();
+    }
+
+    function editTemplate(templateId) {
+        const template = templates.find(t => t.id === templateId);
+        if (!template) return;
+        
+        isEditing = true;
+        editingTemplateId = templateId;
+        editorTitle.textContent = 'Edit Template';
+        
+        templateName.value = template.title;
+        templateEmoji.value = template.emoji;
+        templateDescription.value = template.description;
+        templateContent.value = template.content;
+        templateCategoryInput.value = template.category;
+        
+        document.querySelectorAll('#editor-category .category-tag').forEach(tag => {
+            tag.classList.toggle('active', tag.dataset.category === template.category);
+        });
+        
+        editorModal.classList.add('active');
+        updateEditorPreview();
+    }
+
+    function saveTemplate() {
+        const title = templateName.value.trim();
+        const emoji = templateEmoji.value.trim() || '📝';
+        const description = templateDescription.value.trim();
+        const content = templateContent.value.trim();
+        const category = templateCategoryInput.value || 'misc';
+        
+        if (!title || !content) {
+            showToast('Title and content are required', 'error');
+            return;
+        }
+        
+        if (isEditing) {
+            const index = templates.findIndex(t => t.id === editingTemplateId);
+            if (index !== -1) {
+                templates[index] = { ...templates[index], title, emoji, description, content, category, new: false };
+                showToast('Template updated successfully', 'success');
+            }
+        } else {
+            const newTemplate = {
+                id: `custom-${Date.now()}`, title, emoji, description, content, category,
+                favorite: false, usage: 0, aiGenerated: false, new: true,
+                rating: 0, openRate: 0, clickRate: 0, lastUsed: null
+            };
+            templates.unshift(newTemplate);
+            showToast('Template created successfully', 'success');
+        }
+        
+        localStorage.setItem('futureInboxTemplates', JSON.stringify(templates));
+        closeEditorModal();
+        renderTemplates();
+        updatePopularTemplates();
+    }
+
+    function duplicateTemplate() {
+        if (!editingTemplateId) return; // Can only duplicate from an existing template in editor
+        const template = templates.find(t => t.id === editingTemplateId);
+        if (!template) return;
+
+        const newTemplate = {
+            ...template,
+            id: `custom-${Date.now()}`,
+            title: `Copy of ${template.title}`,
+            new: true,
+            usage: 0
+        };
+        templates.unshift(newTemplate);
+        localStorage.setItem('futureInboxTemplates', JSON.stringify(templates));
+        
+        showToast('Template duplicated successfully', 'success');
+        closeEditorModal();
+        renderTemplates();
+    }
+
+    function previewTemplate(templateId) {
+        const template = templates.find(t => t.id === templateId);
+        if (!template) return;
+        
+        selectedTemplate = template;
+        previewTitle.textContent = template.title;
+        previewSubject.textContent = template.title;
+        
+        const variables = extractVariables(template.content);
+        variableInputs.innerHTML = '';
+        
+        if (variables.length > 0) {
+            variables.forEach(variable => {
+                variableInputs.innerHTML += `
+                    <div class="variable-input-group">
+                        <label class="variable-input-label">${variable}</label>
+                        <input type="text" class="variable-input" data-variable="${variable}" placeholder="Enter ${variable}">
+                    </div>`;
+            });
+            document.querySelectorAll('.variable-input').forEach(input => {
+                input.addEventListener('input', updatePreviewOutput);
+            });
+        } else {
+            variableInputs.innerHTML = '<p class="text-muted">No variables found in this template.</p>';
+        }
+        
+        updatePreviewOutput();
+        currentRating = template.rating;
+        updateRatingStars();
+        createTemplateChart(template);
+        
+        previewModal.classList.add('active');
+        
+    
+        previewModal.classList.add('active');
+    }
+    
+
+    function updateEditorPreview() {
+        let content = templateContent.value;
+        content = content
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" style="color: #00d4ff;">$1</a>')
+            .replace(/\n/g, '<br>');
+        editorPreview.innerHTML = content;
+    }
+
+    function updatePreviewOutput() {
+        if (!selectedTemplate) return;
+        let output = selectedTemplate.content;
+        
+        document.querySelectorAll('#variable-inputs .variable-input').forEach(input => {
+            const variable = input.dataset.variable;
+            const value = input.value || `[${variable}]`;
+            output = output.replaceAll(`[${variable}]`, `<span style="color: var(--primary);">${value}</span>`);
+        });
+        
+        output = output.replace(/\n/g, '<br>');
+        previewOutput.innerHTML = output;
+        previewFooter.textContent = `This message was sent using FutureInbox templates on ${new Date().toLocaleDateString()}`;
+    }
+    
+    let previewChartInstance;
+    function createTemplateChart(template) {
+        const ctx = document.getElementById('template-chart').getContext('2d');
+        if (previewChartInstance) {
+            previewChartInstance.destroy();
+        }
+        previewChartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Usage', 'Open Rate %', 'Click Rate %'],
+                datasets: [{
+                    label: 'Performance',
+                    data: [template.usage, template.openRate, template.clickRate],
+                    backgroundColor: [ 'rgba(0, 212, 255, 0.7)', 'rgba(166, 108, 255, 0.7)', 'rgba(255, 121, 198, 0.7)' ]
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: { x: { beginAtZero: true, max: 100 } },
+                plugins: { legend: { display: false } }
+            }
+        });
+    }
+
+    function handleFormatting(e) {
+        const format = e.currentTarget.dataset.format;
+        const textarea = document.getElementById('template-content');
+        const start = textarea.selectionStart;        const end = textarea.selectionEnd;
+        const selectedText = textarea.value.substring(start, end);
+        let newText = '';
+        
+        switch(format) {
+            case 'bold': newText = `**${selectedText}**`; break;
+            case 'italic': newText = `*${selectedText}*`; break;
+            case 'link': newText = `[${selectedText}](https://example.com)`; break;
+            case 'variable': newText = `[${selectedText || 'Variable Name'}]`; break;
+            case 'clear': newText = selectedText.replace(/[\*\[\]\(\)]/g, ''); break;
+            default: return;
+        }
+        
+        textarea.setRangeText(newText, start, end, 'end');
+        updateEditorPreview();
+        textarea.focus();
+    }
+
+    function setRating(e) {
+        const rating = parseInt(e.target.dataset.rating);
+        currentRating = rating;
+        updateRatingStars();
+        
+        const index = templates.findIndex(t => t.id === selectedTemplate.id);
+        if (index !== -1) {
+            templates[index].rating = rating;
+            localStorage.setItem('futureInboxTemplates', JSON.stringify(templates));
+            showToast('Rating saved successfully', 'success');
+            renderTemplates(); // Re-render to update card display
+        }
+    }
+
+    function updateRatingStars() {
+        document.querySelectorAll('#template-rating .star').forEach((star, index) => {
+            star.classList.toggle('active', index < currentRating);
+        });
+    }
+
+    function extractVariables(content) {
+        const regex = /\[([^\]]+)\]/g; // Changed to match content inside brackets
+        return [...new Set(Array.from(content.matchAll(regex), m => m[1]))];
+    }
+
+       function useTemplate(templateData) {
+        let template;
+        
+        // Check if we were given the full template object or just the ID string
+        if (typeof templateData === 'string') {
+            template = templates.find(t => t.id === templateData);
+        } else {
+            template = templateData;
+        }
+
+        if (!template) {
+            showToast('Could not find the specified template.', 'error');
+            return;
+        }
+        
+        // If the template exists in our main list, update its usage stats
+        const templateInList = templates.find(t => t.id === template.id);
+        if (templateInList) {
+            templateInList.usage++;
+            templateInList.lastUsed = new Date().toISOString().split('T')[0];
+            templateInList.new = false;
+            localStorage.setItem('futureInboxTemplates', JSON.stringify(templates));
+        }
+        
+        // --- THIS IS THE KEY CHANGE ---
+        // Now we save EVERYTHING we need: content, name, theme (category), AND the emoji!
+        localStorage.setItem('selectedTemplate', JSON.stringify({
+            content: template.content,
+            name: template.title,
+            theme: template.category,
+            emoji: template.emoji 
+        }));
+        
+        showToast(`"${template.title}" selected! Redirecting...`, 'success');
+        setTimeout(() => { window.location.href = 'compose.html'; }, 1500);
+    }
+    function useSelectedTemplate() {
+        if (selectedTemplate) useTemplate(selectedTemplate.id);
+    }
+
+           function scheduleTemplate() {
+        if (selectedTemplate) {
+            // This makes the schedule button do the same thing as the "Use" button.
+            useTemplate(selectedTemplate.id);
+        }
+    }
+
+    function showVersionHistory() {
+        const title = selectedTemplate ? ` for "${selectedTemplate.title}"` : '';
+        showToast(`Feature coming soon: Version History${title}.`, 'info');
+    }
+
+    function shareTemplates() {
+        showToast('Feature coming soon: Share templates with your team.', 'info');
+    }
+
+
+    function showTutorial() {
+        showToast('Feature coming soon: Tutorial video.', 'info');
+        // We'll keep the fun link for now, but the message is clearer :)
+        setTimeout(() => { window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); }, 1000);
+    }
+
+    function toggleFavorite(event, templateId) {
+        event.stopPropagation();
+        const index = templates.findIndex(t => t.id === templateId);
+        if (index !== -1) {
+            templates[index].favorite = !templates[index].favorite;
+            localStorage.setItem('futureInboxTemplates', JSON.stringify(templates));
+            renderTemplates();
+            const action = templates[index].favorite ? 'added to' : 'removed from';
+            showToast(`Template ${action} favorites`, 'success');
+        }
+    }
+    async function generateAITemplate() {
+        const prompt = aiPrompt.value.trim();
+        if (!prompt) {
+            showToast('Please describe the template you want to generate', 'error');
+            return;
+        }
+        
+        aiLoading.style.display = 'block';
+        generateTemplateBtn.disabled = true;
+
+        try {
+            const workerUrl = 'https://futureinbox-ai-template-assistant.kashmalakhan1232.workers.dev'; 
+
+            const response = await fetch(workerUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt: prompt, tone: currentTone })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || `AI server error`);
+            }
+
+            const aiTemplate = await response.json();
+
+            const newTemplate = {
+                id: `ai-${Date.now()}`,
+                ...aiTemplate, // This includes the 'category' from the AI
+                description: `AI-generated for: "${prompt}"`,
+                favorite: false, usage: 0, aiGenerated: true, new: true,
+                rating: 0, openRate: 0, clickRate: 0, lastUsed: null
+            };
+
+            templates.unshift(newTemplate);
+            renderTemplates();
+            showToast('AI template generated! Now you can edit it.', 'ai');
+            aiPrompt.value = '';
+            
+            editTemplate(newTemplate.id); 
+
+        } catch (error) {
+            console.error('AI Generation Error:', error);
+            showToast(`AI Error: ${error.message}`, 'error');
+        } finally {
+            aiLoading.style.display = 'none';
+            generateTemplateBtn.disabled = false;
+        }
+    }
+
+          async function enhanceTemplate(action) {
+        const content = templateContent.value;
+        if (!content.trim()) {
+            showToast('Please add content to enhance', 'error');
+            return;
+        }
+        
+        const button = document.getElementById(`ai-${action}`);
+        const originalButtonText = button.innerHTML;
+        button.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`;
+        button.disabled = true;
+        showToast(`AI is working on '${action}'...`, 'ai');
+
+        try {
+            const workerUrl = 'https://futureinbox-ai-template-assistant.kashmalakhan1232.workers.dev';
+
+            const response = await fetch(workerUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: content, action: action })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || `AI enhancer failed`);
+            }
+            
+            const result = await response.json();
+            
+            if (result.enhancedText) {
+                templateContent.value = result.enhancedText;
+                updateEditorPreview();
+                showToast(`Content successfully enhanced!`, 'success');
+            } else {
+                throw new Error("AI response was not in the expected format.");
+            }
+
+        } catch (error) {
+            console.error(`AI Enhancement Error (${action}):`, error);
+            showToast(`AI Error: ${error.message}`, 'error');
+        } finally {
+            button.innerHTML = originalButtonText;
+            button.disabled = false;
+        }
+    }
+
+    function insertVariable(variable) {
+        const contentField = document.getElementById('template-content');
+        contentField.setRangeText(` ${variable} `, contentField.selectionStart, contentField.selectionEnd, 'end');
+        updateEditorPreview();
+        contentField.focus();
+        showToast(`Variable ${variable} inserted`, 'info');
+    }
+    
+    function closePreviewModal() { previewModal.classList.remove('active'); selectedTemplate = null; }
+    function closeEditorModal() { editorModal.classList.remove('active'); isEditing = false; editingTemplateId = null; }
+
+       // ---- FIND AND REPLACE THIS ENTIRE FUNCTION ----
+
+    function confirmDeleteTemplate(templateId) {
+        // Find the template to get its name for the confirmation message
+        const template = templates.find(t => t.id === templateId);
+        if (!template) return; // Exit if template not found
+
+        // Get references to the modal and its interactive elements
+        const modal = document.getElementById('confirm-delete-modal');
+        const description = document.getElementById('confirm-delete-description');
+        const confirmBtn = document.getElementById('confirm-delete-confirm');
+        const cancelBtn = document.getElementById('confirm-delete-cancel');
+        const closeBtn = document.getElementById('confirm-delete-close');
+
+        // Set the specific message for the template being deleted
+        description.innerHTML = `Are you sure you want to permanently delete "<strong>${template.title}</strong>"? This action cannot be undone.`;
+
+        // This function will be called when the user confirms the deletion
+        const handleDelete = () => {
+            templates = templates.filter(t => t.id !== templateId);
+            localStorage.setItem('futureInboxTemplates', JSON.stringify(templates));
+            renderTemplates(); // Re-render the UI
+            updatePopularTemplates(); // Update stats and insights
+            showToast(`"${template.title}" was deleted successfully`, 'success');
+            cleanup(); // Hide the modal and remove listeners
+        };
+
+        // This function hides the modal and removes event listeners to prevent issues
+        const cleanup = () => {
+            modal.classList.remove('active');
+            // Use .removeEventListener to prevent memory leaks
+            confirmBtn.removeEventListener('click', handleDelete);
+            cancelBtn.removeEventListener('click', cleanup);
+            closeBtn.removeEventListener('click', cleanup);
+        };
+
+        // Attach the event listeners
+        confirmBtn.addEventListener('click', handleDelete);
+        cancelBtn.addEventListener('click', cleanup);
+        closeBtn.addEventListener('click', cleanup);
+
+        // Finally, show the modal
+        modal.classList.add('active');
+    }
+
+    // ---- THE REST OF YOUR JAVASCRIPT REMAINS THE SAME ----
+
+    function exportAllTemplates() {
+        const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(templates, null, 2))}`;
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "futureinbox-templates.json");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+        showToast('All templates exported successfully', 'success');
+    }
+
+    function copyToClipboard() {
+        if (selectedTemplate) {
+            navigator.clipboard.writeText(selectedTemplate.content)
+                .then(() => showToast('Template content copied!', 'success'))
+                .catch(() => showToast('Failed to copy content', 'error'));
+        }
+    }
+    
+    function importTemplates() {
+        document.getElementById('import-file-input').click();
+    }
+    function shareTemplates() { showToast('Sharing templates with your team...', 'info'); }
+
+    function showToast(message, type = 'info') {
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toast-message');
+        const toastIcon = document.getElementById('toast-icon');
+        
+        toastMessage.textContent = message;
+        toast.className = `toast ${type}`; 
+        
+        const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', warning: 'fa-exclamation-triangle', ai: 'fa-robot', info: 'fa-info-circle' };
+        toastIcon.className = `fas ${icons[type] || icons['info']}`;
+        
+        void toast.offsetWidth;
+        
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+    
+    function openAddTagModal() {
+        addTagModal.classList.add('active');
+        newTagInput.value = '';
+        newTagInput.focus();
+    }
+
+    function closeAddTagModal() {
+        addTagModal.classList.remove('active');
+    }
+
+    function saveNewTag() {
+        const newTagName = newTagInput.value.trim();
+        if (newTagName === '') {
+            showToast('Tag name cannot be empty', 'error');
+            return;
+        }
+        const tagContainer = document.querySelector('#preview-modal .tag-container');
+        const addTagBtn = tagContainer.querySelector('.btn-sm');
+        
+        const tagEl = document.createElement('div');
+        tagEl.className = 'tag';
+        tagEl.textContent = newTagName;
+
+        tagContainer.insertBefore(tagEl, addTagBtn);
+        showToast(`Tag "${newTagName}" added! (UI demo)`, 'success');
+        closeAddTagModal();
+    }
+    </script>
+    
+   
+ 
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+     <meta name="description" content="Send messages through time to yourself or loved ones with FutureInbox. Secure your legacy with encrypted, scheduled messages wrapped in emotion and technology.">
+    
+    <!-- Font Preloading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1IDMwTDE4Ny4xMjkgMTQ2Ljg3MUg2Mi44NzFMMTI1IDMwWiIgZmlsbD0iIzAwZDFmZiIvPjxwYXRoIGQ9Ik0xMjUgMzBMMTg3LjEyOSAxNDYuODcxTDEyNSAyMTVWNzBaIiBmaWxsPSIjN2U1N2MyIiBmaWxsLW9wYWNpdHk9IjAuOCIvPjwvc3ZnPg==">
+    <style> :root {
+            --midnight-blue: #0a192f;
+            --neon-cyan: #00d1ff;
+            --soft-purple: #7e57c2;
+            --deep-purple: #5e35b1;
+            --space-gradient: linear-gradient(135deg, #0a192f 0%, #1a237e 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(90, 15, 15, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--header-height);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--space-gradient);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        } 
+        
+        .futureinbox-footer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        } 
+        
+        .futureinbox-footer-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--neon-cyan) 0%, var(--soft-purple) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+            transition: var(--transition);
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        .futureinbox-footer-logo i {
+            color: var(--neon-cyan);
+            margin-right: 10px;
+            font-size: 1.6rem;
+            transition: transform 0.3s ease;
+        }
+
+        .futureinbox-footer-logo:hover {
+            filter: brightness(1.2);
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        }
+
+        .futureinbox-footer-logo:hover i {
+            transform: rotate(-15deg) scale(1.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0a0f3a;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .futureinbox-footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .futureinbox-footer-logo-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .futureinbox-footer-logo-section .futureinbox-footer-logo {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .futureinbox-footer-logo-section p {
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 350px;
+        }
+
+        .futureinbox-footer-links {
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .futureinbox-footer-links h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .futureinbox-footer-links ul {
+            list-style: none;
+        }
+
+        .futureinbox-footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .futureinbox-footer-links ul li a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .futureinbox-footer-links ul li a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .futureinbox-footer-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .futureinbox-footer-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+        }
+
+        .futureinbox-footer-social-links a:hover {
+            background: var(--neon-cyan);
+            transform: translateY(-3px);
+        }
+
+        .futureinbox-footer-social-links a:focus {
+            outline: 2px solid var(--neon-cyan);
+            outline-offset: 2px;
+        }
+
+        .futureinbox-footer-copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Footer -->
+    <footer>
+        <div class="futureinbox-footer-container">
+            <div class="futureinbox-footer-content">
+                <div class="futureinbox-footer-logo-section">
+                    <a href="#" class="futureinbox-footer-logo" aria-label="FutureInbox Home">
+                        <i class="fas fa-envelope-open-text"></i>FutureInbox
+                    </a>
+                    <p>Preserving humanity's most important messages for the moments that matter.</p>
+                    <div class="futureinbox-footer-social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="futureinbox-footer-links">
+                    <div>
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="compose.html">Compose</a></li>
+                         <li><a href="history.html">History</a></li>
+                             <li><a href="templates.html">Template</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                             <li><a href="howitworks.html">How It Works</a></li>
+                              <li><a href="helpcenter.html">Help Center</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="Terms&Conditions.html">Terms&Condition</a></li>
+                            <li><a href="Security.html">Security</a></li>
+                            <li><a href="complience.html">Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="futureinbox-footer-copyright">
+                <p>&copy; 2025 FutureInbox. All rights reserved. Because some messages are meant for later.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

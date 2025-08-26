@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - FutureInbox</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <!-- In your <head> section -->
+<link rel="stylesheet" href="css/features.css">
+<script src="js/features.js"></script>
+ 
+</head>
+<body>
+    <!-- Floating Orbs -->
+    <div class="space-orb"></div>
+    <div class="space-orb"></div>
+    <div class="space-orb"></div>
+
+    <!-- BEGIN NEW NAVBAR -->
+      <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+
+    <!-- Header with Glassmorphism Navbar -->
+    <header id="futureinbox-header" class="futureinbox-header">
+        <div class="futureinbox-nav-container">
+        <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+            <i class="fas fa-envelope-open-text"></i>FutureInbox
+        </a>
+        <div class="futureinbox-nav-main">
+            <nav aria-label="Main Navigation">
+            <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+                <li><a href="index.html" aria-label="Home">Home</a></li>
+                <li><a href="compose.html" aria-label="compose">Compose</a></li>
+                <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+                <li class="futureinbox-nav-dropdown">
+                <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                    History <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                    <li><a href="features.html" role="menuitem" aria-label="For Features" aria-current="page"> <i class="fa-solid fa-grip"></i> Features</a></li>
+                    <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                    <li><a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+                </ul>
+                </li>
+                <li><a href="about.html" aria-label="About">About Us</a></li>
+                <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+            </ul>
+            </nav>
+            <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+            <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+            <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        </div>
+    </header>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+
+    <!-- Mobile Menu -->
+    <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+    <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+        <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+        </button>
+        <ul>
+        <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="compose.html" aria-label="Features"><i class="fas fa-star"></i> Compose</a></li>
+        <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+        <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+            <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="History">
+            <span><i class="fas fa-layer-group"></i> History</span>
+            <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="futureinbox-mobile-dropdown-menu" role="menu">
+            <a href="features.html" role="menuitem" aria-label="For Features" aria-current="page"> <i class="fa-solid fa-grip"></i>Features</a>
+            <a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a>
+            <a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i> Help Center</a>
+            </div>
+        </li>
+        <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+    </nav>
+    <!-- END NEW NAVBAR -->
+
+    <!-- Main Content -->
+    <main id="main-content" class="container" style="padding: 2rem 1rem;">
+        <div class="hero">
+            <div class="hero-icon">
+                <i class="fas fa-star fa-2x"></i>
+            </div>
+            <h1>Amazing Features</h1>
+            <p>Experience the future of time-locked messaging with these powerful capabilities</p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            <!-- Perfect Timing -->
+            <div class="feature-card">
+                <div class="illustration-container">
+                    <div class="illustration">
+                        <svg viewBox="0 0 100 100">
+                            <defs><linearGradient id="clockGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff" /><stop offset="100%" stop-color="#a66cff" /></linearGradient><radialGradient id="glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0.7" /><stop offset="100%" stop-color="#a66cff" stop-opacity="0" /></radialGradient></defs><circle cx="50" cy="50" r="40" fill="none" stroke="url(#clockGradient)" stroke-width="3" /><g stroke="url(#clockGradient)" stroke-width="2"><line x1="50" y1="15" x2="50" y2="20" /><line x1="50" y1="80" x2="50" y2="85" transform="rotate(180,50,50)" /><line x1="30" y1="25" x2="32" y2="28" transform="rotate(60,50,50)" /><line x1="70" y1="75" x2="68" y2="72" transform="rotate(60,50,50)" /><line x1="25" y1="30" x2="28" y2="32" transform="rotate(30,50,50)" /><line x1="75" y1="70" x2="72" y2="68" transform="rotate(30,50,50)" /><line x1="15" y1="50" x2="20" y2="50" transform="rotate(90,50,50)" /><line x1="85" y1="50" x2="80" y2="50" transform="rotate(90,50,50)" /><line x1="25" y1="70" x2="28" y2="68" transform="rotate(150,50,50)" /><line x1="75" y1="30" x2="72" y2="32" transform="rotate(150,50,50)" /><line x1="30" y1="75" x2="32" y2="72" transform="rotate(120,50,50)" /><line x1="70" y1="25" x2="68" y2="28" transform="rotate(120,50,50)" /></g><line class="rotate" x1="50" y1="50" x2="50" y2="35" stroke="#a66cff" stroke-width="4" stroke-linecap="round" /><line class="rotate" x1="50" y1="50" x2="50" y2="25" stroke="#00d4ff" stroke-width="3" stroke-linecap="round" style="animation-duration: 20s;" /><line class="rotate" x1="50" y1="50" x2="50" y2="20" stroke="#ffffff" stroke-width="1" stroke-linecap="round" style="animation-duration: 5s;" /><circle cx="50" cy="50" r="4" fill="url(#clockGradient)" /><circle cx="50" cy="50" r="45" fill="url(#glow)" opacity="0.5" />
+                        </svg>
+                    </div>
+                </div>
+                <h3>Perfect Timing</h3>
+                <p>Schedule delivery for the exact right moment with precision timing down to the minute.</p>
+                <span class="badge badge-popular">Popular</span>
+            </div>
+            
+            <!-- AI Enhanced -->
+            <div class="feature-card">
+                <div class="illustration-container">
+                    <div class="illustration">
+                        <svg viewBox="0 0 100 100">
+                            <defs><linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f59e0b" /><stop offset="100%" stop-color="#ff6b6b" /></linearGradient><radialGradient id="aiGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" stop-color="#f59e0b" stop-opacity="0.7" /><stop offset="100%" stop-color="#ff6b6b" stop-opacity="0" /></radialGradient></defs><path d="M30,30 Q50,20 70,30 Q80,40 75,60 Q65,75 50,80 Q35,75 25,60 Q20,40 30,30" fill="none" stroke="url(#aiGradient)" stroke-width="3" /><g stroke="url(#aiGradient)" stroke-width="1.5" stroke-opacity="0.7"><path d="M40,35 Q45,40 50,35 Q55,40 60,35" /><path d="M35,45 Q40,50 45,45 Q50,50 55,45 Q60,50 65,45" /><path d="M40,55 Q45,60 50,55 Q55,60 60,55" /><line x1="45" y1="35" x2="35" y2="45" /><line x1="55" y1="35" x2="65" y2="45" /><line x1="45" y1="55" x2="35" y2="65" /><line x1="55" y1="55" x2="65" y2="65" /></g><g class="pulse"><circle cx="50" cy="35" r="5" fill="url(#aiGradient)" /><circle cx="40" cy="45" r="4" fill="url(#aiGradient)" /><circle cx="60" cy="45" r="4" fill="url(#aiGradient)" /><circle cx="50" cy="55" r="5" fill="url(#aiGradient)" /><circle cx="35" cy="65" r="3" fill="url(#aiGradient)" /><circle cx="65" cy="65" r="3" fill="url(#aiGradient)" /></g><circle cx="50" cy="50" r="45" fill="url(#aiGlow)" opacity="0.5" />
+                        </svg>
+                    </div>
+                </div>
+                <h3>AI Enhanced</h3>
+                <p>AI helps craft the perfect message with grammar checks, tone adjustments, and creative ideas.</p>
+                <span class="badge badge-ai">AI</span>
+            </div>
+            
+            <!-- Secure Delivery -->
+            <div class="feature-card">
+                <div class="illustration-container">
+                    <div class="illustration">
+                        <svg viewBox="0 0 100 100">
+                           <defs><linearGradient id="secureGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff" /><stop offset="100%" stop-color="#22c55e" /></linearGradient><radialGradient id="secureGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0.7" /><stop offset="100%" stop-color="#22c55e" stop-opacity="0" /></radialGradient></defs><path d="M50,20 L70,30 V60 C70,75 60,85 50,90 C40,85 30,75 30,60 V30 Z" fill="url(#secureGradient)" opacity="0.3" stroke="url(#secureGradient)" stroke-width="3" /><rect x="40" y="45" width="20" height="25" rx="5" fill="url(#secureGradient)" opacity="0.7" stroke="url(#secureGradient)" stroke-width="2" /><path d="M50,35 A7,7 0 0,1 50,50" fill="none" stroke="url(#secureGradient)" stroke-width="4" stroke-linecap="round" /><path d="M45,65 L55,75 L70,50" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /><circle cx="50" cy="50" r="45" fill="url(#secureGlow)" opacity="0.5" />
+                        </svg>
+                    </div>
+                </div>
+                <h3>Secure Delivery</h3>
+                <p>End-to-end encryption ensures your messages stay private until delivery.</p>
+            </div>
+
+            <!-- Multimedia Attachments (IMPROVED SVG) -->
+            <div class="feature-card">
+                <div class="illustration-container">
+                    <div class="illustration">
+                        <svg viewBox="0 0 100 100">
+                            <defs>
+                                <linearGradient id="mediaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#a66cff"/>
+                                    <stop offset="100%" stop-color="#00d4ff"/>
+                                </linearGradient>
+                                <radialGradient id="mediaGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                    <stop offset="0%" stop-color="#a66cff" stop-opacity="0.7"/>
+                                    <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+                                </radialGradient>
+                            </defs>
+                            <!-- Image Frame -->
+                            <rect x="25" y="30" width="50" height="40" rx="5" fill="url(#mediaGradient)" stroke="url(#mediaGradient)" stroke-width="3" opacity="0.3"/>
+                            <!-- Landscape -->
+                            <path d="M35 60 L 45 50 L 55 60 L 65 55 L 75 60" fill="none" stroke="url(#mediaGradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Sun -->
+                            <circle cx="40" cy="45" r="4" fill="url(#mediaGradient)"/>
+                             <!-- Microphone -->
+                            <g transform="translate(58, 52) scale(0.6)">
+                                <rect x="0" y="0" width="20" height="30" rx="10" fill="url(#mediaGradient)" stroke="#fff" stroke-width="2"/>
+                                <line x1="10" y1="30" x2="10" y2="35" stroke="url(#mediaGradient)" stroke-width="2"/>
+                                <line x1="5" y1="35" x2="15" y2="35" stroke="url(#mediaGradient)" stroke-width="2"/>
+                            </g>
+                            <circle cx="50" cy="50" r="45" fill="url(#mediaGlow)" opacity="0.5"/>
+                        </svg>
+                    </div>
+                </div>
+                <h3>Multimedia Attachments</h3>
+                <p>Make messages unforgettable by attaching photos, videos, or a personal voice memo.</p>
+                <span class="badge badge-popular">Popular</span>
+            </div>
+            
+            <!-- Dynamic Themes -->
+            <div class="feature-card">
+                <div class="illustration-container">
+                    <div class="illustration">
+                        <svg viewBox="0 0 100 100">
+                           <defs><radialGradient id="themeGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0.7" /><stop offset="100%" stop-color="#a66cff" stop-opacity="0" /></radialGradient></defs><g class="rotate" style="transform-origin: 50px 50px;"><path d="M50,20 L70,40 L60,65 L40,65 L30,40 Z" fill="#00d4ff" opacity="0.7" /><path d="M50,20 L70,40 L85,30 L65,10 Z" fill="#a66cff" opacity="0.7" /><path d="M85,30 L70,40 L60,65 L75,55 Z" fill="#f59e0b" opacity="0.7" /><path d="M60,65 L75,55 L80,75 L60,80 Z" fill="#22c55e" opacity="0.7" /><path d="M40,65 L60,65 L60,80 L40,80 Z" fill="#ef4444" opacity="0.7" /><path d="M30,40 L40,65 L40,80 L20,60 Z" fill="#7c3aed" opacity="0.7" /><path d="M30,40 L20,60 L10,40 L20,20 Z" fill="#00a8ff" opacity="0.7" /><path d="M20,20 L30,40 L50,20 L35,10 Z" fill="#ff6b6b" opacity="0.7" /></g><circle cx="50" cy="50" r="15" fill="url(#themeGlow)" opacity="0.7" /><circle cx="50" cy="50" r="45" fill="url(#themeGlow)" opacity="0.5" />
+                        </svg>
+                    </div>
+                </div>
+                <h3>Dynamic Themes</h3>
+                <p>Beautiful themes that match your message's emotional tone and occasion.</p>
+            </div>
+            
+            <!-- Time Capsules -->
+            <div class="feature-card">
+                <div class="illustration-container">
+                    <div class="illustration">
+                        <svg viewBox="0 0 100 100">
+                           <defs><linearGradient id="capsuleGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7c3aed" /><stop offset="100%" stop-color="#a66cff" /></linearGradient><radialGradient id="capsuleGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" stop-color="#7c3aed" stop-opacity="0.7" /><stop offset="100%" stop-color="#a66cff" stop-opacity="0" /></radialGradient></defs><path d="M40,30 L60,30 Q70,40 60,50 Q70,60 60,70 L40,70 Q30,60 40,50 Q30,40 40,30" fill="url(#capsuleGradient)" opacity="0.3" stroke="url(#capsuleGradient)" stroke-width="3" /><g class="float" style="animation-duration: 8s;"><circle cx="50" cy="40" r="2" fill="#f59e0b" /><circle cx="45" cy="45" r="1.5" fill="#f59e0b" /><circle cx="55" cy="50" r="1.8" fill="#f59e0b" /><circle cx="48" cy="55" r="1.3" fill="#f59e0b" /><circle cx="52" cy="60" r="1.6" fill="#f59e0b" /></g><text x="50" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold">2025</text><circle cx="50" cy="50" r="45" fill="url(#capsuleGlow)" opacity="0.5" />
+                        </svg>
+                    </div>
+                </div>
+                <h3>Time Capsules</h3>
+                <p>Lock messages in time until the perfect moment arrives for delivery.</p>
+                <span class="badge badge-popular">Popular</span>
+            </div>
+            
+            <!-- Recurring Messages -->
+            <div class="feature-card">
+                <div class="illustration-container">
+                    <div class="illustration">
+                        <svg viewBox="0 0 100 100">
+                            <defs><linearGradient id="recurringGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff" /><stop offset="100%" stop-color="#22c55e" /></linearGradient><radialGradient id="recurringGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0.7" /><stop offset="100%" stop-color="#22c55e" stop-opacity="0" /></radialGradient></defs><path d="M60,40 A20,20 0 1,1 40,60" fill="none" stroke="url(#recurringGradient)" stroke-width="4" stroke-linecap="round" /><polygon points="65,45 55,45 60,35" fill="url(#recurringGradient)" /><rect x="30" y="30" width="40" height="30" rx="5" fill="none" stroke="url(#recurringGradient)" stroke-width="2" /><line x1="30" y1="40" x2="70" y2="40" stroke="url(#recurringGradient)" stroke-width="2" /><line x1="40" y1="30" x2="40" y2="35" stroke="url(#recurringGradient)" stroke-width="2" /><line x1="60" y1="30" x2="60" y2="35" stroke="url(#recurringGradient)" stroke-width="2" /><g fill="url(#recurringGradient)"><circle cx="40" cy="50" r="3" /><circle cx="50" cy="50" r="3" /><circle cx="60" cy="50" r="3" /><circle cx="40" cy="60" r="3" /><circle cx="50" cy="60" r="3" /><circle cx="60" cy="60" r="3" /></g><circle cx="50" cy="50" r="45" fill="url(#recurringGlow)" opacity="0.5" />
+                        </svg>
+                    </div>
+                </div>
+                <h3>Recurring Messages</h3>
+                <p>Schedule annual messages for birthdays, anniversaries, and special occasions.</p>
+            </div>
+            
+            <!-- Message Templates -->
+            <div class="feature-card">
+                <div class="illustration-container">
+                    <div class="illustration">
+                        <svg viewBox="0 0 100 100">
+                            <defs><linearGradient id="templateGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a66cff" /><stop offset="100%" stop-color="#00d4ff" /></linearGradient><radialGradient id="templateGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" stop-color="#a66cff" stop-opacity="0.7" /><stop offset="100%" stop-color="#00d4ff" stop-opacity="0" /></radialGradient></defs><rect x="30" y="30" width="40" height="50" rx="5" fill="url(#templateGradient)" opacity="0.3" stroke="url(#templateGradient)" stroke-width="2" /><rect x="35" y="25" width="40" height="50" rx="5" fill="url(#templateGradient)" opacity="0.5" stroke="url(#templateGradient)" stroke-width="2" /><rect x="40" y="20" width="40" height="50" rx="5" fill="url(#templateGradient)" opacity="0.7" stroke="url(#templateGradient)" stroke-width="2" /><g stroke="white" stroke-width="2" stroke-linecap="round"><line x1="50" y1="35" x2="70" y2="35" /><line x1="50" y1="40" x2="65" y2="40" /><line x1="50" y1="45" x2="70" y2="45" /><line x1="50" y1="50" x2="60" y2="50" /><line x1="50" y1="55" x2="70" y2="55" /></g><path d="M70,20 L80,20 L70,30 Z" fill="url(#templateGradient)" opacity="0.9" /><circle cx="50" cy="50" r="45" fill="url(#templateGlow)" opacity="0.5" />
+                        </svg>
+                    </div>
+                </div>
+                <h3>Message Templates</h3>
+                <p>Quickly create messages using professionally designed templates for any occasion.</p>
+            </div>
+
+            <!-- Telegram Notifications -->
+            <div class="feature-card">
+                <div class="illustration-container">
+                    <div class="illustration">
+                        <svg viewBox="0 0 100 100">
+                            <defs>
+                                <linearGradient id="telegramGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#229ED9"/></linearGradient>
+                                <radialGradient id="telegramGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0.7"/><stop offset="100%" stop-color="#229ED9" stop-opacity="0"/></radialGradient>
+                            </defs>
+                            <g class="float" style="animation-duration: 4s;">
+                                <!-- Paper Plane Body -->
+                                <path d="M25 45 L75 25 L55 75 Z" fill="url(#telegramGradient)" opacity="0.5"/>
+                                <!-- Paper Plane Fold -->
+                                <path d="M25 45 L55 45 L75 25 Z" fill="url(#telegramGradient)" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+                            </g>
+                            <circle cx="50" cy="50" r="45" fill="url(#telegramGlow)" opacity="0.5"/>
+                        </svg>
+                    </div>
+                </div>
+                <h3>Telegram Notifications</h3>
+                <p>Get instant delivery alerts. Provide an optional Telegram Chat ID to be notified the moment your message arrives.</p>
+                <span class="badge badge-popular">Popular</span>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">10M+</div>
+                <div class="stat-label">Messages Delivered</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500K+</div>
+                <div class="stat-label">Happy Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Delivery Success</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Countries Served</div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Send Your First Message?</h2>
+            <p class="cta-description">Join thousands of users creating magical moments through time</p>
+            <a href="compose.html" class="cta-btn">
+                <i class="fas fa-rocket"></i>
+                Start Creating Messages
+            </a>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- ===== NEW FOOTER HTML ===== -->
+    <footer>
+        <div class="futureinbox-footer-container">
+            <div class="futureinbox-footer-content">
+                <div class="futureinbox-footer-logo-section">
+                    <a href="#" class="futureinbox-footer-logo" aria-label="FutureInbox Home">
+                        <i class="fas fa-envelope-open-text"></i>FutureInbox
+                    </a>
+                    <p>Preserving humanity's most important messages for the moments that matter.</p>
+                    <div class="futureinbox-footer-social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="futureinbox-footer-links">
+                    <div>
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="compose.html">Compose</a></li>
+                         <li><a href="history.html">History</a></li>
+                             <li><a href="templates.html">Template</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                             <li><a href="howitworks.html">How It Works</a></li>
+                              <li><a href="helpcenter.html">Help Center</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="Terms&Conditions.html">Terms&Condition</a></li>
+                            <li><a href="Security.html">Security</a></li>
+                            <li><a href="complience.html">Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="futureinbox-footer-copyright">
+                <p>&copy; 2025 FutureInbox. All rights reserved. Because some messages are meant for later.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- These two scripts will now run the navbar, pop-ups, and logout button -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="global.js"></script>
+
+    <!-- This is the script ONLY for the features page -->
+    <script>
+   
+    </script>
+</body>
+</html>

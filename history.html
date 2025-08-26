@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message History - FutureInbox</title>
+     <!-- ADD THE SWEETALERT2 STYLESHEET HERE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+       <!-- ADD THE SWEETALERT2 SCRIPT HERE (at the bottom) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <!-- ADD THE GATEKEEPER SCRIPT HERE -->
+    <script src="auth.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+       <link rel="stylesheet" href="css/history.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+   
+</head>
+<body>
+    <!-- Floating Orbs -->
+    <div class="space-orb"></div>
+    <div class="space-orb"></div>
+    <div class="space-orb"></div>
+    
+    <!-- NEW NAVBAR HTML -->
+    <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+    <header id="futureinbox-header" class="futureinbox-header">
+        <div class="futureinbox-nav-container">
+          <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+            <i class="fas fa-envelope-open-text"></i>FutureInbox
+          </a>
+          <div class="futureinbox-nav-main">
+            <nav aria-label="Main Navigation">
+              <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+                <li><a href="index.html" aria-label="Home">Home</a></li>
+                <li><a href="compose.html" aria-label="compose">Compose</a></li>
+                <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+                <li class="futureinbox-nav-dropdown">
+                  <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History" aria-current="page">
+                    History <i class="fas fa-chevron-down"></i>
+                  </a>
+                  <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                    <li><a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i> Features</a></li>
+                    <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                    <li><a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+                  </ul>
+                </li>
+                <li><a href="about.html" aria-label="About">About Us</a></li>
+                <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+              </ul>
+            </nav>
+            <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+            <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+    <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+    <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+    <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+        <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+          <i class="fas fa-times"></i>
+        </button>
+        <ul>
+          <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="compose.html" aria-label="Features"><i class="fas fa-star"></i> Compose</a></li>
+          <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+          <li><a href="history.html" aria-label="History" aria-current="page"><i class="fas fa-history"></i> History</a></li>
+          <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+            <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="Use Cases">
+              <span><i class="fas fa-layer-group"></i> Use Cases</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="futureinbox-mobile-dropdown-menu" role="menu">
+              <a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i>Features</a>
+              <a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a>
+              <a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i> Help Center</a>
+            </div>
+          </li>
+          <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+      </nav>
+
+<!-- Main Content -->
+<main id="main-content" class="container" style="padding: calc(var(--futureinbox-header-height) + 2rem) 1rem 2rem 1rem;">
+    <div class="hero">
+        <div class="hero-icon">
+            <i class="fas fa-history fa-2x"></i>
+        </div>
+        <h1>Message History</h1>
+        <p>View and manage your scheduled messages through time</p>
+    </div>
+
+   <!-- In your HTML, find this section and update it -->
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-number" id="total-messages-stat">0</div>
+        <div class="stat-label">Total Messages</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number" id="scheduled-stat">0</div>
+        <div class="stat-label">Scheduled</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number" id="sent-stat">0</div>
+        <div class="stat-label">Sent</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number" id="drafts-stat">0</div>
+        <div class="stat-label">Drafts</div>
+    </div>
+</div>
+
+<!-- Search and Filter -->
+    <div class="search-container">
+        <div class="search-input">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="Search messages...">
+        </div>
+        
+        <div class="filter-btn-group">
+            <button class="filter-btn active" data-filter="all">All Messages</button>
+            <button class="filter-btn" data-filter="scheduled">Scheduled</button>
+            <button class="filter-btn" data-filter="sent">Sent</button>
+            <button class="filter-btn" data-filter="draft">Drafts</button>
+        </div>
+    </div>
+
+    <!-- History Content -->
+    <div id="history-content">
+        <div class="history-grid">
+            <!-- Message cards will be populated by JavaScript -->
+             
+        </div>
+    </div>
+<!-- ADD THIS HTML right after the closing </main> tag -->
+
+<!-- Decryption Key Modal -->
+<div id="decrypt-modal" class="modal-overlay">
+    <div class="modal-content-wrapper">
+        <div class="modal-content">
+            <button id="close-decrypt-modal" class="modal-close-btn" aria-label="Close dialog"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <i class="fas fa-key modal-icon"></i>
+                <h3 id="decrypt-modal-title" class="modal-title">Enter Encryption Key</h3>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">This message is end-to-end encrypted. Please paste the key to unlock its content.</p>
+                <div class="form-group">
+                    <textarea id="decrypt-key-input" class="form-textarea" placeholder="Paste your Base64 encryption key here..." rows="4"></textarea>
+                    <div id="decrypt-error" class="form-error"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-decrypt" class="btn btn-outline">Cancel</button>
+                <button id="confirm-decrypt" class="btn btn-primary"><i class="fas fa-unlock-alt"></i> Decrypt Message</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- PASTE THIS CODE HERE -->
+
+<!-- Confirmation Delete Modal -->
+<div id="confirm-delete-modal" class="modal-overlay">
+    <div class="modal-content-wrapper">
+        <div class="modal-content">
+            <button id="close-confirm-delete-modal" class="modal-close-btn" aria-label="Close dialog"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <i class="fas fa-exclamation-triangle modal-icon" style="color: var(--destructive);"></i>
+                <h3 id="confirm-delete-modal-title" class="modal-title">Confirm Deletion</h3>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-delete-description" class="modal-description">Are you sure you want to permanently delete this message? This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-delete" class="btn btn-outline">Cancel</button>
+                <button id="confirm-delete-btn" class="btn btn-destructive"><i class="fas fa-trash"></i> Confirm Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+    <span id="toast-message"></span>
+</div>
+  <script src="global.js"></script>
+<script>
+   
+
+    // HISTORY PAGE JAVASCRIPT
+    const SUPABASE_URL = 'https://vimnozdaqcvhmcdrnira.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpbW5vemRhcWN2aG1jZHJuaXJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUwOTYxNDAsImV4cCI6MjA3MDY3MjE0MH0.7G_2DKL0U_zDV_e0gljebUDR0h4i07I3nM1Ash1hnz4';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    let appState = {
+        currentFilter: 'all',
+        currentTheme: 'dark',
+        countdownIntervals: new Map(),
+        savedMessages: []
+    };
+
+    async function initPage() {
+        setupEventListeners();
+        await loadMessagesFromSupabase();
+        loadHistoryView();
+        updateStats();
+        initAnimations();
+        const savedTheme = localStorage.getItem('futureInboxTheme') || 'dark';
+        setTheme(savedTheme);
+    }
+
+    function setupEventListeners() {
+        // This is a placeholder for the theme toggle if you add one to the new navbar
+        // document.getElementById('theme-toggle').addEventListener('click', toggleTheme); 
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => filterHistory(btn.dataset.filter));
+        });
+        document.getElementById('search-input').addEventListener('input', searchMessages);
+    }
+
+    async function loadMessagesFromSupabase() {
+        const content = document.getElementById('history-content');
+        try {
+            content.innerHTML = `<div class="empty-state"><div class="empty-icon"><div class="rotate" style="width: 2rem; height: 2rem; border: 3px solid var(--border); border-top-color: var(--primary); border-radius: 50%;"></div></div><h3 class="empty-title">Loading Messages...</h3></div>`;
+            const { data, error } = await supabase.from('messages').select('*').order('created_at', { ascending: false });
+            if (error) throw error;
+            appState.savedMessages = data;
+        } catch (error) {
+            console.error("Error loading messages:", error);
+            content.innerHTML = `<div class="empty-state"><div class="empty-icon"><i class="fas fa-exclamation-triangle"></i></div><h3 class="empty-title">Failed to Load Messages</h3><p class="empty-description">${error.message}</p></div>`;
+        }
+    }
+
+    function initAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+        document.querySelectorAll('.message-card, .stat-card').forEach(card => observer.observe(card));
+    }
+
+    function base64ToArrayBuffer(base64) {
+        const binary_string = window.atob(base64);
+        const len = binary_string.length;
+        const bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) bytes[i] = binary_string.charCodeAt(i);
+        return bytes.buffer;
+    }
+
+    function setTheme(theme) {
+        appState.currentTheme = theme;
+        document.documentElement.setAttribute('data-theme', theme);
+        // Add theme toggle button update logic here if it exists in the new navbar
+    }
+
+    function filterHistory(filter) {
+        appState.currentFilter = filter;
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
+        loadHistoryView();
+    }
+
+    function searchMessages() { loadHistoryView(); }
+
+    function createCountdownTimer(messageId, deliveryDate) {
+        const targetDate = new Date(deliveryDate);
+        function updateCountdown() {
+            const now = new Date();
+            const difference = targetDate.getTime() - now.getTime();
+            const countdownElement = document.getElementById(`countdown-${messageId}`);
+            if (!countdownElement) return;
+            if (difference <= 0) {
+                countdownElement.innerHTML = `<div class="countdown-delivered"><i class="fas fa-check-circle"></i> Message Delivered!</div>`;
+                if (appState.countdownIntervals.has(messageId)) {
+                    clearInterval(appState.countdownIntervals.get(messageId));
+                    appState.countdownIntervals.delete(messageId);
+                }
+                return;
+            }
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            const totalHours = difference / (1000 * 60 * 60);
+            let urgencyClass = totalHours <= 1 ? 'countdown-critical' : totalHours <= 24 ? 'countdown-urgent' : '';
+            let urgencyText = totalHours <= 1 ? '🚨 Delivering Very Soon!' : totalHours <= 24 ? '⚡ Delivering Soon!' : '⏳ Time Until Delivery';
+            countdownElement.innerHTML = `<div class="countdown-timer ${urgencyClass}"><div class="countdown-title"><i class="fas fa-clock"></i> ${urgencyText}</div><div class="countdown-display"><div class="countdown-unit"><div class="countdown-number">${days.toString().padStart(2, '0')}</div><div class="countdown-label">Days</div></div><div class="countdown-unit"><div class="countdown-number">${hours.toString().padStart(2, '0')}</div><div class="countdown-label">Hours</div></div><div class="countdown-unit"><div class="countdown-number">${minutes.toString().padStart(2, '0')}</div><div class="countdown-label">Min</div></div><div class="countdown-unit"><div class="countdown-number">${seconds.toString().padStart(2, '0')}</div><div class="countdown-label">Sec</div></div></div></div>`;
+        }
+        updateCountdown();
+        const interval = setInterval(updateCountdown, 1000);
+        appState.countdownIntervals.set(messageId, interval);
+    }
+
+    function clearAllCountdownTimers() {
+        appState.countdownIntervals.forEach(interval => clearInterval(interval));
+        appState.countdownIntervals.clear();
+    }
+    
+    function loadHistoryView() {
+        const content = document.getElementById('history-content');
+        const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+        clearAllCountdownTimers();
+        let filteredMessages = appState.savedMessages.filter(msg => 
+            (appState.currentFilter === 'all' || msg.status === appState.currentFilter) &&
+            (!searchTerm || (msg.message_title && msg.message_title.toLowerCase().includes(searchTerm)) || (msg.message_content && msg.message_content.toLowerCase().includes(searchTerm)) || (msg.recipient_name && msg.recipient_name.toLowerCase().includes(searchTerm)))
+        );
+        if (filteredMessages.length === 0) {
+            content.innerHTML = `<div class="empty-state"><div class="empty-icon"><i class="fas fa-inbox"></i></div><h3 class="empty-title">No messages found</h3><p class="empty-description">Try changing your filters or search term, or create your first message.</p><a href="compose.html" class="btn btn-primary"><i class="fas fa-plus"></i> Create New Message</a></div>`;
+        } else {
+            content.innerHTML = `<div class="history-grid">${filteredMessages.map(message => createMessageCardHTML(message)).join('')}</div>`;
+            filteredMessages.forEach(message => { if (message.status === 'scheduled') createCountdownTimer(message.id, message.delivery_date); });
+            initAnimations();
+        }
+    }
+
+   // REPLACE your OLD createMessageCardHTML function with this NEW one.
+function createMessageCardHTML(message) {
+    const recipientName = message.recipient_name || 'N/A';
+    const recipientEmail = message.recipient_email || 'N/A';
+    // Use the theme to get the message title, fallback to recipient name
+    const themeText = document.querySelector(`#message-theme option[value="${message.message_theme}"]`)?.textContent.replace(/[\u{1F600}-\u{1F64F}]/gu, '').trim() || 'Message';
+    const messageTitle = `${themeText} for ${recipientName}`;
+    
+    const createdAt = message.created_at ? formatDate(message.created_at) : 'N/A';
+
+    // Decryption placeholder or message content
+    let contentHTML = message.is_encrypted 
+        ? `<div class="encrypted-content-placeholder" id="content-${message.id}"><i class="fas fa-lock"></i><p>This message is end-to-end encrypted.</p><button class="btn btn-sm btn-primary" onclick="promptForDecryption('${message.id}')"><i class="fas fa-key"></i> Decrypt Message</button></div><div class="message-content" id="decrypted-content-${message.id}" style="display: none;"></div>` 
+        : `<div class="message-content">${message.message_content}</div>`; // Note: Directly using innerHTML from DB
+
+    // --- THIS IS THE NEW ATTACHMENTS LOGIC ---
+    let attachmentsHTML = '';
+    if (message.attachment_urls && message.attachment_urls.length > 0) {
+        const attachmentLinks = message.attachment_urls.map(url => {
+            // Decode the URL to properly get the original file name
+            const fullPath = decodeURIComponent(url);
+            // Extract the part after the last '/' and then remove the timestamp prefix
+            const fileNameWithTimestamp = fullPath.substring(fullPath.lastIndexOf('/') + 1);
+            const fileName = fileNameWithTimestamp.substring(fileNameWithTimestamp.indexOf('-') + 1);
+
+            let iconClass = 'fas fa-file'; // Default icon
+            if (fileName === 'voice-recording.webm') {
+                iconClass = 'fas fa-file-audio'; // Specific icon for voice recordings
+            } else if (/\.(jpg|jpeg|png|gif)$/i.test(fileName)) {
+                iconClass = 'fas fa-file-image';
+            } else if (/\.(mp3|wav|ogg)$/i.test(fileName)) {
+                iconClass = 'fas fa-file-audio';
+            } else if (/\.(mp4|mov|avi)$/i.test(fileName)) {
+                iconClass = 'fas fa-file-video';
+            } else if (/\.(pdf)$/i.test(fileName)) {
+                iconClass = 'fas fa-file-pdf';
+            } else if (/\.(doc|docx)$/i.test(fileName)) {
+                iconClass = 'fas fa-file-word';
+            }
+
+            return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="attachment-link"><i class="${iconClass}"></i><span>${escapeHTML(fileName)}</span></a>`;
+        }).join('');
+
+        attachmentsHTML = `<div class="attachments-section"><h4 class="attachments-title"><i class="fas fa-paperclip"></i> Attachments</h4><div class="attachments-list">${attachmentLinks}</div></div>`;
+    }
+    
+    // Assembling the final card HTML
+    return `
+        <div class="message-card" id="message-card-${message.id}">
+            <div class="message-header">
+                <div class="message-emoji">${getThemeEmoji(message.message_theme)}</div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                    ${message.is_encrypted ? '<div class="badge badge-secondary"><i class="fas fa-lock"></i> Encrypted</div>' : ''}
+                    ${message.recurring_frequency ? '<div class="badge badge-secondary"><i class="fas fa-redo"></i> Recurring</div>' : ''}
+                    <div class="badge badge-${message.status === 'scheduled' ? 'primary' : message.status === 'sent' ? 'success' : 'warning'}">
+                        ${message.status === 'scheduled' ? '<i class="fas fa-clock"></i>' : message.status === 'sent' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-edit"></i>'} ${message.status}
+                    </div>
+                </div>
+            </div>
+            <h3 class="message-title">${escapeHTML(messageTitle)}</h3>
+            ${contentHTML}
+            ${attachmentsHTML}
+            ${message.status === 'scheduled' ? `<div id="countdown-${message.id}"></div>` : ''}
+            <div class="message-meta">
+                <div class="meta-item"><i class="fas fa-user"></i> To: ${escapeHTML(recipientName)} (${escapeHTML(recipientEmail)})</div>
+                <div class="meta-item"><i class="fas fa-calendar-day"></i> Delivery: ${formatDate(message.delivery_date)}</div>
+                <div class="meta-item"><i class="fas fa-clock"></i> Created: ${createdAt}</div>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+                <button class="btn btn-ghost btn-sm" onclick="editMessage('${message.id}')"><i class="fas fa-edit"></i> Edit</button>
+                <button class="btn btn-ghost btn-sm" onclick="duplicateMessage('${message.id}')"><i class="fas fa-copy"></i> Copy</button>
+                <button class="btn btn-ghost btn-sm" onclick="deleteMessage('${message.id}')" style="color: var(--destructive);"><i class="fas fa-trash"></i> Delete</button>
+            </div>
+        </div>`;
+}
+
+// You will also need this helper function for security. Add it somewhere in your script.
+function escapeHTML(str) {
+    if (!str) return '';
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+        function getThemeEmoji(theme) {
+        // This object now contains all the themes from your compose page.
+        const emojis = { 
+            birthday: '🎂', 
+            anniversary: '💕', 
+            graduation: '🎓', 
+            motivation: '💪', 
+            reminder: '⏰', 
+            love: '💌', 
+            apology: '🥺',
+            miss_you: '💘',
+            retirement: '🎣',
+            new_job: '💼',
+            general: '✉️' 
+        };
+        
+        // Return the correct emoji, or a sparkle '✨' for any unknown/custom themes.
+        return emojis[theme] || '✨';
+    }
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    }
+
+    function editMessage(id) {
+        localStorage.setItem('editMessageId', id);
+        window.location.href = 'compose.html';
+    }
+
+   // REPLACE your old deleteMessage function with this new one.
+
+async function deleteMessage(id) {
+    const message = appState.savedMessages.find(msg => msg.id === id);
+    if (!message) return;
+
+    const modal = document.getElementById('confirm-delete-modal');
+    const description = document.getElementById('confirm-delete-description');
+    const confirmBtn = document.getElementById('confirm-delete-btn');
+    const cancelBtn = document.getElementById('cancel-delete');
+    const closeModalBtn = document.getElementById('close-confirm-delete-modal');
+
+    // Update modal text for the specific message
+    description.innerHTML = `Are you sure you want to permanently delete the message for "<strong>${escapeHTML(message.recipient_name)}</strong>"? This action cannot be undone.`;
+
+    // Show the modal
+    modal.classList.add('visible');
+
+    // This function will be called when the user confirms the deletion
+    const handleConfirm = async () => {
+        // Add a loading state to the button for better user experience
+        confirmBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Deleting...';
+        confirmBtn.disabled = true;
+
+        try {
+            const { error } = await supabase.from('messages').delete().eq('id', id);
+            if (error) throw error;
+
+            if (appState.countdownIntervals.has(id)) {
+                clearInterval(appState.countdownIntervals.get(id));
+                appState.countdownIntervals.delete(id);
+            }
+            appState.savedMessages = appState.savedMessages.filter(msg => msg.id !== id);
+            updateStats();
+            loadHistoryView(); // This removes the card from the UI
+            showToast('Message deleted successfully!', 'info');
+        } catch (error) {
+            console.error('Error deleting message:', error);
+            showToast(`Failed to delete message: ${error.message}`, 'error');
+        } finally {
+            // Restore the button's original state and close the modal
+            confirmBtn.innerHTML = '<i class="fas fa-trash"></i> Confirm Delete';
+            confirmBtn.disabled = false;
+            cleanup();
+        }
+    };
+
+    // This function hides the modal and removes the event listeners to prevent issues
+    const cleanup = () => {
+        modal.classList.remove('visible');
+        confirmBtn.removeEventListener('click', handleConfirm);
+        cancelBtn.removeEventListener('click', cleanup);
+        closeModalBtn.removeEventListener('click', cleanup);
+        modal.removeEventListener('click', closeOnOverlayClick);
+    };
+    
+    // Allows closing the modal by clicking on the dark background
+    const closeOnOverlayClick = (e) => {
+        if (e.target === modal) {
+            cleanup();
+        }
+    };
+
+    // Add event listeners for the modal buttons
+    confirmBtn.addEventListener('click', handleConfirm);
+    cancelBtn.addEventListener('click', cleanup);
+    closeModalBtn.addEventListener('click', cleanup);
+    modal.addEventListener('click', closeOnOverlayClick);
+}
+    async function promptForDecryption(messageId) {
+        const modal = document.getElementById('decrypt-modal');
+        const keyInput = document.getElementById('decrypt-key-input');
+        const errorEl = document.getElementById('decrypt-error');
+        keyInput.value = '';
+        errorEl.classList.remove('show');
+        modal.classList.add('visible');
+        const keyString = await new Promise(resolve => {
+            const confirmHandler = () => { cleanup(); resolve(keyInput.value.trim()); };
+            const cancelHandler = () => { cleanup(); resolve(null); };
+            const cleanup = () => {
+                document.getElementById('confirm-decrypt').onclick = null;
+                document.getElementById('cancel-decrypt').onclick = null;
+                document.getElementById('close-decrypt-modal').onclick = null;
+                modal.classList.remove('visible');
+            };
+            document.getElementById('confirm-decrypt').onclick = confirmHandler;
+            document.getElementById('cancel-decrypt').onclick = cancelHandler;
+            document.getElementById('close-decrypt-modal').onclick = cancelHandler;
+        });
+        if (!keyString) return;
+        const message = appState.savedMessages.find(msg => msg.id === messageId);
+        if (!message) { showToast('Error: Message not found.', 'error'); return; }
+        const placeholderEl = document.getElementById(`content-${message.id}`);
+        const decryptedContentEl = document.getElementById(`decrypted-content-${message.id}`);
+        placeholderEl.innerHTML = `<i><i class="fas fa-spinner fa-spin"></i> Decrypting...</i>`;
+        try {
+            const jwk = JSON.parse(atob(keyString));
+            const key = await crypto.subtle.importKey("jwk", jwk, { name: "AES-GCM" }, true, ["encrypt", "decrypt"]);
+            const packagedData = JSON.parse(message.message_content);
+            const iv = base64ToArrayBuffer(packagedData.iv);
+            const encryptedContent = base64ToArrayBuffer(packagedData.content);
+            const decryptedContent = await crypto.subtle.decrypt({ name: "AES-GCM", iv: iv }, key, encryptedContent);
+            decryptedContentEl.innerHTML = escapeHTML(new TextDecoder().decode(decryptedContent));
+            decryptedContentEl.style.display = 'block';
+            placeholderEl.style.display = 'none';
+            showToast('Message decrypted successfully!', 'success');
+        } catch (error) {
+            console.error("Decryption failed:", error);
+            showToast('Decryption failed. The key is likely incorrect.', 'error');
+            placeholderEl.innerHTML = `<i class="fas fa-lock"></i><p>This message is end-to-end encrypted.</p><button class="btn btn-sm btn-primary" onclick="promptForDecryption('${message.id}')"><i class="fas fa-key"></i> Decrypt Message</button>`;
+        }
+    }
+
+    function showToast(message, type = 'info') {
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toast-message');
+        toastMessage.textContent = message;
+        toast.className = `toast ${type} show`;
+        setTimeout(() => { toast.classList.remove('show'); }, 4000);
+    }
+
+    function updateStats() {
+        const total = appState.savedMessages.length;
+        const scheduled = appState.savedMessages.filter(m => m.status === 'scheduled').length;
+        const sent = appState.savedMessages.filter(m => m.status === 'sent').length;
+        const drafts = appState.savedMessages.filter(m => m.status === 'draft').length;
+        document.getElementById('total-messages-stat').textContent = total;
+        document.getElementById('scheduled-stat').textContent = scheduled;
+        document.getElementById('sent-stat').textContent = sent;
+        document.getElementById('drafts-stat').textContent = drafts;
+    }
+// from the global script. We'll just call it directly here.
+        document.addEventListener('DOMContentLoaded', () => {
+             // The global.js script already ran and set up the navbar.
+             // Now we run the specific logic for this page.
+             initPage();
+        });
+</script>
+
+</body>
+</html>

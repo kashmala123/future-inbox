@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureInbox - Send Messages Through Time</title>
+    <meta name="description" content="Send messages through time to yourself or loved ones with FutureInbox. Secure your legacy with encrypted, scheduled messages wrapped in emotion and technology.">
+    <!-- In your <head> section -->
+<link rel="stylesheet" href="css/index.css">
+<script src="js/index.js"></script>
+
+
+    
+    <!-- Font Preloading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1IDMwTDE4Ny4xMjkgMTQ2Ljg3MUg2Mi44NzFMMTI1IDMwWiIgZmlsbD0iIzAwZDFmZiIvPjxwYXRoIGQ9Ik0xMjUgMzBMMTg3LjEyOSAxNDYuODcxTDEyNSAyMTVWNzBaIiBmaWxsPSIjN2U1N2MyIiBmaWxsLW9wYWNpdHk9IjAuOCIvPjwvc3ZnPg==">
+    <!-- Add preconnect for Font Awesome -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+
+    <!-- NEW NAVBAR -->
+    <header id="futureinbox-header" class="futureinbox-header">
+        <div class="futureinbox-nav-container">
+            <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+                <i class="fas fa-envelope-open-text"></i>FutureInbox
+            </a>
+            <div class="futureinbox-nav-main">
+                <nav aria-label="Main Navigation">
+                    <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+                        <li><a href="index.html" aria-label="Home" aria-current="page">Home</a></li>
+                        <li><a href="compose.html" aria-label="Features">Compose</a></li>
+                        <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+                        <li class="futureinbox-nav-dropdown">
+                            <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                               History <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                                         <li><a href="features.html" role="menuitem" aria-label="For features"><i class="fa-solid fa-grip"></i> Features</a></li>
+                <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                <li><a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html" aria-label="About">About</a></li>
+                        <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+                <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+    <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+    <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+        <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html" aria-label="Home" aria-current="page"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="compose.html" aria-label="compose"><i class="fas fa-star"></i> Compose</a></li>
+            <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+            <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+                <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="History ">
+                    <span><i class="fas fa-layer-group"></i> History</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="futureinbox-mobile-dropdown-menu" role="menu">
+                    <a href="features.html" role="menuitem" aria-label="for features"><i class="fa-solid fa-grip"></i></i>Feature</a>
+                    <a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i> Templates</a>
+                    <a href="helpcenter.html" role="menuitem" aria-label="help center"><i class="fa-brands fa-hire-a-helper"></i> Help Center</a>
+                </div>
+            </li>
+            <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+    </nav>
+
+    <!-- Hero Section with Time Portal -->
+    <main id="main-content">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Send a message through time.</h1>
+                    <h2>Because some messages are meant for later.</h2>
+                    <p>To your future self. To someone you love. Or to the world. Preserve your thoughts, emotions, and wisdom for the moments that matter most.</p>
+                    <div class="hero-buttons">
+                        <a href="compose.html" class="btn btn-primary">Send a Message</a>
+                        <a href="howitworks.html" class="btn btn-secondary">Explore How It Works</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Visual: Time Portal -->
+            <div class="hero-visual">
+                <div class="portal-container">
+                    <!-- Portal rings -->
+                    <div class="portal-ring"></div>
+                    <div class="portal-ring"></div>
+                    <div class="portal-ring"></div>
+                    
+                    <!-- Portal core and glow -->
+                    <div class="portal-core"></div>
+                    <div class="portal-glow"></div>
+                    
+                    <!-- Floating envelope -->
+                    <div class="envelope" aria-hidden="true">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    
+                    <!-- Spark particles will be generated by JS -->
+                </div>
+                <div class="stars" id="stars"></div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="section" id="how-it-works">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h3>Compose</h3>
+                        <p>Write your heartfelt message. Add text, audio, or video to make it truly personal.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Schedule</h3>
+                        <p>Choose the exact date and time for delivery - tomorrow, next year, or decades from now.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Encrypt</h3>
+                        <p>Your message is secured with military-grade encryption until its delivery time.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h3>Deliver</h3>
+                        <p>Your message arrives exactly when intended, creating a magical moment in time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title">Powerful Features</h2>
+                <div class="features-grid" id="featuresContainer">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <h3>AI Voice Simulation</h3>
+                        <p>Preserve your unique voice with our advanced AI technology for truly personal messages.</p>
+                           
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-capsules"></i>
+                        </div>
+                        <h3>Time Capsule</h3>
+                        <p>Lock messages for specific dates, events, or triggers that matter to you.</p>
+                           
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                          <h3>Sentimental Analysis</h3>
+                    <p>Ensure your message conveys the intended emotion.</p>
+                    
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                           <i class="fas fa-robot"></i>
+                        </div>
+                        
+                        <h3>AI Assistant</h3>
+                    <p>Craft perfect messages with personalized suggestions.</p>
+                    
+                    </div>
+                </div>
+                <a href="features.html" class="all-features-btn">
+                See All Features <i class="fas fa-arrow-right"></i>
+            </a>
+            </div>
+            
+        </section>
+        
+       <!-- In the Use Cases Section -->
+<div class="use-cases-container">
+    <div class="case-card">
+        <div class="case-icon">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>Graduation Letters</h3>
+        <p>Write messages to your children to be delivered on their graduation day, celebrating their achievements.</p>
+        <!-- MODIFIED BUTTON -->
+        <a href="#" class="btn learn-more-btn" data-case="graduation">Learn More</a>
+    </div>
+    <div class="case-card">
+        <div class="case-icon">
+            <i class="fas fa-heart"></i>
+        </div>
+        <h3>Anniversary Wishes</h3>
+        <p>Create heartfelt messages for your partner to be delivered on future anniversaries.</p>
+        <!-- MODIFIED BUTTON -->
+        <a href="#" class="btn learn-more-btn" data-case="anniversary">Learn More</a>
+    </div>
+    <div class="case-card">
+        <div class="case-icon">
+            <i class="fas fa-baby"></i>
+        </div>
+        <h3>Parental Guidance</h3>
+        <p>Record advice for your children to receive at key life moments - first job, marriage, or parenthood.</p>
+        <!-- MODIFIED BUTTON -->
+        <a href="#" class="btn learn-more-btn" data-case="parental">Learn More</a>
+    </div>
+</div>
+        
+      <!-- Your Legacy, Secured Section -->
+<section class="section" id="trust-section">
+    <div class="container">
+        <h2 class="section-title">Your Legacy, Secured for Generations</h2>
+      <!-- Replace the existing trust-content div with this new one -->
+<div class="trust-content">
+    <div class="trust-visual">
+        <div class="trust-glow"></div>
+        <div class="trust-ring"></div>
+        <div class="trust-ring"></div>
+        <div class="trust-core">
+            <i class="fas fa-handshake"></i> <!-- A more fitting icon for "Promises" -->
+        </div>
+    </div>
+    <div class="trust-details">
+        <h3>A Promise Built on Trust</h3>
+        <p>Your memories are priceless, and we treat them that way. Our commitment is to ensure your messages are preserved with uncompromising security and delivered with absolute reliability, no matter how far into the future.</p>
+        
+        <!-- This is the new "stats" section -->
+        <div class="trust-promises">
+            <div class="promise-item">
+                <div class="promise-icon"><i class="fas fa-shield-alt"></i></div>
+                <h4 class="promise-title">Ironclad Security</h4>
+                <p class="promise-description">Using AES-256, the same encryption trusted by governments, your messages are locked from the moment you send them until the moment they are opened.</p>
+            </div>
+            <div class="promise-item">
+                <div class="promise-icon"><i class="fas fa-file-contract"></i></div>
+                <h4 class="promise-title">The Legacy Trust</h4>
+                <p class="promise-description">We've established a legal and financial trust to ensure that even if our company ceases to exist, the funds and infrastructure will remain to deliver your messages.</p>
+            </div>
+            <div class="promise-item">
+                <div class="promise-icon"><i class="fas fa-user-secret"></i></div>
+                <h4 class="promise-title">Absolute Privacy</h4>
+                <p class="promise-description">Our zero-knowledge policy means no one—not even our team—can ever access the content of your messages. Your legacy is yours and yours alone.</p>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+   <!-- FINAL PREMIUM TESTIMONIAL SECTION -->
+<section class="testimonial" id="testimonials">
+    <div class="container">
+        <h2 class="section-title">Real Stories, Real Impact</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-carousel-wrapper">
+                <div class="testimonial-carousel">
+
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-card">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80" 
+                                 alt="Headshot of Sarah Johnson" class="author-avatar">
+                            <div class="testimonial-card-content">
+                                <blockquote class="testimonial-quote">
+                                    “It felt like he came back just to say goodbye... Receiving my father's message on his 70th birthday was the most precious gift I could imagine.”
+                                </blockquote>
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>A Cherished Memory</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80" 
+                                 alt="Headshot of Michael Thompson" class="author-avatar">
+                            <div class="testimonial-card-content">
+                                <blockquote class="testimonial-quote">
+                                    "Receiving a message from my younger self was profound. It gave me perspective, made me laugh, and reminded me of the dreams I've since achieved. Priceless."
+                                </blockquote>
+                                <div class="author-info">
+                                    <h4>Michael Thompson</h4>
+                                    <p>A Conversation Through Time</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80" 
+                                 alt="Headshot of Emily Rodriguez" class="author-avatar">
+                            <div class="testimonial-card-content">
+                                <blockquote class="testimonial-quote">
+                                    "As a new parent, I'm recording messages for my daughter. Knowing a piece of me will be with her on future milestones gives me incredible peace of mind."
+                                </blockquote>
+                                <div class="author-info">
+                                    <h4>Emily Rodriguez</h4>
+                                    <p>A Legacy for the Future</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Navigation Buttons - Moved outside the wrapper for better positioning -->
+            <button class="carousel-nav prev" id="testimonial-prev" aria-label="Previous testimonial">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav next" id="testimonial-next" aria-label="Next testimonial">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="testimonial-nav" id="testimonial-dots">
+            <button class="testimonial-dot active" data-index="0" aria-label="View testimonial 1"></button>
+            <button class="testimonial-dot" data-index="1" aria-label="View testimonial 2"></button>
+            <button class="testimonial-dot" data-index="2" aria-label="View testimonial 3"></button>
+        </div>
+    </div>
+</section>
+        
+        <!-- FAQ Section -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq1">
+                            How secure is my message? <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq1">
+                            <p>Your messages are protected with AES-256 encryption, the same standard used by banks and governments. We use end-to-end encryption, meaning only you and your recipient can read the messages. Even our team cannot access your content.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq2">
+                            What happens if FutureInbox goes out of business? <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq2">
+                            <p>We've established a legal trust with escrow services to ensure all scheduled messages will be delivered regardless of our company's status. Additionally, we offer message export options so you can maintain your own backups.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq3">
+                            Can I schedule messages decades into the future? <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq3">
+                            <p>Absolutely! Our system is designed to handle messages scheduled up to 100 years in the future. We use redundant systems and regular technology updates to ensure your messages will be delivered no matter how far in the future.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq4">
+                            How does the AI Voice Simulation work? <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer" id="faq4">
+                            <p>Our AI analyzes a short voice sample you provide (minimum 30 seconds) and creates a digital voice model. This model can then speak any text you provide, preserving your unique vocal characteristics for future generations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section class="final-cta" id="contact">
+    <div class="container">
+        <h2>Your words matter.</h2>
+        <p>Don't let your most important thoughts, feelings, and wisdom be forgotten. Secure your legacy and create moments that transcend time.</p>
+        
+        <!-- This container is the key to the solution -->
+        <div class="cta-actions">
+            <a href="compose.html" class="btn btn-primary">Begin Your Journey Through Time</a>
+            
+            <div class="newsletter">
+                <input type="email" id="newsletter-email" placeholder="Enter your email for updates" aria-label="Email address for newsletter">
+                <button id="subscribe-btn">Subscribe</button>
+                <div class="error-message" id="email-error"></div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <!-- NEW FOOTER -->
+    <footer>
+        <div class="futureinbox-footer-container">
+            <div class="futureinbox-footer-content">
+                <div class="futureinbox-footer-logo-section">
+                    <a href="#" class="futureinbox-footer-logo" aria-label="FutureInbox Home">
+                        <i class="fas fa-envelope-open-text"></i>FutureInbox
+                    </a>
+                    <p>Preserving humanity's most important messages for the moments that matter.</p>
+                    <div class="futureinbox-footer-social-links">
+                      <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+<a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+<a href="#" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="futureinbox-footer-links">
+                    <div>
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="compose.html">Compose</a></li>
+                            <li><a href="history.html">History</a></li>
+                             <li><a href="templates.html">Template</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                             <li><a href="howitworks.html">How It Works</a></li>
+                              <li><a href="helpcenter.html">Help Center</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="Terms&Conditions.html">Terms&Condition</a></li>
+                            <li><a href="Security.html">Security</a></li>
+                            <li><a href="complience.html">Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="futureinbox-footer-copyright">
+                <p>&copy; 2025 FutureInbox. All rights reserved. Because some messages are meant for later.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== NEW: Subscription Success Modal ===== -->
+    <div id="subscription-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="subscription-modal-title">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <button id="subscription-modal-close-btn" class="modal-close-btn" aria-label="Close dialog"><i class="fas fa-times"></i></button>
+                <div id="subscription-modal-body">
+                    <div class="modal-icon"><i class="fas fa-check"></i></div>
+                    <h3 id="subscription-modal-title">Subscription Successful!</h3>
+                    <p>Thank you for subscribing to FutureInbox updates. You are now on the list to receive the latest news and features.</p>
+                    <button id="subscription-modal-ok-btn" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ENHANCED MODAL STRUCTURE -->
+    <div id="use-case-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <button id="modal-close-btn" class="modal-close-btn" aria-label="Close dialog"><i class="fas fa-times"></i></button>
+                <div id="modal-body">
+                    <!-- Dynamic content will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+<!-- These two new scripts handle the navbar and pop-ups for you -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="global.js"></script>
+    <script>
+      
+    </script>
+</body>
+</html>

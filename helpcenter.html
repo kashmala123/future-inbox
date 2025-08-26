@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureInbox - Premium Help Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="css/helpcenter.css">
+    <!-- Font Preloading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1IDMwTDE4Ny4xMjkgMTQ2Ljg3MUg2Mi44NzFMMTI1IDMwWiIgZmlsbD0iIzAwZDFmZiIvPjxwYXRoIGQ9Ik0xMjUgMzBMMTg3LjEyOSAxNDYuODcxTDEyNSAyMTVWNzBaIiBmaWxsPSIjN2U1N2MyIiBmaWxsLW9wYWNpdHk9IjAuOCIvPjwvc3ZnPg==">
+    <!-- Add preconnect for Font Awesome -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <style>
+       
+    </style>
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+
+    <!-- Header with Glassmorphism Navbar -->
+    <header id="futureinbox-header" class="futureinbox-header">
+        <div class="futureinbox-nav-container">
+            <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+                <i class="fas fa-envelope-open-text"></i>FutureInbox
+            </a>
+            <div class="futureinbox-nav-main">
+                <nav aria-label="Main Navigation">
+                    <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+                        <li><a href="index.html" aria-label="Home">Home</a></li>
+                        <li><a href="compose.html" aria-label="compose">Compose</a></li>
+                        <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+                        <li class="futureinbox-nav-dropdown">
+                            <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="Use Cases">
+                                History <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                                <li><a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i> Features</a></li>
+                                <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                                <li><a href="helpcenter.html" role="menuitem" aria-label="help-center" aria-current="page"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html" aria-label="About">About Us</a></li>
+                        <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+                <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+     <!-- System Status Indicator, moved here to be a direct sibling for positioning -->
+    
+        
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+    <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+        <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="compose.html" aria-label="Features"><i class="fas fa-star"></i> Compose</a></li>
+            <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+            <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+                <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label=" History">
+                    <span><i class="fas fa-layer-group"></i>  History</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="futureinbox-mobile-dropdown-menu" role="menu">
+                    <a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i>Features</a>
+                    <a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a>
+                    <a href="helpcenter.html" role="menuitem" aria-label="help-center" aria-current="page"><i class="fa-brands fa-hire-a-helper"></i> Help Center</a>
+                </div>
+            </li>
+            <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+    </nav>
+    
+    <!-- Stars background -->
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <div class="page-header">
+            <div class="logo">
+                <i class="fas fa-envelope-open-text logo-icon" aria-hidden="true"></i>
+                <h1 class="title">FutureInbox Help Center</h1>
+            </div>
+            <p class="subtitle">Your guide to mastering time-locked messages, emotional themes, and AI-powered communication</p>
+            
+            <div class="search-container">
+                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                <input type="text" class="search-box" id="searchInput" placeholder="Search help articles, guides and FAQs..." aria-label="Search help center">
+            </div>
+            
+            <div class="quick-actions">
+                <button class="action-btn" data-topic="sending">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i> Sending Messages
+                </button>
+                <button class="action-btn" data-topic="themes">
+                    <i class="fas fa-palette" aria-hidden="true"></i> Emotional Themes
+                </button>
+                <button class="action-btn" data-topic="ai">
+                    <i class="fas fa-robot" aria-hidden="true"></i> AI Enhancement
+                </button>
+                <button class="action-btn" data-topic="security">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i> Security
+                </button>
+            </div>
+            
+            <p class="guide-text">Ask Astra, our AI assistant, anything about FutureInbox</p>
+            
+            <div class="illustration-container">
+                <div class="illustration-card">
+                    <svg viewBox="0 0 100 100" aria-labelledby="ill1-title ill1-desc">
+                        <title id="ill1-title">Time-Locked Message</title>
+                        <desc id="ill1-desc">An envelope with a clock icon representing scheduled messages</desc>
+                        <rect x="15" y="30" width="70" height="50" rx="5" fill="#0a1a3a" stroke="#00ccff" stroke-width="2"/>
+                        <polyline points="15,30 50,55 85,30" fill="none" stroke="#00ccff" stroke-width="2"/>
+                        <circle cx="30" cy="45" r="3" fill="#00ffff"/>
+                        <circle cx="50" cy="45" r="3" fill="#00ffff"/>
+                        <circle cx="70" cy="45" r="3" fill="#00ffff"/>
+                        <circle cx="40" cy="65" r="8" fill="none" stroke="#b967ff" stroke-width="2" stroke-dasharray="4 2"/>
+                        <line x1="40" y1="65" x2="65" y2="65" stroke="#b967ff" stroke-width="2" stroke-dasharray="4 2"/>
+                    </svg>
+                    <div class="illustration-title">Time-Locked Messages</div>
+                    <div class="illustration-desc">Schedule messages to arrive at the perfect moment in the future</div>
+                </div>
+                
+                <div class="illustration-card">
+                    <svg viewBox="0 0 100 100" aria-labelledby="ill2-title ill2-desc">
+                        <title id="ill2-title">Emotional Theme</title>
+                        <desc id="ill2-desc">A colorful circle with a smile representing emotional themes</desc>
+                        <circle cx="50" cy="50" r="40" fill="#1a0a3a" stroke="#b967ff" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="#00ccff" stroke-width="2" stroke-dasharray="5 3"/>
+                        <path d="M50,20 L50,45 L65,60" fill="none" stroke="#00ffff" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="4" fill="#00ffff"/>
+                        <path d="M35,35 Q45,25 55,35" fill="none" stroke="#00ccff" stroke-width="2"/>
+                    </svg>
+                    <div class="illustration-title">Emotional Themes</div>
+                    <div class="illustration-desc">Enhance your messages with beautiful, emotion-based designs</div>
+                </div>
+                
+                <div class="illustration-card">
+                    <svg viewBox="0 0 100 100" aria-labelledby="ill3-title ill3-desc">
+                        <title id="ill3-title">AI Enhancement</title>
+                        <desc id="ill3-desc">A computer screen with AI symbols representing enhancement features</desc>
+                        <path d="M30,65 L30,35 L70,35 L70,65 L55,65 L50,75 L45,65 L30,65" fill="#0a1a3a" stroke="#00ccff" stroke-width="2"/>
+                        <circle cx="50" cy="45" r="8" fill="#1a0a3a" stroke="#b967ff" stroke-width="2"/>
+                        <circle cx="50" cy="45" r="3" fill="#00ffff"/>
+                        <path d="M40,55 L60,55" stroke="#00ffff" stroke-width="2"/>
+                        <path d="M35,25 L65,25" stroke="#00ccff" stroke-width="2" stroke-dasharray="4 2"/>
+                        <path d="M35,30 L65,30" stroke="#00ccff" stroke-width="2" stroke-dasharray="4 2"/>
+                    </svg>
+                    <div class="illustration-title">AI Enhancement</div>
+                    <div class="illustration-desc">Our AI helps craft the perfect message for any occasion</div>
+                </div>
+            </div>
+        </div>
+        
+        <main id="main-content">
+            <!-- Getting Started Section -->
+            <section class="section">
+                <h2 class="section-title">Getting Started</h2>
+                <p class="guide-text" style="margin-bottom: 20px;">Follow these steps to begin your journey with FutureInbox</p>
+                
+                <div class="getting-started-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Create Your Account</h3>
+                        <p class="step-description">Sign up with email or social accounts to access all features</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Set Up Preferences</h3>
+                        <p class="step-description">Configure notification settings and privacy preferences</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Compose First Message</h3>
+                        <p class="step-description">Use our AI-enhanced editor to craft your time-locked message</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Schedule & Send</h3>
+                        <p class="step-description">Set delivery date and recipients, then send to the future</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Knowledge Base -->
+            <div class="help-center">
+                <h2 class="help-title">Knowledge Base</h2>
+                
+                <div class="help-items" id="helpItems">
+                     <div class="help-item" data-topic="sending">
+                        <div class="item-title">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> How to Send a Time-Locked Message
+                            <i class="fas fa-chevron-down expand-icon" aria-hidden="true"></i>
+                        </div>
+                        <p class="item-content">Learn how to craft and schedule messages to the future with our step-by-step guide.</p>
+                        <ul class="item-list">
+                            <li>Navigate to the Compose section</li>
+                            <li>Write your message in the advanced editor</li>
+                            <li>Set your desired delivery date and time</li>
+                            <li>Select recipients and privacy settings</li>
+                            <li>Review and confirm your time-locked message</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-item" data-topic="delivery">
+                        <div class="item-title">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            Delivery &amp; <span class="highlight">Tracking</span>
+                            <i class="fas fa-chevron-down expand-icon" aria-hidden="true"></i>
+                        </div>
+                        <p class="item-content">Track your message's countdown and delivery status.</p>
+                        <ul class="item-list">
+                            <li>Real-time countdown visualization</li>
+                            <li>Email notifications upon delivery</li>
+                            <li>Recipient confirmation tracking</li>
+                            <li>Option to cancel before delivery window</li>
+                            <li>Delivery history for sent messages</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-item" data-topic="themes">
+                        <div class="item-title">
+                            <i class="fas fa-heart" aria-hidden="true"></i> Mastering Emotional Themes
+                            <i class="fas fa-chevron-down expand-icon" aria-hidden="true"></i>
+                        </div>
+                        <p class="item-content">Transform your message's appearance based on emotional context.</p>
+                        <ul class="item-list">
+                            <li>12 unique emotional themes available</li>
+                            <li>AI-suggested themes based on content analysis</li>
+                            <li>Custom animations and interactive elements</li>
+                            <li>Theme preview before sending</li>
+                            <li>Custom theme creation tools</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-item" data-topic="ai">
+                        <div class="item-title">
+                            <i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> AI Enhancement Features
+                            <i class="fas fa-chevron-down expand-icon" aria-hidden="true"></i>
+                        </div>
+                        <p class="item-content">Leverage AI to perfect your message's tone and clarity.</p>
+                        <ul class="item-list">
+                            <li>Grammar and spelling correction</li>
+                            <li>Tone adjustment (formal, casual, poetic)</li>
+                            <li>Content enhancement suggestions</li>
+                            <li>Multi-language translation support</li>
+                            <li>Sentiment analysis and optimization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-item" data-topic="troubleshooting">
+                        <div class="item-title">
+                            <i class="fas fa-tools" aria-hidden="true"></i> Troubleshooting Common Issues
+                            <i class="fas fa-chevron-down expand-icon" aria-hidden="true"></i>
+                        </div>
+                        <p class="item-content">Solutions for common problems users encounter.</p>
+                        <ul class="item-list">
+                            <li>Messages not delivering on schedule</li>
+                            <li>Recipients not receiving notifications</li>
+                            <li>Theme customization not applying</li>
+                            <li>AI enhancement not working</li>
+                            <li>Account access and recovery issues</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-item" data-topic="security">
+                        <div class="item-title">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Advanced Security Features
+                            <i class="fas fa-chevron-down expand-icon" aria-hidden="true"></i>
+                        </div>
+                        <p class="item-content">Enterprise-grade security for your private communications.</p>
+                        <ul class="item-list">
+                            <li>End-to-end AES-256 encryption</li>
+                            <li>Browser-based storage (no server access)</li>
+                            <li>Biometric authentication options</li>
+                            <li>Self-destructing messages available</li>
+                            <li>Password protection per message</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-item" data-topic="data">
+                        <div class="item-title">
+                            <i class="fas fa-database" aria-hidden="true"></i> Data Management & Privacy
+                            <i class="fas fa-chevron-down expand-icon" aria-hidden="true"></i>
+                        </div>
+                        <p class="item-content">Full control over your data and privacy settings.</p>
+                        <ul class="item-list">
+                            <li>Local browser storage for maximum privacy</li>
+                            <li>Cloud sync options (optional)</li>
+                            <li>Automatic data purge settings</li>
+                            <li>Export/import message archives</li>
+                            <li>GDPR-compliant data handling</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="help-item" data-topic="contact">
+                        <div class="item-title">
+                            <i class="fas fa-headset" aria-hidden="true"></i> Premium Support Options
+                            <i class="fas fa-chevron-down expand-icon" aria-hidden="true"></i>
+                        </div>
+                        <p class="item-content">Get help from our expert support team anytime.</p>
+                        <ul class="item-list">
+                            <li>24/7 live chat with support agents</li>
+                            <li>Priority email support response</li>
+                            <li>Screen sharing for technical issues</li>
+                            <li>Dedicated account manager for enterprise</li>
+                            <li>Community support forum access</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <section class="section">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="guide-text" style="margin-bottom: 20px;">Quick answers to common questions</p>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How far into the future can I schedule messages?
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="faq-answer">
+                            You can schedule messages up to 10 years into the future. For longer durations, please contact our enterprise solutions team.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I edit a message after scheduling?
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, you can edit scheduled messages until 24 hours before their delivery time. After that, messages are locked for security reasons.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Is there a limit to the number of messages I can schedule?
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Free accounts can schedule up to 10 messages at a time. Premium accounts have unlimited scheduling capabilities.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How secure are my messages?
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="faq-answer">
+                            All messages are encrypted with AES-256 encryption. Messages are stored locally in your browser by default, with optional cloud sync.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I cancel a scheduled message?
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, you can cancel any scheduled message up to 1 hour before its delivery time through your dashboard.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What happens if a recipient's email changes?
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Our system will attempt delivery to the original address. If it fails, you'll be notified and can update the recipient information.
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Community & Support Section -->
+            <section class="section">
+                <h2 class="section-title">Community & Support</h2>
+                <p class="guide-text" style="margin-bottom: 20px;">Connect with other users and get support</p>
+                
+                <div class="community-grid">
+                    <div class="community-card">
+                        <div class="community-icon">
+                            <i class="fas fa-comments" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="community-title">Community Forum</h3>
+                        <p class="community-description">Join discussions, share ideas, and get help from other FutureInbox users</p>
+                        <a href="#" class="community-button">Join Now</a>
+                    </div>
+                    
+                    <div class="community-card">
+                        <div class="community-icon">
+                            <i class="fas fa-book" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="community-title">Knowledge Base</h3>
+                        <p class="community-description">Browse our comprehensive library of articles
+                             and guides</p>
+                        <a href="#" class="community-button">Explore</a>
+                    </div>
+                    
+                    <div class="community-card">
+                        <div class="community-icon">
+                            <i class="fas fa-headset" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="community-title">Direct Support</h3>
+                        <p class="community-description">Contact our support team for personalized assistance</p>
+                        <a href="#" class="community-button">Contact Us</a>
+                    </div>
+                    
+                    <div class="community-card">
+                        <div class="community-icon">
+                            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="community-title">Feature Requests</h3>
+                        <p class="community-description">Suggest new features and vote on upcoming improvements</p>
+                        <a href="#" class="community-button">Suggest Idea</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Release Notes -->
+            <section class="section">
+                <h2 class="section-title">Release Notes</h2>
+                <p class="guide-text" style="margin-bottom: 20px;">What's new in FutureInbox</p>
+                
+                <div class="release-notes">
+                     <div class="release-item">
+                        <div class="release-date">August 15, 2025</div>
+                        <div class="release-version">v3.2.1 - "Stellar Update"</div>
+                        <ul class="release-features">
+                            <li>Added new "Nebula" emotional theme with animated background</li>
+                            <li>Improved AI enhancement suggestions for message clarity</li>
+                            <li>Added support for 5 new languages in translation</li>
+                            <li>Enhanced security with biometric authentication options</li>
+                            <li>Fixed issue with recurring message scheduling</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="release-item">
+                        <div class="release-date">July 28, 2025</div>
+                        <div class="release-version">v3.1.0 - "Cosmic Enhancement"</div>
+                        <ul class="release-features">
+                            <li>Introduced AI-powered message tone optimization</li>
+                            <li>Added dark mode support for all themes</li>
+                            <li>Improved performance for large message archives</li>
+                            <li>Added message recall feature (within 1 hour of scheduling)</li>
+                            <li>Enhanced privacy controls with per-message settings</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="release-item">
+                        <div class="release-date">June 10, 2025</div>
+                        <div class="release-version">v3.0.0 - "Galaxy Launch"</div>
+                        <ul class="release-features">
+                            <li>Complete redesign of user interface</li>
+                            <li>Added 5 new emotional themes with animations</li>
+                            <li>Introduced AI message enhancement tools</li>
+                            <li>Added multi-language support for 15 languages</li>
+                            <li>Implemented end-to-end encryption for all messages</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Back to top button -->
+    <div class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </div>
+    
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+        <button class="chatbot-button" id="chatbotButton" aria-label="Open chatbot">
+            <i class="fas fa-robot" aria-hidden="true"></i>
+            <div class="notification-badge" id="notificationBadge">1</div>
+        </button>
+        
+        <div class="chatbot-window" id="chatbotWindow" role="dialog" aria-labelledby="chatbot-title" aria-modal="true">
+            <div class="chat-header">
+                <div class="header-left">
+                    <div class="avatar">
+                        <svg viewBox="0 0 100 100" width="45" height="45" aria-labelledby="bot-title bot-desc">
+                            <title id="bot-title">Astra the Chatbot</title>
+                            <desc id="bot-desc">A friendly robot avatar with a gradient background</desc>
+                            <circle cx="50" cy="50" r="45" fill="url(#gradient)" />
+                            <path d="M30,40 Q50,25 70,40 Q60,60 50,55 Q40,60 30,40" fill="white" />
+                            <circle cx="40" cy="40" r="6" fill="#0a0e2a" />
+                            <circle cx="60" cy="40" r="6" fill="#0a0e2a" />
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00ccff" />
+                                <stop offset="100%" stop-color="#b967ff" />
+                            </linearGradient>
+                        </svg>
+                    </div>
+                    <div class="header-info">
+                        <h3 id="chatbot-title">Astra</h3>
+                        <p>Your AI Space Guide</p>
+                    </div>
+                </div>
+                <button class="close-btn" id="closeChatbot" aria-label="Close chatbot">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <strong>Hello Explorer! 👋</strong> I'm Astra, your AI guide to mastering FutureInbox. How can I assist you today?
+                    <div class="message-timestamp">Just now</div>
+                </div>
+                <div class="message bot-message">
+                    Here's what I can help with:
+                    <ul style="padding-left: 20px; margin-top: 8px;">
+                        <li>📩 Sending time-locked messages</li>
+                        <li>🎨 Using emotional themes</li>
+                        <li>🤖 AI enhancement features</li>
+                        <li>🔒 Security and privacy questions</li>
+                        <li>⚙️ Technical troubleshooting</li>
+                    </ul>
+                    <div class="chat-options">
+                        <div class="chat-option" data-question="How do I send a message?" role="button" tabindex="0">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+                        </div>
+                        <div class="chat-option" data-question="What are emotional themes?" role="button" tabindex="0">
+                            <i class="fas fa-palette" aria-hidden="true"></i> Emotional Themes
+                        </div>
+                        <div class="chat-option" data-question="Is my data secure?" role="button" tabindex="0">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Security
+                        </div>
+                    </div>
+                    <div class="message-timestamp">Just now</div>
+                </div>
+            </div>
+            
+            <div class="typing-indicator" id="typingIndicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Ask me anything..." aria-label="Type your message">
+                <button id="sendButton" aria-label="Send message">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="futureinbox-footer-container">
+            <div class="futureinbox-footer-content">
+                <div class="futureinbox-footer-logo-section">
+                    <a href="#" class="futureinbox-footer-logo" aria-label="FutureInbox Home">
+                        <i class="fas fa-envelope-open-text"></i>FutureInbox
+                    </a>
+                    <p>Preserving humanity's most important messages for the moments that matter.</p>
+                    <div class="futureinbox-footer-social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="futureinbox-footer-links">
+                    <div>
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="compose.html">Compose</a></li>
+                            <li><a href="history.html">History</a></li>
+                             <li><a href="templates.html">Template</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                             <li><a href="howitworks.html">How It Works</a></li>
+                              <li><a href="helpcenter.html">Help Center</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="Terms&Conditions.html">Terms &amp; Conditions</a></li>
+                            <li><a href="Security.html">Security</a></li>
+                            <li><a href="complience.html">Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="futureinbox-footer-copyright">
+                <p>&copy; 2025 FutureInbox. All rights reserved. Because some messages are meant for later.</p>
+            </div>
+        </div>
+    </footer>
+    
+ 
+      <!-- At the bottom of helpcenter.html, right before </body> -->
+
+    <!-- These two new scripts handle the navbar, pop-ups, and logout button -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="global.js"></script>
+
+    <!-- This is the script ONLY for the help center page -->
+    <script>
+        // ===================================================================
+        //  The initPage function STARTS HERE
+        // ===================================================================
+        function initPage() {
+            // Star creation logic
+            const starsContainer = document.getElementById('stars');
+            if (starsContainer) {
+                const starsCount = window.innerWidth < 768 ? 100 : 200;
+                for (let i = 0; i < starsCount; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('star');
+                    const size = Math.random() * 2 + 1;
+                    star.style.width = `${size}px`;
+                    star.style.height = `${size}px`;
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+                    star.style.animationDelay = `${Math.random() * 5}s`;
+                    starsContainer.appendChild(star);
+                }
+            }
+
+            // All the DOM element selections and event listeners from your old DOMContentLoaded go here
+            const chatbotButton = document.getElementById('chatbotButton');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const closeChatbot = document.getElementById('closeChatbot');
+            const notificationBadge = document.getElementById('notificationBadge');
+            const helpItems = document.querySelectorAll('.help-item');
+            const faqItems = document.querySelectorAll('.faq-item');
+            const searchInput = document.getElementById('searchInput');
+            const actionButtons = document.querySelectorAll('.action-btn');
+            const backToTop = document.getElementById('backToTop');
+            const chatOptions = document.querySelectorAll('.chat-option');
+
+            if (chatbotButton) {
+                chatbotButton.addEventListener('click', () => {
+                    chatbotWindow.classList.toggle('active');
+                    if(notificationBadge) notificationBadge.style.display = 'none';
+                    if (chatbotWindow.classList.contains('active')) {
+                        setTimeout(() => document.getElementById('userInput').focus(), 300);
+                    }
+                });
+            }
+
+            if (closeChatbot) {
+                closeChatbot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    chatbotWindow.classList.remove('active');
+                });
+            }
+
+            const setupExpandableItems = (items, triggerSelector) => {
+                items.forEach(item => {
+                    const trigger = item.querySelector(triggerSelector);
+                    if (!trigger) return;
+                    const expandAction = () => item.classList.toggle('expanded');
+                    trigger.addEventListener('click', expandAction);
+                    trigger.addEventListener('keydown', e => {
+                        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); expandAction(); }
+                    });
+                });
+            };
+            setupExpandableItems(helpItems, '.item-title');
+            setupExpandableItems(faqItems, '.faq-question');
+
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    document.querySelectorAll('.help-item, .faq-item').forEach(item => {
+                        item.style.display = item.textContent.toLowerCase().includes(searchTerm) ? 'block' : 'none';
+                    });
+                });
+            }
+
+            actionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const topic = button.getAttribute('data-topic');
+                    const targetItem = document.querySelector(`.help-item[data-topic="${topic}"]`);
+                    if (targetItem) {
+                        helpItems.forEach(item => item.classList.remove('expanded'));
+                        targetItem.classList.add('expanded');
+                        targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        targetItem.style.boxShadow = '0 0 20px rgba(0, 200, 255, 0.6)';
+                        targetItem.style.transform = 'scale(1.02)';
+                        setTimeout(() => {
+                            targetItem.style.boxShadow = '';
+                            targetItem.style.transform = '';
+                        }, 2000);
+                    }
+                });
+            });
+
+            if (backToTop) {
+                window.addEventListener('scroll', () => { backToTop.classList.toggle('visible', window.pageYOffset > 300); });
+                backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            }
+
+            chatOptions.forEach(option => {
+                 const setupOptionClick = () => {
+                    document.getElementById('userInput').value = option.getAttribute('data-question');
+                    sendMessage();
+                };
+                option.addEventListener('click', setupOptionClick);
+                option.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setupOptionClick(); }
+                });
+            });
+
+        // ===================================================================
+        //  The initPage function ENDS HERE
+        // ===================================================================
+        }
+
+
+        // --- Chatbot helper functions can live outside initPage ---
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const sendButton = document.getElementById('sendButton');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const YOUR_WORKER_URL = 'https://future-inbox-ai-assistant.kashmalakhan1232.workers.dev';
+        const systemInstruction = "You are Astra, a friendly and helpful AI assistant for a service called FutureInbox. Your purpose is to assist users with questions about the FutureInbox platform. FutureInbox allows users to send time-locked messages to the future, enhance them with emotional themes, and improve them with AI. Your tone should be encouraging, slightly futuristic, and always focused on helping the user with the FutureInbox service. When providing instructions, use lists. Do not go off-topic. Keep your answers helpful and reasonably concise.";
+
+        function getCurrentTime() {
+            return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
+
+        function addMessage(sender, messageHTML) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
+            messageElement.innerHTML = `${messageHTML}<div class="message-timestamp">${getCurrentTime()}</div>`;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        async function sendMessage() {
+            const messageText = userInput.value.trim();
+            if (messageText === '') return;
+            addMessage('user', messageText);
+            userInput.value = '';
+            
+            typingIndicator.style.display = 'flex';
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            const fullPrompt = `${systemInstruction}\n\nUser question: "${messageText}"`;
+
+            try {
+                const response = await fetch(YOUR_WORKER_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: fullPrompt })
+                });
+                if (!response.ok) throw new Error((await response.text()) || 'AI request failed.');
+                const data = await response.json();
+                let formattedResponse = data.suggestion
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\n\s?\*\s/g, '</li><li>')
+                    .replace(/(<li>.*?<\/li>)/g, '<ul>$1</ul>')
+                    .replace(/<\/ul>\s?<ul>/g, '');
+                addMessage('bot', formattedResponse);
+            } catch (error) {
+                console.error("Chatbot Error:", error);
+                addMessage('bot', `I'm having trouble connecting to the cosmos. <br><small>Error: ${error.message}</small>`);
+            } finally {
+                typingIndicator.remove();
+            }
+        }
+        
+        if (sendButton) {
+            sendButton.addEventListener('click', sendMessage);
+        }
+        if (userInput) {
+            userInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') sendMessage();
+            });
+        }
+    </script>
+
+</body>
+</html>
+

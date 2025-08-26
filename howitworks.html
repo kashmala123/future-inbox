@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How FutureInbox Works - The Complete Visual Guide</title>
+    <meta name="description" content="The definitive guide to FutureInbox. A detailed, visual walkthrough of how to compose, enhance with AI, use templates, schedule, secure, and manage your timeless messages.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1IDMwTDE4Ny4xMjkgMTQ2Ljg3MUg2Mi44NzFMMTI1IDMwWiIgZmlsbD0iIzAwZDFmZiIvPjxwYXRoIGQ9Ik0xMjUgMzBMMTg3LjEyOSAxNDYuODcxTDEyNSAyMTVWNzBaIiBmaWxsPSIjN2U1N2MyIiBmaWxsLW9wYWNpdHk9IjAuOCIvPjwvc3ZnPg==">
+    <link rel="stylesheet" href="css/howitwork.css">
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Combined Font Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<script src="js/howitworks.js"></script>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+
+    <!-- Header with Glassmorphism Navbar -->
+    <header id="futureinbox-header" class="futureinbox-header">
+        <div class="futureinbox-nav-container">
+            <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+                <i class="fas fa-envelope-open-text"></i>FutureInbox
+            </a>
+            <div class="futureinbox-nav-main">
+                <nav aria-label="Main Navigation">
+                <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+                    <li><a href="index.html" aria-label="Home">Home</a></li>
+                    <li><a href="compose.html" aria-label="compose">Compose</a></li>
+                    <li><a href="howitworks.html" aria-label="How It Works" aria-current="page">How It Works</a></li>
+                    <li class="futureinbox-nav-dropdown">
+                    <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="Use Cases">
+                      History<i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                        <li><a href="features.html" role="menuitem" aria-label="For Features"><i class="fa-solid fa-grip"></i> Features</a></li>
+                        <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                        <li><a href="helpcenter.html" role="menuitem" aria-label="Education"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="about.html" aria-label="About">About Us</a></li>
+                    <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+                </ul>
+                </nav>
+                <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+                <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+                <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+
+    <!-- Mobile Menu -->
+    <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+    <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+        <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+        </button>
+        <ul>
+        <li><a href="index.html" aria-label="Home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="compose.html" aria-label="compose"><i class="fas fa-pen"></i> Compose</a></li>
+        <li><a href="howitworks.html" aria-label="How It Works" aria-current="page"><i class="fas fa-cogs"></i> How It Works</a></li>
+        <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+            <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="History ">
+            <span><i class="fas fa-layer-group"></i> History</span>
+            <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="futureinbox-mobile-dropdown-menu" role="menu">
+            <a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i> Features</a>
+            <a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a>
+            <a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i> Help Center</a>
+            </div>
+        </li>
+        <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+    </nav>
+    
+    <div class="particles"></div>
+
+    <main id="main-content">
+
+        <section class="hero">
+            <div class="container">
+                <h1 class="title section-header title">How a Thought Becomes a Treasure</h1>
+                <p class="hero-subtitle">A simple idea, a cherished memory, a whispered hope. Discover the journey your message takes from a spark of inspiration to an unforgettable moment of connection.</p>
+                <div class="message-journey">
+                    <div class="journey-step">
+                        <div class="journey-icon"><i class="fas fa-pencil-alt"></i></div>
+                        <span class="journey-label">Compose</span>
+                    </div>
+                    <div class="journey-connector"></div>
+                    <div class="journey-step">
+                        <div class="journey-icon"><i class="fas fa-shield-alt"></i></div>
+                        <span class="journey-label">Secure</span>
+                    </div>
+                    <div class="journey-connector"></div>
+                    <div class="journey-step">
+                        <div class="journey-icon"><i class="fas fa-hourglass-half"></i></div>
+                        <span class="journey-label">Wait</span>
+                    </div>
+                    <div class="journey-connector"></div>
+                    <div class="journey-step">
+                        <div class="journey-icon"><i class="fas fa-paper-plane"></i></div>
+                        <span class="journey-label">Deliver</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                 <div class="section-header">
+                     <h2 class="title">The Four Chapters of a Timeless Message</h2>
+                     <p class="subtitle">Welcome to the heart of FutureInbox. This is the sacred process of turning a fleeting moment into a timeless gift. Follow the simple, beautiful journey your message will take.</p>
+                </div>
+                <div class="journey-wrapper">
+                
+                    <!-- CHAPTER 1: THE SPARK OF CREATION -->
+                    <article class="step-chapter" data-observe>
+                        <div class="step-text">
+                            <header class="step-header">
+                                <div class="chapter-label">Chapter I</div>
+                                <h3>The Spark of Creation</h3>
+                            </header>
+                            <p class="step-description">Your journey begins in the **Compose** page. This is your private sanctuary to pour your heart out, add cherished memories, and give your message the power of your own voice.</p>
+                            <div class="detail-box">
+                                <h4><i class="fas fa-magic"></i> Key Creation Tools:</h4>
+                                <ul>
+                                    <li><strong>The Editor:</strong> Write your message and watch the real-time **Sentiment Indicator** give you feedback on its emotional tone.</li>
+                                    <li><strong>File Attachments:</strong> Upload photos, videos, or documents to make your message even more meaningful.</li>
+                                    <li><strong>Voice Memos:</strong> Click the record button to capture and attach a personal audio message—the most intimate way to connect across time.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="step-visuals">
+                             <div class="mockup">
+                                <!-- Mockup of the Compose Editor -->
+                                <svg class="ui-mockup-svg" viewBox="0 0 400 300">
+                                    <rect x="15" y="15" width="370" height="40" rx="6" fill="rgba(255,255,255,0.05)"/>
+                                    <text x="25" y="40" font-size="12" fill="var(--muted)">To: [Recipient Name]</text>
+                                    <rect x="15" y="70" width="370" height="150" rx="6" fill="rgba(255,255,255,0.05)"/>
+                                    <path d="M25 85 H 200" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" class="fade-in" style="animation-delay: 0.5s;"/>
+                                    <path d="M25 100 H 350" stroke="var(--muted)" stroke-width="2" stroke-linecap="round" class="fade-in" style="animation-delay: 0.7s;"/>
+                                    <rect x="370" y="85" width="2" height="10" fill="var(--primary)" class="blinking-cursor" />
+                                    <rect x="15" y="235" width="180" height="50" rx="6" fill="rgba(255,255,255,0.05)" class="slide-in" style="animation-delay: 0.9s;"/>
+                                    <text x="65" y="265" font-size="12" fill="var(--muted)"> <tspan class="fa" font-family='Font Awesome 6 Free' font-weight='900'>&#xf0c6;</tspan> Attach Files</text>
+                                    <rect x="205" y="235" width="180" height="50" rx="6" fill="rgba(255,255,255,0.05)" class="slide-in" style="animation-delay: 1.1s;"/>
+                                    <text x="250" y="265" font-size="12" fill="var(--muted)"> <tspan class="fa" font-family='Font Awesome 6 Free' font-weight='900'>&#xf130;</tspan> Record Voice</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CHAPTER 2: THE ART OF PERFECTION -->
+                    <article class="step-chapter" data-observe>
+                        <div class="step-text">
+                            <header class="step-header">
+                                <div class="chapter-label">Chapter II</div>
+                                <h3>The Art of Perfection</h3>
+                            </header>
+                            <p class="step-description">A great message is more than just words. Use our advanced **Template** and **AI** features to save time, add a deeply personal touch, and ensure your message is perfect.</p>
+                            <div class="detail-box">
+                                <h4><i class="fas fa-robot"></i> Your AI Assistant:</h4>
+                                <ul>
+                                    <li>Flip the **AI Assistant** switch to unlock tools that can fix grammar, change your message's tone (like making it more poetic), or even generate ideas from scratch based on a simple prompt.</li>
+                                </ul>
+                            </div>
+                            <div class="detail-box">
+                                <h4><i class="fas fa-file-alt"></i> Smart Templates:</h4>
+                                <ul>
+                                    <li>Start with our pre-built templates for any occasion, or create and save your own. Use **Smart Variables** like `[Recipient Name]` to personalize them in seconds.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="step-visuals">
+                            <div class="mockup">
+                                <!-- Mockup of AI and Templates -->
+                                <svg class="ui-mockup-svg" viewBox="0 0 400 300">
+                                    <text x="20" y="30" font-size="12" font-weight="bold" fill="var(--text)">AI Assistant</text>
+                                    <text x="350" y="30" font-size="12" fill="var(--muted)">OFF</text>
+                                    <rect x="300" y="20" width="40" height="20" rx="10" fill="rgba(255,255,255,0.1)"/>
+                                    <circle cx="310" cy="30" r="8" fill="var(--muted)" class="toggle-switch-off"/>
+                                    <circle cx="330" cy="30" r="8" fill="var(--primary)" class="toggle-switch-on" transform="translateX(-18)"/>
+                                    <rect x="15" y="50" width="370" height="90" rx="6" fill="rgba(166, 108, 255, 0.1)" class="fade-in" style="animation-delay: 0.5s;"/>
+                                    <text x="30" y="70" font-size="10" fill="var(--muted)">> Fix Grammar</text>
+                                    <text x="30" y="90" font-size="10" font-weight="bold" fill="var(--secondary)">> Make Poetic</text>
+                                    <text x="30" y="110" font-size="10" fill="var(--muted)">> Add Emojis</text>
+                                    <rect x="15" y="160" width="370" height="120" rx="6" fill="rgba(255,255,255,0.05)"/>
+                                    <text x="30" y="180" font-size="12" font-weight="bold" fill="var(--text)">Template Preview:</text>
+                                    <text x="30" y="205" font-size="10" fill="var(--muted)">Happy Birthday, </text>
+                                    <text x="115" y="205" font-size="10" fill="var(--primary)" class="variable">[Recipient Name]</text>
+                                    <text x="30" y="220" font-size="10" fill="var(--muted)">Wishing you the best...</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CHAPTER 3: A PROMISE SEALED IN TIME -->
+                    <article class="step-chapter" data-observe>
+                        <div class="step-text">
+                            <header class="step-header">
+                                <div class="chapter-label">Chapter III</div>
+                                <h3>A Promise Sealed in Time</h3>
+                            </header>
+                            <p class="step-description">You are the timekeeper. Pinpoint the exact moment for delivery, decide if the message should repeat, and seal it with military-grade encryption for absolute privacy.</p>
+                            <div class="detail-box">
+                                <h4><i class="fas fa-shield-alt"></i> Key Delivery Tools:</h4>
+                                <ul>
+                                    <li><strong>Precision Scheduling:</strong> Use the calendar to pick the exact future date and time for your message to arrive.</li>
+                                    <li><strong>Recurring Messages:</strong> Perfect for birthdays or anniversaries, set your message to be sent automatically every year.</li>
+                                    <li><strong>End-to-End Encryption:</strong> For your most private thoughts, flip the **Encrypt** switch. You'll receive a unique key that you must share with your recipient. It is the *only* way to unlock the message, guaranteeing absolute privacy.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="step-visuals">
+                            <div class="mockup">
+                                <!-- Mockup of Scheduling & Security -->
+                                <svg class="ui-mockup-svg" viewBox="0 0 400 300">
+                                    <rect x="15" y="15" width="370" height="100" rx="6" fill="rgba(255,255,255,0.05)"/>
+                                    <text x="30" y="40" font-size="12" fill="var(--muted)">DELIVERY DATE</text>
+                                    <text x="30" y="75" font-size="18" font-weight="bold" fill="var(--text)" class="fade-in" style="animation-delay: 0.5s;">May 26, 2042</text>
+                                    <rect x="15" y="130" width="370" height="60" rx="6" fill="rgba(255,255,255,0.05)" class="slide-in" style="animation-delay: 0.8s;"/>
+                                    <text x="30" y="160" font-size="12" fill="var(--text)">Recurring Message</text>
+                                    <text x="335" y="160" font-size="12" fill="var(--muted)">OFF</text>
+                                    <rect x="15" y="205" width="370" height="60" rx="6" fill="rgba(0,212,255,0.1)" class="slide-in" style="animation-delay: 1s;"/>
+                                    <text x="30" y="235" font-size="12" font-weight="bold" fill="var(--primary)">Encrypt Message</text>
+                                    <text x="340" y="235" font-size="12" font-weight="bold" fill="var(--primary)">ON</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CHAPTER 4: THE JOURNEY'S GUARDIAN -->
+                    <article class="step-chapter" data-observe>
+                        <div class="step-text">
+                            <header class="step-header">
+                                <div class="chapter-label">Chapter IV</div>
+                                <h3>The Journey's Guardian</h3>
+                            </header>
+                            <p class="step-description">Once a message is scheduled, your **History** page becomes its guardian. Here you can track its progress, watch the live countdown, and make any changes needed before it completes its journey.</p>
+                            <div class="detail-box">
+                                <h4><i class="fas fa-cogs"></i> Full Message Control:</h4>
+                                <ul>
+                                    <li><strong>Live Countdown:</strong> Every scheduled message displays a real-time timer counting down the days, hours, and seconds to delivery.</li>
+                                    <li><strong>Manage with Ease:</strong> Easily **Edit** the content, **Duplicate** a message to create a new version, or **Delete** it entirely if your plans change. You are always in control.</li>
+                                    <li><strong>Search & Filter:</strong> Quickly find any message by searching for a name or keyword, or filter your view to see only Scheduled, Sent, or Draft messages.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="step-visuals">
+                            <div class="mockup">
+                                <!-- Mockup of History Page -->
+                                <svg class="ui-mockup-svg" viewBox="0 0 400 300">
+                                    <rect x="15" y="15" width="370" height="120" rx="6" fill="rgba(0,212,255,0.1)"/>
+                                    <text x="30" y="40" font-size="14" font-weight="bold" fill="var(--text)">Happy Birthday!</text>
+                                    <text x="30" y="60" font-size="10" fill="var(--primary)">STATUS: SCHEDULED</text>
+                                    <rect x="30" y="80" width="340" height="40" rx="4" fill="rgba(0,0,0,0.2)"/>
+                                    <text x="130" y="105" font-size="12" fill="var(--text)">24 Days, 10:32:15</text>
+                                    <rect x="15" y="150" width="370" height="70" rx="6" fill="rgba(255,255,255,0.05)" class="fade-in" style="animation-delay: 0.5s;"/>
+                                    <text x="30" y="175" font-size="14" font-weight="bold" fill="var(--text)">Weekly Motivation</text>
+                                    <text x="30" y="195" font-size="10" fill="var(--success)">STATUS: SENT</text>
+                                    <rect x="15" y="235" width="370" height="50" rx="6" fill="rgba(255,255,255,0.05)" class="fade-in" style="animation-delay: 0.8s;"/>
+                                    <text x="30" y="265" font-size="14" font-weight="bold" fill="var(--text)">Vacation Plans</text>
+                                    <text x="290" y="265" font-size="10" fill="var(--muted)">Edit / Delete</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- UPDATED PILLARS SECTION WITH FOURTH CARD -->
+        <section class="section pillars-section" data-observe>
+            <div class="container">
+                <h2 class="pillars-title">The Pillars of Trust</h2>
+                <p class="pillars-subtitle">At FutureInbox, your timeless messages are held sacred. Built upon these foundational pillars, we ensure your words endure, remain private, arrive with perfect precision, and maintain absolute integrity.</p>
+                
+                <div class="pillars-container">
+                    <div class="pillar" data-observe>
+                        <div class="pillar-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h3>Perpetuity</h3>
+                        <p>Our unique legal and financial trust ensures that no matter what, your message will be delivered. Forever.</p>
+                    </div>
+                    
+                    <div class="pillar" data-observe>
+                        <div class="pillar-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3>Privacy</h3>
+                        <p>Your story is yours alone. Our zero-knowledge encryption makes your message mathematically impossible for anyone but the recipient to read.</p>
+                    </div>
+                    
+                    <div class="pillar" data-observe>
+                        <div class="pillar-icon">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                        <h3>Precision</h3>
+                        <p>A moment of connection cannot be late. We are obsessed with precision, ensuring your message arrives at the exact moment you intended.</p>
+                    </div>
+                    
+                    <!-- NEW FOURTH PILLAR -->
+                    <div class="pillar" data-observe>
+                        <div class="pillar-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Integrity</h3>
+                        <p>Your message remains exactly as you created it, unaltered and untampered, from the moment you send it until it reaches its destination.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section final-cta-wrapper">
+            <div class="container">
+                 <div class="final-cta" data-observe>
+                    <h2 class="title">The Future is an Unwritten Page.<br>Leave Your Mark.</h2>
+                    <p class="subtitle">For your child on their wedding day. For your partner on a quiet anniversary. For your future self, who needs to remember the strength you have today. The most meaningful moments are the ones you choose to preserve. What will you say?</p>
+                    <a href="compose.html" class="btn btn-primary">Begin Your Timeless Message</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="futureinbox-footer">
+        <div class="futureinbox-footer-container">
+            <div class="futureinbox-footer-content">
+                <div class="futureinbox-footer-logo-section">
+                    <a href="#" class="futureinbox-footer-logo" aria-label="FutureInbox Home">
+                        <i class="fas fa-envelope-open-text"></i>FutureInbox
+                    </a>
+                    <p>Preserving humanity's most important messages for the moments that matter.</p>
+                    <div class="futureinbox-footer-social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="futureinbox-footer-links">
+                    <div>
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="compose.html">Compose</a></li>
+                             <li><a href="history.html">History</a></li>
+                             <li><a href="templates.html">Template</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                             <li><a href="howitworks.html">How It Works</a></li>
+                              <li><a href="helpcenter.html">Help Center</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="Terms&Conditions.html">Terms & Condition</a></li>
+                            <li><a href="Security.html">Security</a></li>
+                            <li><a href="complience.html">Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="futureinbox-footer-copyright">
+                <p>&copy; 2025 FutureInbox. All rights reserved. Because some messages are meant for later.</p>
+            </div>
+        </div>
+    </footer>
+
+
+<!-- At the bottom of howitworks.html, right before </body> -->
+
+    <!-- These two new scripts handle the navbar, pop-ups, and logout button -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="global.js"></script>
+
+    <!-- This is the remaining script that is ONLY for the howitworks page animations -->
+    <script>
+      
+    </script>
+</body>
+</html>

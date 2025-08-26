@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FutureInbox: Premium Tech Experience. Schedule messages to be sent in the future, manage communications, and enhance your digital experience.">
+  <title>FutureInbox | Premium Tech Experience</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Preloading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1IDMwTDE4Ny4xMjkgMTQ2Ljg3MUg2Mi44NzFMMTI1IDMwWiIgZmlsbD0iIzAwZDFmZiIvPjxwYXRoIGQ9Ik0xMjUgMzBMMTg3LjEyOSAxNDYuODcxTDEyNSAyMTVWNzBaIiBmaWxsPSIjN2U1N2MyIiBmaWxsLW9wYWNpdHk9IjAuOCIvPjwvc3ZnPg==">
+    <!-- Add preconnect for Font Awesome -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --futureinbox-bg-dark: #0b1023;
+      --futureinbox-bg-light: #1a1f3a;
+      --futureinbox-text-primary: #e0e0ff;
+      --futureinbox-text-light: #ffffff;
+      --futureinbox-primary: #00d4ff;
+      --futureinbox-primary-light: #6defff;
+      --futureinbox-secondary: #a66cff;
+      --futureinbox-secondary-light: #c7a6ff;
+      --futureinbox-overlay: rgba(0, 0, 0, 0.7);
+      --futureinbox-dropdown-bg: rgba(20, 25, 50, 0.98);
+      --futureinbox-border: rgba(255, 255, 255, 0.1);
+      --futureinbox-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      --futureinbox-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+      --futureinbox-glass: rgba(11, 16, 35, 0.65);
+      --futureinbox-glass-scrolled: rgba(11, 16, 35, 0.92);
+      --futureinbox-header-height: 80px;
+      --futureinbox-header-height-mobile: 70px;
+    }
+
+    /* ===== Global Styles ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--futureinbox-header-height);
+    }
+
+    body {
+      font-family: 'Space Grotesk', 'Outfit', sans-serif;
+      background: linear-gradient(135deg, var(--futureinbox-bg-dark) 0%, var(--futureinbox-bg-light) 100%);
+      color: var(--futureinbox-text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* ===== Header Styles ===== */
+    .futureinbox-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: var(--futureinbox-header-height);
+      backdrop-filter: blur(16px) saturate(180%);
+      background: var(--futureinbox-glass);
+      border-bottom: 1px solid var(--futureinbox-border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      transition: var(--futureinbox-transition);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInNav 0.7s ease forwards 0.2s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .futureinbox-header {
+        animation: none;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInNav {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .futureinbox-header.scrolled {
+      background: var(--futureinbox-glass-scrolled);
+      box-shadow: var(--futureinbox-shadow);
+      height: var(--futureinbox-header-height-mobile);
+    }
+
+    /* ===== Navigation Container ===== */
+    .futureinbox-nav-container {
+      max-width: 1440px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ===== Logo Styles ===== */
+    .futureinbox-nav-logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--futureinbox-primary) 0%, var(--futureinbox-secondary) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      transition: var(--futureinbox-transition);
+      letter-spacing: -0.5px;
+      position: relative;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+
+    .futureinbox-nav-logo i {
+      color: var(--futureinbox-primary);
+      margin-right: 10px;
+      font-size: 1.6rem;
+      transition: transform 0.3s ease;
+    }
+
+    .futureinbox-nav-logo:hover {
+      filter: brightness(1.2);
+      text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+    }
+
+    .futureinbox-nav-logo:hover i {
+      transform: rotate(-15deg) scale(1.1);
+    }
+
+    /* ===== Navigation Styles ===== */
+    .futureinbox-nav-main {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+    }
+
+    .futureinbox-nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .futureinbox-nav-menu li a {
+      position: relative;
+      color: #e0e0e0;
+      font-size: 1.05rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 8px 0;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .futureinbox-nav-menu li a[aria-current="page"] {
+      color: var(--futureinbox-text-light);
+    }
+
+    .futureinbox-nav-menu li a[aria-current="page"]::after {
+      width: 100%;
+    }
+
+    .futureinbox-nav-menu li a:hover,
+    .futureinbox-nav-menu li a:focus {
+      color: var(--futureinbox-text-light);
+      outline: none;
+    }
+
+    .futureinbox-nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--futureinbox-primary), var(--futureinbox-secondary));
+      transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .futureinbox-nav-menu li a:hover::after,
+    .futureinbox-nav-menu li a:focus::after {
+      width: 100%;
+    }
+
+    /* ===== Dropdown Styles ===== */
+    .futureinbox-nav-dropdown {
+      position: relative;
+    }
+
+    .futureinbox-nav-dropdown > a {
+      display: flex;
+      align-items: center;
+    }
+
+    .futureinbox-nav-dropdown > a i {
+      margin-left: 6px;
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .futureinbox-nav-dropdown.active > a i {
+      transform: rotate(180deg);
+    }
+
+    .futureinbox-nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      background: var(--futureinbox-dropdown-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      padding: 12px 0;
+      min-width: 240px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .futureinbox-nav-dropdown.active .futureinbox-nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .futureinbox-nav-dropdown-menu li {
+      padding: 10px 24px;
+      transition: background 0.2s ease;
+    }
+
+    .futureinbox-nav-dropdown-menu li:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .futureinbox-nav-dropdown-menu li a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      transition: var(--futureinbox-transition);
+      font-size: 1rem;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .futureinbox-nav-dropdown-menu li a i {
+      font-size: 0.9rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .futureinbox-nav-dropdown-menu li a:hover {
+      color: var(--futureinbox-text-light);
+      padding-left: 5px;
+    }
+
+    .futureinbox-nav-dropdown-menu li a::after {
+      display: none;
+    }
+
+    /* ===== Sign In Button ===== */
+    .futureinbox-nav-sign-in {
+      background: linear-gradient(to right, var(--futureinbox-primary), var(--futureinbox-secondary));
+      padding: 12px 32px;
+      border-radius: 50px;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.05rem;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+      transition: var(--futureinbox-transition);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-family: 'Space Grotesk', sans-serif;
+      flex-shrink: 0;
+    }
+
+    .futureinbox-nav-sign-in::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, var(--futureinbox-secondary), var(--futureinbox-primary));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .futureinbox-nav-sign-in:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.7);
+    }
+
+    .futureinbox-nav-sign-in:focus {
+      outline: 2px solid var(--futureinbox-primary-light);
+      outline-offset: 3px;
+    }
+
+    .futureinbox-nav-sign-in:hover::before {
+      opacity: 1;
+    }
+
+    /* ===== Hamburger Menu ===== */
+    .futureinbox-nav-hamburger {
+      display: none; /* Hidden by default */
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: white;
+      padding: 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      transition: background 0.3s ease;
+      border: none;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 100;
+    }
+
+    .futureinbox-nav-hamburger:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .futureinbox-nav-hamburger:focus {
+      outline: 2px solid var(--futureinbox-primary);
+      outline-offset: 2px;
+    }
+
+    /* ===== Mobile Menu ===== */
+    .futureinbox-mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 320px;
+      height: 100%;
+      background: rgba(11, 16, 35, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 2000;
+      padding: 100px 30px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+      /* FIX: Added scroll for mobile menu */
+      overflow-y: auto;
+    }
+
+    .futureinbox-mobile-menu.active {
+      right: 0;
+    }
+
+    .futureinbox-mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .futureinbox-mobile-menu ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 14px 18px;
+      border-radius: 12px;
+      display: block;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .futureinbox-mobile-menu ul li a[aria-current="page"] {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--futureinbox-text-light);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .futureinbox-mobile-menu ul li a:hover,
+    .futureinbox-mobile-menu ul li a:focus {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--futureinbox-text-light);
+      outline: none;
+      transform: translateX(5px);
+    }
+
+    .futureinbox-mobile-dropdown {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .futureinbox-mobile-dropdown-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      color: #e0e0e0;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+    }
+
+    .futureinbox-mobile-dropdown-btn:focus {
+      outline: 2px solid var(--futureinbox-primary);
+      outline-offset: -2px;
+    }
+
+    .futureinbox-mobile-dropdown-btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .futureinbox-mobile-dropdown.active .futureinbox-mobile-dropdown-btn i {
+      transform: rotate(180deg);
+    }
+
+    .futureinbox-mobile-dropdown.active .futureinbox-mobile-dropdown-btn {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--futureinbox-text-light);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .futureinbox-mobile-dropdown-menu {
+      display: none;
+      flex-direction: column;
+      padding: 8px 0 8px 24px;
+      gap: 12px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .futureinbox-mobile-dropdown.active .futureinbox-mobile-dropdown-menu {
+      display: flex;
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .futureinbox-mobile-dropdown-menu a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .futureinbox-mobile-dropdown-menu a:hover,
+    .futureinbox-mobile-dropdown-menu a:focus {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--futureinbox-text-light);
+      outline: none;
+      transform: translateX(5px);
+    }
+
+    .futureinbox-mobile-menu .futureinbox-nav-sign-in {
+      margin-top: 30px;
+      text-align: center;
+      padding: 14px;
+      font-size: 1.1rem;
+    }
+
+    .futureinbox-mobile-close-menu {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      font-size: 1.8rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: none;
+    }
+
+    .futureinbox-mobile-close-menu:hover {
+      color: var(--futureinbox-text-light);
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .futureinbox-mobile-close-menu:focus {
+      outline: 2px solid var(--futureinbox-primary);
+      outline-offset: 2px;
+    }
+
+    .futureinbox-mobile-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--futureinbox-overlay);
+      backdrop-filter: blur(8px);
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .futureinbox-mobile-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ===== Scroll Progress ===== */
+    .futureinbox-scroll-border {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, var(--futureinbox-primary), var(--futureinbox-secondary));
+      z-index: 9999;
+      opacity: 0;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: opacity 0.3s ease;
+    }
+
+    /* ===== Skip to Content Link ===== */
+    .futureinbox-skip-link {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      background: var(--futureinbox-primary);
+      color: var(--futureinbox-bg-dark);
+      padding: 12px 24px;
+      font-weight: 700;
+      text-decoration: none;
+      z-index: 10000;
+      transition: transform 0.3s ease;
+      border-radius: 0 0 8px 0;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    .futureinbox-skip-link:focus {
+      transform: translateY(100px);
+      outline: none;
+      box-shadow: 0 0 0 3px var(--futureinbox-secondary);
+    }
+
+    /* ===== Responsive Styles ===== */
+    @media (max-width: 1100px) {
+      .futureinbox-nav-menu {
+        gap: 22px;
+      }
+      
+      .futureinbox-nav-sign-in {
+        padding: 12px 28px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .futureinbox-nav-container {
+        padding: 0 32px;
+      }
+      
+      .futureinbox-nav-menu {
+        gap: 20px;
+      }
+      
+      .futureinbox-nav-logo {
+        font-size: 1.7rem;
+      }
+    }
+    
+    @media (max-width: 950px) {
+      .futureinbox-nav-menu {
+        gap: 18px;
+      }
+      
+      .futureinbox-nav-menu li a {
+        font-size: 1rem;
+      }
+      
+      .futureinbox-nav-sign-in {
+        padding: 10px 24px;
+        font-size: 0.98rem;
+      }
+    }
+    
+    @media (max-width: 900px) {
+      .futureinbox-nav-menu {
+        display: none;
+      }
+      
+      .futureinbox-nav-hamburger {
+        display: flex;
+      }
+      
+      /* Hide desktop sign-in button on mobile */
+      .futureinbox-desktop-sign-in {
+        display: none;
+      }
+      
+      .futureinbox-nav-main {
+        gap: 15px;
+      }
+    }
+    
+    @media (max-width: 850px) {
+      .futureinbox-nav-logo {
+        font-size: 1.65rem;
+      }
+      
+      .futureinbox-nav-logo i {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (min-width: 901px) {
+      /* Hide mobile sign-in button on desktop */
+      .futureinbox-mobile-menu .futureinbox-nav-sign-in {
+        display: none;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .futureinbox-nav-container {
+        padding: 0 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .futureinbox-nav-container {
+        padding: 0 20px;
+      }
+      
+      .futureinbox-nav-logo {
+        font-size: 1.5rem;
+      }
+      
+      .futureinbox-mobile-menu {
+        width: 280px;
+        padding: 90px 20px 20px;
+      }
+      
+      .futureinbox-nav-sign-in {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+      
+      .futureinbox-nav-hamburger {
+        width: 44px;
+        height: 44px;
+        font-size: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 500px) {
+      .futureinbox-nav-logo {
+        font-size: 1.4rem;
+      }
+      
+      .futureinbox-nav-logo i {
+        font-size: 1.4rem;
+        margin-right: 8px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="futureinbox-skip-link">Skip to Content</a>
+
+  <!-- Header with Glassmorphism Navbar -->
+  <header id="futureinbox-header" class="futureinbox-header">
+    <div class="futureinbox-nav-container">
+      <a href="index.html" class="futureinbox-nav-logo" aria-label="FutureInbox Home">
+        <i class="fas fa-envelope-open-text"></i>FutureInbox
+      </a>
+      <div class="futureinbox-nav-main">
+        <nav aria-label="Main Navigation">
+          <ul class="futureinbox-nav-menu" id="futureinbox-desktop-menu">
+            <li><a href="index.html" aria-label="Home" aria-current="page">Home</a></li>
+            <li><a href="compose.html" aria-label="compose">Compose</a></li>
+            <li><a href="howitworks.html" aria-label="How It Works">How It Works</a></li>
+            <li class="futureinbox-nav-dropdown">
+              <a href="history.html" aria-haspopup="true" aria-expanded="false" aria-label="History">
+                History <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul class="futureinbox-nav-dropdown-menu" role="menu">
+                <li><a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i> Features</a></li>
+                <li><a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a></li>
+                <li><a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i>Help Center</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html" aria-label="About">About Us</a></li>
+            <li><a href="contact.html" aria-label="Contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="login.html" class="futureinbox-nav-sign-in futureinbox-desktop-sign-in" aria-label="Sign In">Sign In</a>
+        <button class="futureinbox-nav-hamburger" id="futureinbox-nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="futureinbox-mobile-menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="futureinbox-scroll-border" id="futureinbox-scroll-border" aria-hidden="true"></div>
+
+  <!-- Mobile Menu -->
+  <div class="futureinbox-mobile-overlay" id="futureinbox-mobile-overlay" role="presentation"></div>
+  <nav class="futureinbox-mobile-menu" id="futureinbox-mobile-menu" aria-label="Mobile menu" aria-hidden="true">
+    <button class="futureinbox-mobile-close-menu" id="futureinbox-mobile-close-menu" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul>
+      <li><a href="index.html" aria-label="Home" aria-current="page"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="compose.html" aria-label="Features"><i class="fas fa-star"></i> Compose</a></li>
+      <li><a href="howitworks.html" aria-label="How It Works"><i class="fas fa-cogs"></i> How It Works</a></li>
+      <li class="futureinbox-mobile-dropdown" id="futureinbox-mobile-dropdown">
+        <button class="futureinbox-mobile-dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-label="History">
+          <span><i class="fas fa-layer-group"></i> History</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="futureinbox-mobile-dropdown-menu" role="menu">
+          <a href="features.html" role="menuitem" aria-label="For Features"> <i class="fa-solid fa-grip"></i>Features</a>
+          <a href="templates.html" role="menuitem" aria-label="Templates Use"><i class="fa-solid fa-chart-bar"></i>Templates</a>
+          <a href="helpcenter.html" role="menuitem" aria-label="help-center"><i class="fa-brands fa-hire-a-helper"></i> Help Center</a>
+        </div>
+      </li>
+      <li><a href="about.html" aria-label="About"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="contact.html" aria-label="Contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+    <a href="login.html" class="futureinbox-nav-sign-in" aria-label="Sign In">Sign In</a>
+  </nav>
+  
+
+
+  <script>
+  // global.js - The CORRECT and FINAL Script
+
+// ===================================================================
+//  PART 1: THE LOGOUT FUNCTION (The Cleanup Crew)
+// ===================================================================
+
+function logout() {
+    // Erase all user data from the browser's memory
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('savedMessages');
+    localStorage.removeItem('futureInboxFormData');
+
+    // Show a confirmation pop-up and redirect
+    Swal.fire({
+        title: 'Logged Out!',
+        text: 'You have been successfully logged out.',
+        icon: 'success',
+        background: '#0b1023',
+        color: '#e0e0ff',
+        confirmButtonColor: '#a66cff',
+    }).then(() => {
+        window.location.href = 'login.html';
+    });
+}
+
+
+// ===================================================================
+//  PART 2: THE NAVBAR UPDATE FUNCTION (The Button Changer)
+// ===================================================================
+
+function updateNavbar() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const signInButtons = document.querySelectorAll('.futureinbox-nav-sign-in');
+
+    if (isLoggedIn) {
+        // If logged in, turn the button into a "Logout" button
+        signInButtons.forEach(button => {
+            button.textContent = 'Logout';
+            button.href = '#';
+            button.setAttribute('aria-label', 'Logout');
+            button.onclick = function(event) {
+                event.preventDefault();
+                logout();
+            };
+        });
+    } else {
+        // If not logged in, it's a "Sign In" button
+        signInButtons.forEach(button => {
+            button.textContent = 'Sign In';
+            button.href = 'login.html';
+            button.setAttribute('aria-label', 'Sign In');
+            button.onclick = null;
+        });
+    }
+}
+
+
+// ===================================================================
+//  PART 3: YOUR ORIGINAL, WORKING NAVBAR SCRIPT
+// ===================================================================
+
+function initNavbar() {
+    // DOM Elements from your working script
+    const futureinboxHeader = document.getElementById('futureinbox-header');
+    const futureinboxNavHamburger = document.getElementById('futureinbox-nav-hamburger');
+    const futureinboxMobileMenu = document.getElementById('futureinbox-mobile-menu');
+    const futureinboxMobileCloseMenu = document.getElementById('futureinbox-mobile-close-menu');
+    const futureinboxMobileOverlay = document.getElementById('futureinbox-mobile-overlay');
+    const futureinboxScrollBorder = document.getElementById('futureinbox-scroll-border');
+    const futureinboxMobileDropdown = document.getElementById('futureinbox-mobile-dropdown');
+    const futureinboxMobileDropdownBtn = futureinboxMobileDropdown ? futureinboxMobileDropdown.querySelector('.futureinbox-mobile-dropdown-btn') : null;
+    const futureinboxNavDropdowns = document.querySelectorAll('.futureinbox-nav-dropdown');
+    
+    // State variable
+    let futureinboxIsMobileMenuOpen = false;
+    
+    // Functions from your working script
+    function toggleMobileMenu() {
+        futureinboxIsMobileMenuOpen = !futureinboxIsMobileMenuOpen;
+        if(futureinboxMobileMenu) futureinboxMobileMenu.classList.toggle('active');
+        if(futureinboxMobileOverlay) futureinboxMobileOverlay.classList.toggle('active');
+        if(futureinboxNavHamburger) futureinboxNavHamburger.setAttribute('aria-expanded', futureinboxIsMobileMenuOpen);
+        document.body.style.overflow = futureinboxIsMobileMenuOpen ? 'hidden' : '';
+    }
+    
+    function toggleMobileDropdown() {
+        const isExpanded = futureinboxMobileDropdownBtn.getAttribute('aria-expanded') === 'true';
+        futureinboxMobileDropdownBtn.setAttribute('aria-expanded', !isExpanded);
+        futureinboxMobileDropdown.classList.toggle('active');
+    }
+    
+    function handleDesktopDropdown(e) {
+        const dropdown = e.currentTarget;
+        const isActive = dropdown.classList.contains('active');
+        
+        futureinboxNavDropdowns.forEach(d => {
+            if (d !== dropdown) {
+                d.classList.remove('active');
+                d.querySelector('a').setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        dropdown.classList.toggle('active');
+        dropdown.querySelector('a').setAttribute('aria-expanded', !isActive);
+    }
+    
+    function closeDropdownsOnClickOutside(e) {
+        if (!e.target.closest('.futureinbox-nav-dropdown')) {
+            futureinboxNavDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+                dropdown.querySelector('a').setAttribute('aria-expanded', 'false');
+            });
+        }
+    }
+
+    function handleScroll() {
+        if(futureinboxHeader) {
+            if (window.scrollY > 50) {
+                futureinboxHeader.classList.add('scrolled');
+            } else {
+                futureinboxHeader.classList.remove('scrolled');
+            }
+        }
+      
+        const scrollPercentage = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100;
+      
+        if(futureinboxScrollBorder) {
+            futureinboxScrollBorder.style.transform = `scaleX(${scrollPercentage / 100})`;
+            futureinboxScrollBorder.style.opacity = window.scrollY > 30 ? '1' : '0';
+        }
+    }
+    
+    function debounce(func, wait = 10) {
+      let timeout;
+      return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+      };
+    }
+
+    // Set initial header state
+    handleScroll();
+      
+    // Add event listeners
+    if(futureinboxNavHamburger) futureinboxNavHamburger.addEventListener('click', toggleMobileMenu);
+    if(futureinboxMobileCloseMenu) futureinboxMobileCloseMenu.addEventListener('click', toggleMobileMenu);
+    if(futureinboxMobileOverlay) futureinboxMobileOverlay.addEventListener('click', toggleMobileMenu);
+    if(futureinboxMobileDropdownBtn) futureinboxMobileDropdownBtn.addEventListener('click', toggleMobileDropdown);
+    
+    document.addEventListener('click', closeDropdownsOnClickOutside);
+    window.addEventListener('scroll', debounce(handleScroll));
+      
+    // Initialize dropdowns with hover and click
+    futureinboxNavDropdowns.forEach(dropdown => {
+        if (window.matchMedia("(hover: hover)").matches) {
+            dropdown.addEventListener('mouseenter', handleDesktopDropdown);
+        }
+        dropdown.addEventListener('click', handleDesktopDropdown);
+    });
+      
+    // Close mobile menu when a link is clicked
+    const mobileLinks = futureinboxMobileMenu ? futureinboxMobileMenu.querySelectorAll('a') : [];
+    mobileLinks.forEach(link => {
+        if (!link.classList.contains('futureinbox-mobile-dropdown-btn')) {
+            link.addEventListener('click', toggleMobileMenu);
+        }
+    });
+}
+
+
+// ===================================================================
+//  PART 4: THE MAIN DRIVER (This runs everything)
+// ===================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Initialize all the navbar functionality (menus, scroll, etc.)
+    initNavbar();
+    
+    // 2. Check login status and update the Sign In/Logout button.
+    updateNavbar();
+});
+  </script>
+</body>
+</html>
